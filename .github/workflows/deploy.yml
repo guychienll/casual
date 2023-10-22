@@ -22,13 +22,17 @@ jobs:
             - run: npm ci
             - run: npm run build
 
-            - name: Configure AWS credentials from Test account
+            - name: Configure AWS Credentials
               uses: aws-actions/configure-aws-credentials@v4
               with:
                   aws-access-key-id: ${{secrets.AWS_ACCESS_KEY_ID}}
                   aws-secret-access-key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
                   aws-region: us-east-1
 
-            - name: Copy files to the test website with the AWS CLI
+            - name: Copy files to the S3 bucket
               run: |
                   aws s3 sync ./build s3://guychienll.dev
+
+            - name: Invalidate CDN Cache
+              run: |
+                  aws cloudfront create-invalidation --distribution-id ${{secrets.DISTRIBUTION_ID}} --paths '/*'
