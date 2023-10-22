@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # 如何撰寫客製化 eslint rule
 
-1. 開立一個自己的 eslint plugin
+開立一個自己的 eslint plugin
 
 
 :::caution ESlint { Plugin | Config } 命名規範
