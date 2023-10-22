@@ -4,22 +4,32 @@
 name: deploy
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    push:
+        branches: ['main']
+    pull_request:
+        branches: ['main']
 
 jobs:
-  build:
+    build:
+        runs-on: ubuntu-latest
 
-    runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
 
-    steps:
-    - uses: actions/checkout@v3
-    - name: Use Node.js v18.15.0
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - run: npm ci
-    - run: npm run build
+            - name: Use Node.js v18.15.0
+              uses: actions/setup-node@v3
+              with:
+                  node-version: ${{ matrix.node-version }}
+                  cache: 'npm'
+            - run: npm ci
+            - run: npm run build
+
+            - name: Configure AWS credentials from Test account
+              uses: aws-actions/configure-aws-credentials@v4
+              with:
+                  role-to-assume: arn:aws:iam::392172214092:user/guychienll
+                  aws-region: us-east-1
+
+            - name: Copy files to the test website with the AWS CLI
+              run: |
+                  aws s3 sync ./build s3://guychienll.dev
