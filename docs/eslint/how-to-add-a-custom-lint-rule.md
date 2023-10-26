@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# 如何撰寫客製化 eslint rule
+# eslint rule
 
 開立一個自己的 eslint plugin
 
