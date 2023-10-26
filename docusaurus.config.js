@@ -28,8 +28,8 @@ const config = {
   // metadata like html lang. For example, if your site is Chinese, you may want
   // to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: 'zh-Hant',
+    locales: ['zh-Hant'],
   },
 
   presets: [
@@ -65,18 +65,18 @@ const config = {
       image: 'img/docusaurus-social-card.jpg',
       navbar: {
         title: 'guychienll.dev',
-        // logo: {
-        //   alt: 'My Site Logo',
-        //   src: 'img/logo.svg',
-        // },
+        logo: {
+          alt: 'My Site Logo',
+          src: 'img/courage-the-coward-dog.webp',
+        },
         items: [
           {
             type: 'docSidebar',
-            sidebarId: 'NotesSidebar',
+            sidebarId: 'NoteSidebar',
             position: 'left',
-            label: 'Notes',
+            label: '筆記',
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
+          {to: '/blog', label: '部落格', position: 'left'},
         ],
       },
       // footer: {
