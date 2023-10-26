@@ -76,6 +76,7 @@ const config = {
             position: 'left',
             label: 'Notes',
           },
+          {to: '/blog', label: 'Blog', position: 'left'},
         ],
       },
       // footer: {
