@@ -38,7 +38,7 @@ jobs:
               run: |
                   aws cloudfront create-invalidation --distribution-id ${{secrets.DISTRIBUTION_ID}} --paths '/*'
 
-            - name: algolia indexing
+            - name: Algolia Index
               run: |
                   echo APPLICATION_ID=${{ secrets.APPLICATION_ID }} >> .env
                   echo API_KEY=${{ secrets.API_KEY }} >> .env
