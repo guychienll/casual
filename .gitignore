@@ -4,7 +4,6 @@
 # Production
 /build
 /.idea
-/.vscode
 
 # Generated files
 .docusaurus
