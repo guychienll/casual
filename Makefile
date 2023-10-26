@@ -1,3 +1,3 @@
 
 algolia-scraper:
-	sh ./algolia-scraper.sh
+	sh ./scripts/algolia-scraper.sh
