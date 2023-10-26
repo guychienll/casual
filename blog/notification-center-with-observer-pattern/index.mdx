@@ -1,5 +1,5 @@
 ---
-slug: notification-observer
+slug: notification-center-with-observer-pattern
 title: 實作 Notification Center 學習 Observer Pattern 觀察者模式
 authors: guy
 tags: [typescript, javascript, notification, observer, design pattern]
@@ -13,30 +13,32 @@ date: 2022-05-27
 由於最近想對 Design Pattern，更加的深入了解，首先就先挑選了 Observer Pattern ，當作練習的目標，這篇文章後續會提到：
 
 1. 滿足 Observer Pattern 觀察者模式至少需要滿足的介面
-2. 如何使用 Observer Pattern 實作一個通知中心，能夠滿足`廣播 ( broadcast )`給每個人。
-3. 新增一些介面來讓現有實作能滿足`推播 ( push )`給某個人。
+2. 如何使用 Observer Pattern 實作一個通知中心，能夠滿足 `廣播 ( broadcast )` 給每個人。
+3. 新增一些介面來讓現有實作能滿足 `推播 ( push )` 給某個人。
 
 那廢話不多說，我們開始吧！
 
 ---
 
-首先先讓我們來看看 [Observer Pattern](https://en.wikipedia.org/wiki/Observer_pattern) 的定義：
+:::info 首先先讓我們來看看 [Observer Pattern](https://en.wikipedia.org/wiki/Observer_pattern) 的定義：
 
-> The observer pattern is a software design pattern in which an object, named the subject, maintains a list of its dependents, called observers, and notifies them automatically of any state changes, usually by calling one of their methods.
+The observer pattern is a software design pattern in which an object, named the subject, maintains a list of its dependents, called observers, and notifies them automatically of any state changes, usually by calling one of their methods.
+
+:::
 
 由此段定義可以知道，我們會需要至少兩樣物件，其中一項是其中所敘述到的 subject (在以下案例當中我們稱作 Observable _可被訂閱的_ )，而另一項則是被呼叫的 observer。
 
-因此滿足此 pattern 至少要滿足以下介面：
-
--   IObservable
+:::tip 因此滿足此 pattern 至少要滿足以下介面：
 
 1. 讓 Observable 能夠被觀察 `subscribe`
 2. 讓 Observable 能夠被取消觀察 `unsubscribe`
 3. 讓 Observable 能夠在事件發生時能夠通知所有的觀察者 `notify` `observers`
 
--   IOberserver
+:::
 
-1. 被通知後的 Oberserver 實際上的行為由觀察者自己本身實作 `update`
+### IObservable
+
+被通知後的 Observer 實際上的行為由觀察者自己本身實作 `update`
 
 ```typescript showLineNumbers
 interface IObservable {
@@ -87,9 +89,9 @@ class NotificationCenter implements IObservable {
 }
 ```
 
-而由於我們是在實作一個通知中心 （ Notification Center )，並且希望這通知中心能夠有個簡單的介面讓我們能達到，紀錄通知的歷史，獲得所有通知歷史，及推播、廣播功能。因此定義了 INotificationCenter，並且讓上方的 NotificationCenter 多重實作介面 IObservable、INotificationCenter，且我們還會需要一個簡單的通知物件介面，讓我們能在這些功能中傳遞。
+而由於我們是在實作一個通知中心，並且希望這通知中心能夠有個簡單的介面讓我們能達到，紀錄通知的歷史，獲得所有通知歷史，及推播、廣播功能。因此定義了 INotificationCenter，並且讓上方的 NotificationCenter 多重實作介面 IObservable、INotificationCenter，且我們還會需要一個簡單的通知物件介面，讓我們能在這些功能中傳遞。
 
--   INotificationCenter
+### INotificationCenter
 
 1. 用來維護所有通知的歷史紀錄 `notifications`
 2. 廣播給所有的觀察者 `broadcast`
@@ -105,7 +107,7 @@ interface INotificationCenter {
 }
 ```
 
--   INotification
+### INotification
 
 1. 通知訊息的識別 `id`
 2. 通知訊息的時間點 `date`
@@ -195,11 +197,15 @@ class NotificationCenter implements IObservable, INotificationCenter {
 }
 ```
 
-而眼尖聰明如你，可能會發現，上方 notify 當中所使用的 observer 多了一個 `id` 介面可以做使用，目的是為了讓 notify 能辨別 observer，只通知目標觀察者。
+:::caution 小提醒
+
+眼尖聰明如你，可能會發現，上方 notify 當中所使用的 observer 多了一個 `id` 介面可以做使用，目的是為了讓 notify 能辨別 observer，只通知目標觀察者。
+
+:::
 
 而為此定義了一項新介面 ITargetObserver，當今天有針對目標的需求時，能夠透過多重實作此介面來達到需求。而介面如下：
 
--   ITargetObserver
+### ITargetObserver
 
 1. 用於識別 Observer `id`
 
@@ -209,7 +215,7 @@ interface ITargetObserver {
 }
 ```
 
-那我們最終需求的觀察者 Oberserver 的介面就滿足了，讓我們來看看實作，其中的 update 就是當 observer 收到通知後最終的行為：
+那我們最終需求的觀察者 Observer 的介面就滿足了，讓我們來看看實作，其中的 update 就是當 observer 收到通知後最終的行為：
 
 ```typescript showLineNumbers
 interface IObserver {
@@ -324,6 +330,21 @@ center.push(
 );
 ```
 
-完整實作如此 : [https://codepen.io/guychienll/pen/mdXpBWL](https://codepen.io/guychienll/pen/mdXpBWL)
-
-以上若有任何可以改進或是想詢問的問題，都非常歡迎透過任何管道跟我說，感謝！
+<iframe
+    height="300"
+    style={{ width: '100%' }}
+    scrolling="no"
+    title="Observer Pattern - Notification Center"
+    src="https://codepen.io/guychienll/embed/mdXpBWL?default-tab=html%2Cresult"
+    frameborder="no"
+    loading="lazy"
+    allowtransparency="true"
+    allowfullscreen="true"
+>
+    See the Pen{' '}
+    <a href="https://codepen.io/guychienll/pen/mdXpBWL">
+        Observer Pattern - Notification Center
+    </a>{' '}
+    by Guy (<a href="https://codepen.io/guychienll">@guychienll</a>) on{' '}
+    <a href="https://codepen.io">CodePen</a>.
+</iframe>

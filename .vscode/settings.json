@@ -44,5 +44,13 @@
         "source.fixAll.eslint"
     ],
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "cSpell.words": ["Chien", "guychienll", "Pinkoi"]
+    "cSpell.words": [
+        "allowfullscreen",
+        "allowtransparency",
+        "Chien",
+        "guychienll",
+        "iframe",
+        "ntfc",
+        "Pinkoi"
+    ]
 }
