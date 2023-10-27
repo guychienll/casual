@@ -56,6 +56,31 @@ export default function Home() {
                     <h4 className="vertical-timeline-element-subtitle margin-vert--sm">
                         Frontend Engineer Platform Squad
                     </h4>
+                    <div>
+                        <details>
+                            <summary>
+                                建立 Web Vitals 監控系統
+                            </summary>
+                            <p>
+                                藉由 Grafana Prometheus Node.js 安排 cronjob 定期產出 web vitals report 
+                                並且於部署時也會進行打點，因此能夠即時監控網站的 web vitals 狀況，
+                                在網頁效能發生問題時能夠快速找到問題點。
+                            </p>
+                        </details>
+                        <details>
+                            <summary>
+                                建立 design system
+                            </summary>
+                            <p>
+                                讓 design token 能夠跨語言的支持，同時支持 js css 
+                            </p>
+                        </details>
+                        <details>
+                            <summary>
+                                Node v14 升級到 v18 解決套件相依性問題
+                            </summary>
+                        </details>
+                    </div>
                 </VerticalTimelineElement>
                 <VerticalTimelineElement
                     className="vertical-timeline-element--work"
@@ -113,7 +138,7 @@ export default function Home() {
                         Titansoft Pte Ltd
                     </h3>
                     <h4 className="vertical-timeline-element-subtitle">
-                        Product Developer 
+                        Product Developer
                     </h4>
                 </VerticalTimelineElement>
             </VerticalTimeline>
