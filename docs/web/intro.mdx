@@ -1,4 +1,14 @@
-# Browser Cache
+---
+id: http-cache
+title: Http Cache
+tags:
+  - http
+  - https
+  - browser
+  - cache
+---
+
+import { Collapse } from 'antd';
 
 
 > ## [Targets of caching operations](https://udn.realityripple.com/docs/Web/HTTP/Caching#Targets_of_caching_operations)
@@ -11,14 +21,19 @@
 > Responses other than GET if something suitable for use as a cache key is defined.
 > A cache entry might also consist of multiple stored responses differentiated by a secondary key, if the request is target of content negotiation. For more details see the information about the Vary header below.
 
-## Pros
+:::tip Pros
 
-1. 增快網頁載入速度
-2. 減少 Server 負擔
+- 增快網頁載入速度
+- 減少 Server 負擔
 
-## Cons
+:::
 
-1. 有機會拿到 Outdated Data
+:::caution Cons
+
+- 有機會拿到 Outdated Data
+
+:::
+
 
 | Respond Header | Pragma | Cache-Control          | Expires  | E Tag    | Last-Modified |
 | -------------- | ------ | ---------------------- | -------- | -------- | ------------- |
@@ -28,19 +43,42 @@
 | 排他性         |        | X                      | X        | X        | X             |
 
 
-- Pragma: no-cache
+### Pragma
+:::note 
 
-- Cache-Control:
-    - public: 所有網路設備都可以 cache
-    - private: 只有瀏覽器可以 cache
-    - no-cache: 瀏覽器可以 cache，但是要先驗證
-    - no-store: 不可以 cache
+no-cache
 
-- Expires: 
-    - Client 跟 Server 時間不一定一致，有可能有 exception 假使使用者將 client time 改到未來，那就永遠都會重新拿 
+:::
 
-- E Tag
-    - 在接收到第一次 server response 後，後續 request header 都會帶上 If-None-Match 也就是上次回覆的 E Tag
 
-- Last-Modified
-  - 在接收到第一次 server response 後，後續 request header 都會帶上 If-Modified-Since 也就是上次回覆的 Last-Modified
+### Cache-Control
+:::note 
+
+- public: 所有網路設備都可以 cache
+- private: 只有瀏覽器可以 cache
+- no-cache: 瀏覽器可以 cache，但是要先驗證
+- no-store: 不可以 cache
+
+:::
+
+
+### Expires
+:::note 
+
+- Client 跟 Server 時間不一定一致，有可能有 exception 假使使用者將 client time 改到未來，那就永遠都會重新拿 
+
+:::
+
+### E Tag
+:::note 
+
+在接收到第一次 server response 後，後續 request header 都會帶上 If-None-Match 也就是上次回覆的 E Tag
+
+:::
+
+### Last-Modified
+:::note 
+
+在接收到第一次 server response 後，後續 request header 都會帶上 If-Modified-Since 也就是上次回覆的 Last-Modified
+
+:::
