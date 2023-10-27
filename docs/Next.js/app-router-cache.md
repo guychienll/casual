@@ -15,7 +15,7 @@ tags:
 | full-route-cache    | HTML and RSC payload       | Server | Reduce rendering cost and improve performance   | Persistent (can be revalidated) |
 | router-cache        | RSC Payload                | Client | Reduce server requests on navigation            | User session or time-based      |
 
-![caching-overview.avif](./assets/caching-overview.avif)
+![caching-overview.jpg](./assets/caching-overview.jpg)
 
 ## Request Memoization
 
@@ -62,7 +62,7 @@ export default ServerComponent;
 - 可以使用 revalidateTag 跟 revalidatePath 去清除 persistent 的 cache 將在下次起請求中要到新的資料
 
 
-![data-cache.avif](./assets//data-cache.avif)
+![data-cache.jpg](./assets//data-cache.jpg)
 
 :::tip 小結語
 - 兩者差異
@@ -90,7 +90,7 @@ export default ServerComponent;
     3. The JavaScript instructions are used to [hydrate](https://react.dev/reference/react-dom/client/hydrateRoot) Client Components and make the application interactive.
     
 
-![static-and-dynamic-routes.avif](./assets//static-and-dynamic-routes.avif)
+![static-and-dynamic-routes.jpg](./assets//static-and-dynamic-routes.jpg)
 
 ## Router Cache
 
