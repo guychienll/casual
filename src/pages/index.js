@@ -38,7 +38,7 @@ export default function Home() {
                     contentArrowStyle={{
                         borderRight: '7px solid var(--ifm-color-primary)',
                     }}
-                    date="2011 - present"
+                    date="Jul. 2022 - Present"
                     iconStyle={{
                         background: 'var(--ifm-color-primary)',
                         color: '#fff',
