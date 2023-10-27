@@ -57,7 +57,7 @@ export default function Home() {
                         Frontend Engineer Platform Squad
                     </h4>
                     <div>
-                        <details>
+                        <details open>
                             <summary>
                                 建立 Web Vitals 監控系統
                             </summary>
@@ -67,7 +67,7 @@ export default function Home() {
                                 在網頁效能發生問題時能夠快速找到問題點。
                             </p>
                         </details>
-                        <details>
+                        <details open>
                             <summary>
                                 建立 design system
                             </summary>
@@ -75,7 +75,7 @@ export default function Home() {
                                 讓 design token 能夠跨語言的支持，同時支持 js css 
                             </p>
                         </details>
-                        <details>
+                        <details open>
                             <summary>
                                 Node v14 升級到 v18 解決套件相依性問題
                             </summary>
