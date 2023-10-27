@@ -1,0 +1,135 @@
+import React from 'react';
+import Zoom from 'react-medium-image-zoom';
+
+export const PINKOI_TIMELINE = {
+    LOGO: (
+        <img
+            src="./img/pinkoi.jpg"
+            style={{ borderRadius: '50%' }}
+            alt="pinkoi"
+        />
+    ),
+    TITLE: 'Pinkoi Inc.',
+    SUBTITLE: ['Frontend Engineer', 'Platform Squad'],
+    DATE: 'Jul. 2022 - Present',
+    KEY_ACHIEVEMENT: {
+        WEB_VITALS: {
+            title: '建立 Web Vitals 監控系統',
+            bullets: [
+                <li>
+                    使用 Grafana Prometheus Node 安排 cronjob 定期產出 Web
+                    Vitals Report
+                    並且於部署時也會進行打點，因此能夠即時監控網站的 Web Vitals
+                    指標狀況， 在網頁效能發生問題時能夠快速找到問題點。
+                </li>,
+                <li>
+                    建立後透過動態載入共用模組跟延遲加載有效降低 FCP 1.7s
+                    時間差距
+                </li>,
+                <Zoom>
+                    <img
+                        src="./assets/web-vitals-monitor.png"
+                        alt="web-vitals-monitor"
+                    />
+                </Zoom>,
+            ],
+        },
+        DESIGN_SYSTEM: {
+            title: '建立 Design System',
+            bullets: [
+                <li>
+                    讓 Design Token 達成 Single Source Of Truth
+                    並且同時跨語言支持 <code>javascript</code> <code>css</code>
+                </li>,
+                <li>
+                    Code Gen Design Token Snippets 讓開發上能夠更加快速跟準確
+                </li>,
+                <li>
+                    撰寫 Custom Eslint Rules 避免開發人員直接使用未規範的色票
+                </li>,
+                <li>與 Tailwind CSS | StoryBook 整合</li>,
+            ],
+        },
+        CI_INTEGRATION: {
+            title: '建立 開發環境 CI',
+            bullets: [
+                <li>引入 Cypress 進行全站性 E2E 測試</li>,
+                <li>
+                    打包 Cypress Image 供 CI 使用，並透過 cypress-parallel
+                    平行化測試， 大幅縮短測試時間
+                </li>,
+                <li>
+                    讓 Jest 與 Cypress 都產出 JUnit Report 準確回報測試結果
+                </li>,
+                <li>在 CI 過程加入 ESLint Job 確保程式碼品質</li>,
+                <Zoom>
+                    <img src="./assets/pinkoi-ci.png" alt="pinkoi-ci" />
+                </Zoom>,
+            ],
+        },
+        OPENAPI: {
+            title: 'OpenAPI Generate TypeScript Type',
+            bullets: [
+                <li>
+                    由 backend fast api Generate 出 openapi.json， 透過 openapi
+                    schema 產出 TypeScript Type， 達成在前後端串接 api
+                    時介面的一致性，使 api 介面能夠成為 single source of truth
+                </li>,
+            ],
+        },
+    },
+};
+
+export const REVTEL_TIMELINE = {
+    LOGO: (
+        <img
+            src="./img/revtel.png"
+            style={{
+                borderRadius: '50%',
+                transform: 'scale(0.8) translateY(-10%)',
+            }}
+            alt="revtel"
+        />
+    ),
+    TITLE: 'Revtel Tech',
+    SUBTITLE: ['Frontend Engineer'],
+    DATE: 'Nov. 2020 - May. 2022',
+    KEY_ACHIEVEMENT: {
+        DEV_ENV: {
+            title: '創建並維護公司共用 zsh | vim 環境',
+            bullets: [
+                <li>使開發環境能快速建立於 darwin | ubuntu</li>,
+                <li>
+                    <div className="badge badge--secondary">
+                        <a href="https://github.com/revtel/.zsh">revtel/.zsh</a>
+                    </div>
+                </li>,
+                <li>
+                    <div className="badge badge--secondary">
+                        <a href="https://github.com/revtel/.vim">revtel/.vim</a>
+                    </div>
+                </li>,
+                <Zoom>
+                    <img
+                        src="https://camo.githubusercontent.com/18fb58db078bfd2e0927c172dd75fdb02caa030e5f16779bf82aa688bf9a5a3e/68747470733a2f2f692e696d6775722e636f6d2f747573636b79722e706e67"
+                        alt=".vim logo"
+                    />
+                </Zoom>,
+            ],
+        },
+    },
+};
+
+export const TITANSOFT_TIMELINE = {
+    LOGO: (
+        <img
+            src="./img/titansoft.png"
+            style={{ borderRadius: '50%' }}
+            alt="titansoft"
+        />
+    ),
+    TITLE: 'Titansoft Pte Ltd',
+    SUBTITLE: ['Product Developer', 'TWTG', 'Intern'],
+    DATE: 'Nov. 2020 - May. 2022',
+    KEY_ACHIEVEMENT: {},
+};

@@ -1,9 +1,7 @@
-/**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
- */
-/* You can override the default Infima variables here. */
+@import 'react-vertical-timeline-component/style.min.css';
+@import 'react-medium-image-zoom/dist/styles.css';
+// https://rpearce.github.io/react-medium-image-zoom/?path=/docs/introduction--docs
+
 :root {
   --ifm-color-primary: #aa95b2;
   --ifm-color-primary-dark: #9b82a4;
@@ -17,6 +15,7 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
   --color-neutral-000: rgb(245, 246, 247);
   --color-neutral-100: #1b1b1d;
+  --line-color: var(--ifm-color-primary) !important;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -40,32 +39,37 @@ details {
   cursor: pointer;
   margin-bottom: 1rem;
   margin-top: 1rem;
-}
 
-summary:focus {
-  outline: none;
-}
+  &>summary {
+    font-size: 1rem;
+    padding: 0.75rem 1.25rem;
+    background-color: rgba(0, 0, 0, 0.03);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
+    cursor: pointer;
 
-summary {
-  font-size: 1rem;
-  padding: 0.75rem 1.25rem;
-  background-color: rgba(0, 0, 0, 0.03);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
-}
+    :focus {
+      outline: none;
+    }
 
-details {
+  }
+
+
   margin-top: 0 !important;
   cursor: auto;
-}
 
-details > ul {
-  margin-top: 0.5rem;
-  margin-right: 1rem;
-}
+  &>ul {
+    margin-top: 0.5rem;
+    margin-right: 1rem;
 
-details > ul > li {
-  padding: 0.25rem 0;
-  font-size: 1rem;
-  cursor: auto;
+    &>li {
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      cursor: auto;
+
+      &+img {
+        list-style: none;
+      }
+    }
+  }
 }
