@@ -51,12 +51,10 @@ const TimelineElem = (props) => {
             color: 'var(--color-neutral-100)',
         },
         contentArrowStyle = {
-            borderRight: '7px solid var(--ifm-color-primary)',
+            display: 'none',
+            // borderRight: '7px solid var(--ifm-color-primary)',
         },
-        iconStyle = {
-            background: 'var(--ifm-color-primary)',
-            color: '#fff',
-        },
+        iconStyle = {},
         icon = null,
         date = '',
         title = '',
@@ -73,8 +71,8 @@ const TimelineElem = (props) => {
             date={date}
             icon={icon}
         >
-            <h1 className="vertical-timeline-element-title">{title}</h1>
-            <h4 className="vertical-timeline-element-subtitle margin-vert--sm">
+            <h3 className="vertical-timeline-element-title">{title}</h3>
+            <h4 className="vertical-timeline-element-subtitle margin-top--sm margin-bottom--md">
                 {subtitle.map((s, idx) => (
                     <span
                         key={idx}

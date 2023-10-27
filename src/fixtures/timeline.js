@@ -11,7 +11,11 @@ export const PINKOI_TIMELINE = {
     ),
     TITLE: 'Pinkoi Inc.',
     SUBTITLE: ['Frontend Engineer', 'Platform Squad'],
-    DATE: 'Jul. 2022 - Present',
+    DATE: (
+        <div>
+            <div className="badge badge--warning">May. 2022 ~ Present</div>
+        </div>
+    ),
     KEY_ACHIEVEMENT: {
         WEB_VITALS: {
             title: '建立 Web Vitals 監控系統',
@@ -84,16 +88,17 @@ export const REVTEL_TIMELINE = {
     LOGO: (
         <img
             src="./img/revtel.png"
-            style={{
-                borderRadius: '50%',
-                transform: 'scale(0.8) translateY(-10%)',
-            }}
+            style={{ transform: 'scale(0.72)' }}
             alt="revtel"
         />
     ),
     TITLE: 'Revtel Tech',
     SUBTITLE: ['Frontend Engineer'],
-    DATE: 'Nov. 2020 - May. 2022',
+    DATE: (
+        <div>
+            <div className="badge badge--warning">Nov. 2020 - May. 2022</div>
+        </div>
+    ),
     KEY_ACHIEVEMENT: {
         DEV_ENV: {
             title: '創建並維護公司共用 zsh | vim 環境',
@@ -130,6 +135,10 @@ export const TITANSOFT_TIMELINE = {
     ),
     TITLE: 'Titansoft Pte Ltd',
     SUBTITLE: ['Product Developer', 'TWTG', 'Intern'],
-    DATE: 'Nov. 2020 - May. 2022',
+    DATE: (
+        <div>
+            <div className="badge badge--warning">Mar. 2019 - Apr. 2020</div>
+        </div>
+    ),
     KEY_ACHIEVEMENT: {},
 };
