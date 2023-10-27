@@ -2,7 +2,7 @@
     "[javascript]": {
         "editor.tabSize": 4,
         "editor.defaultFormatter": "esbenp.prettier-vscode",
-        "editor.formatOnSave": false,
+        "editor.formatOnSave": true,
         "editor.codeActionsOnSave": [
             "source.fixAll.format",
             "source.fixAll.eslint"
@@ -11,7 +11,7 @@
     "[typescript]": {
         "editor.tabSize": 4,
         "editor.defaultFormatter": "esbenp.prettier-vscode",
-        "editor.formatOnSave": false,
+        "editor.formatOnSave": true,
         "editor.codeActionsOnSave": [
             "source.fixAll.format",
             "source.fixAll.eslint"
@@ -20,7 +20,7 @@
     "[javascriptreact]": {
         "editor.tabSize": 4,
         "editor.defaultFormatter": "esbenp.prettier-vscode",
-        "editor.formatOnSave": false,
+        "editor.formatOnSave": true,
         "editor.codeActionsOnSave": [
             "source.fixAll.format",
             "source.fixAll.eslint"
@@ -29,7 +29,7 @@
     "[typescriptreact]": {
         "editor.tabSize": 4,
         "editor.defaultFormatter": "esbenp.prettier-vscode",
-        "editor.formatOnSave": false,
+        "editor.formatOnSave": true,
         "editor.codeActionsOnSave": [
             "source.fixAll.format",
             "source.fixAll.eslint"
@@ -51,6 +51,7 @@
         "guychienll",
         "iframe",
         "ntfc",
+        "openapi",
         "Pinkoi",
         "revtel",
         "Titansoft"
