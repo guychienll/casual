@@ -1,9 +1,9 @@
 import React from 'react';
 import Zoom from 'react-medium-image-zoom';
 
-const Image = ({ src, alt }) => (
+const Image = ({ src, alt, style = {} }) => (
     <Zoom>
-        <img src={src} alt={alt} />
+        <img style={style} src={src} alt={alt} />
     </Zoom>
 );
 
@@ -86,43 +86,6 @@ export const PINKOI_TIMELINE = {
     },
 };
 
-const ProjectCard = () => (
-    <div className="card">
-        <div
-            className="card__header"
-            style={{ display: 'flex', justifyContent: 'center' }}
-        >
-            <div className="badge badge--secondary margin-bottom--md">
-                <div style={{ fontSize: '1.5rem' }}>revtel/.vim</div>
-            </div>
-        </div>
-        <div className="card__body">
-            <Image
-                src="https://camo.githubusercontent.com/18fb58db078bfd2e0927c172dd75fdb02caa030e5f16779bf82aa688bf9a5a3e/68747470733a2f2f692e696d6775722e636f6d2f747573636b79722e706e67"
-                alt=".vim logo"
-            />
-            <p>
-                建立並維護公司共用 vim config，配合 <code>.zsh</code> 能在
-                darwin ubuntu base 的雲端機器上都能夠快速建置開發環境
-            </p>
-        </div>
-        <div className="card__footer">
-            <button
-                onClick={() => {
-                    window.open(
-                        'https://github.com/revtel/.vim',
-                        '_blank',
-                        'noopener'
-                    );
-                }}
-                className="button button--secondary button--block"
-            >
-                See GitHub
-            </button>
-        </div>
-    </div>
-);
-
 export const REVTEL_TIMELINE = {
     LOGO: (
         <img
@@ -144,7 +107,46 @@ export const REVTEL_TIMELINE = {
             bullets: [
                 <li>使開發環境能快速建立於 darwin | ubuntu</li>,
                 <li>
-                    <ProjectCard />
+                    <div className="card">
+                        <div
+                            className="card__header"
+                            style={{
+                                display: 'flex',
+                                justifyContent: 'center',
+                            }}
+                        >
+                            <div className="badge badge--secondary margin-bottom--md">
+                                <div style={{ fontSize: '1.5rem' }}>
+                                    revtel/.vim
+                                </div>
+                            </div>
+                        </div>
+                        <div className="card__body">
+                            <Image
+                                src="https://camo.githubusercontent.com/18fb58db078bfd2e0927c172dd75fdb02caa030e5f16779bf82aa688bf9a5a3e/68747470733a2f2f692e696d6775722e636f6d2f747573636b79722e706e67"
+                                alt=".vim logo"
+                            />
+                            <p>
+                                建立並維護公司共用 vim config，配合{' '}
+                                <code>.zsh</code> 能在 darwin ubuntu base
+                                的雲端機器上都能夠快速建置開發環境
+                            </p>
+                        </div>
+                        <div className="card__footer">
+                            <button
+                                onClick={() => {
+                                    window.open(
+                                        'https://github.com/revtel/.vim',
+                                        '_blank',
+                                        'noopener'
+                                    );
+                                }}
+                                className="button button--secondary button--block"
+                            >
+                                See GitHub
+                            </button>
+                        </div>
+                    </div>
                 </li>,
             ],
         },
@@ -156,6 +158,131 @@ export const REVTEL_TIMELINE = {
                     物流、正向金流、發票開立 )
                 </li>,
                 <li>公司共用 專案模板 快速建立標配電商及後台</li>,
+            ],
+        },
+        TUNGRP: {
+            title: '惇聚 | Tungrp',
+            isOpen: false,
+            bullets: [
+                <li>
+                    <div className="card">
+                        <div
+                            className="card__header"
+                            style={{
+                                display: 'flex',
+                                justifyContent: 'center',
+                            }}
+                        >
+                            <div className="badge badge--secondary margin-bottom--md">
+                                <div
+                                    style={{
+                                        fontSize: '1.5rem',
+                                    }}
+                                >
+                                    惇聚 | Tungrp
+                                </div>
+                            </div>
+                        </div>
+                        <div className="card__body">
+                            <Image
+                                src="./assets/revtel-tungrp.jpg"
+                                alt="revtel tungrp"
+                            />
+                            <p>
+                                為 <code>KENZO</code> | <code>Agete</code> |
+                                <code>Isabel Marant</code> |{' '}
+                                <code>self-portrait</code> |{' '}
+                                <code>Les Nereides</code>{' '}
+                                五家精品品牌代理商，全站包含搜尋、會員、產品列表篩選分頁、社群登入
+                                <br />
+                                另有同功能之 React Native App
+                            </p>
+                        </div>
+                        <div className="card__footer">
+                            <div className="badge badge--secondary margin-right--sm">
+                                React
+                            </div>
+                            <div className="badge badge--secondary margin-right--sm">
+                                RWD
+                            </div>
+                            <div className="badge badge--secondary margin-right--sm">
+                                React Native
+                            </div>
+                            <div className="badge badge--secondary margin-right--sm">
+                                Google Cloud Platform
+                            </div>
+                            <div className="badge badge--secondary margin-right--sm">
+                                Gatsby
+                            </div>
+                            <div className="badge badge--secondary margin-right--sm">
+                                Push Notification
+                            </div>
+                            <div className="badge badge--secondary margin-right--sm">
+                                綠界金流
+                            </div>
+                        </div>
+                    </div>
+                </li>,
+            ],
+        },
+        IFARMER: {
+            title: '幫農事 | IFarmer',
+            isOpen: false,
+            bullets: [
+                <li>
+                    <div className="card">
+                        <div
+                            className="card__header"
+                            style={{
+                                display: 'flex',
+                                justifyContent: 'center',
+                            }}
+                        >
+                            <div className="badge badge--secondary margin-bottom--md">
+                                <div
+                                    style={{
+                                        fontSize: '1.5rem',
+                                    }}
+                                >
+                                    幫農事 | IFarmer
+                                </div>
+                            </div>
+                        </div>
+                        <div className="card__body">
+                            <Image
+                                src="./assets/revtel-ifarmer.png"
+                                alt="revtel tungrp"
+                            />
+                            <p>
+                                為{' '}
+                                <a href="https://www.buydirectlyfromfarmers.tw/">
+                                    直接跟農夫買
+                                </a>{' '}
+                                內部運作管理系統，便於農夫管理訂單、產品、物流
+                            </p>
+                        </div>
+                        <div className="card__footer">
+                            <button
+                                onClick={() => {
+                                    window.open(
+                                        'https://apps.apple.com/tw/app/%E5%B9%AB%E8%BE%B2%E4%BA%8B/id1607435148',
+                                        '_blank',
+                                        'noopener'
+                                    );
+                                }}
+                                className="button button--secondary button--block margin-bottom--sm"
+                            >
+                                See AppStore
+                            </button>
+                            <div className="badge badge--secondary margin-right--sm">
+                                React Native
+                            </div>
+                            <div className="badge badge--secondary margin-right--sm">
+                                Push Notification
+                            </div>
+                        </div>
+                    </div>
+                </li>,
             ],
         },
     },

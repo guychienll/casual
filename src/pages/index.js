@@ -89,6 +89,7 @@ const TimelineElem = (props) => {
                         key={key}
                         title={value.title}
                         bullets={value.bullets}
+                        isOpen={value.isOpen}
                     />
                 ))}
             </div>
