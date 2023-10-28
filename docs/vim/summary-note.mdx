@@ -1,4 +1,6 @@
-# Sharing
+import Zoom from 'react-medium-image-zoom';
+
+# Summary Note
 
 ## History & Pronounced
 
@@ -22,12 +24,13 @@
 | [vscodevim.vim](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim)                                               | vscode plugin  | required                      |
 | [extr0py.vscode-relative-line-numbers](https://marketplace.visualstudio.com/items?itemName=extr0py.vscode-relative-line-numbers) | vscode plugin  | optional                      |
 | [sburg.vscode-javascirpt-booster](https://marketplace.visualstudio.com/items?itemName=sburg.vscode-javascript-booster)           | vscode plugin  | optional [suggested:frontend] |
+| [p42ai.refactor](https://marketplace.visualstudio.com/items?itemName=p42ai.refactor&ssr=false#overview)                          | vscode plugin  | optional [suggested:frontend] |
 | [wix.glean](https://marketplace.visualstudio.com/items?itemName=wix.glean)                                                       | vscode plugin  | optional [suggested:frontend] |
 | [vimium](https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb)                                      | browser plugin | optional [suggested:all]      |
 | [hackmd](https://hackmd.io)                                                                                                      | online notes   | optional [suggested:all]      |
 
 
-## Suggested vscode vim Configuration
+## Suggested VSCode Vim Configuration
 ```json
 {
 	"vim.hlsearch": true,
@@ -63,7 +66,7 @@
       - `<ESC>` / `<C-c>` / `<C-[>` [suggested]
       
 
-### edit action
+### Edit Action
 
 | key | name       | intention                    | using with text object | notes                        |
 | --- | ---------- | :--------------------------- | :--------------------: | :--------------------------- |
@@ -80,7 +83,7 @@
 | u   | undo       | undo action                  |           X            |                              |
 | r   | replace    | replace a char               |           X            |                              |
 
-### navigation action 
+### Navigation Action 
 
 | key | name   | intention                  | using with text object | notes                                               |
 | --- | ------ | :------------------------- | :--------------------: | :-------------------------------------------------- |
@@ -94,7 +97,7 @@
 | {   | block  | search a word with regex   |           X            | `<C-n>` next `<C-N>` previous                       |
 
 
-### Suggested vscode vim navigation Configuration
+### Suggested VSCode Vim Navigation Configuration
 ```json
 {
    "vim.normalModeKeyBindingsNonRecursive": [
@@ -110,7 +113,7 @@
 }
 ```
 
-### commands
+### Commands
 
 - stream editor (sed)
 - split
@@ -119,7 +122,7 @@
 
 ## Text Object ( Scope + Noun )
 
-### scope
+### Scope
 
 | key | name   | intention    |
 | --- | ------ | :----------- |
@@ -142,5 +145,10 @@
 | `   | back tick       |
 
 
-## cheet sheet
+## Cheat Sheet
+
+<Zoom>
+
 ![](https://external-preview.redd.it/YR2lVxHjzKwIIoRqFeusj3182IxUILqM2zjMSI0g654.png?auto=webp&s=f4202aed992ff7223a513e67047ca33b9f41bbc8)
+
+</Zoom>
