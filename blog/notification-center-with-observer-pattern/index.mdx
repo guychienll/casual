@@ -10,7 +10,7 @@ date: 2022-05-27
 
 > 前言
 
-由於最近想對 Design Pattern，更加的深入了解，首先就先挑選了 Observer Pattern ，當作練習的目標，這篇文章後續會提到：
+由於最近想更加深入的了解 Design Pattern ，於是挑選了 Observer Pattern 當作練習的目標，這篇文章後續會提到：
 
 1. 滿足 Observer Pattern 觀察者模式至少需要滿足的介面
 2. 如何使用 Observer Pattern 實作一個通知中心，能夠滿足 `廣播 ( broadcast )` 給每個人。
@@ -20,7 +20,7 @@ date: 2022-05-27
 
 ---
 
-:::info 首先先讓我們來看看 [Observer Pattern](https://en.wikipedia.org/wiki/Observer_pattern) 的定義：
+:::info 先讓我們來看看 [Observer Pattern](https://en.wikipedia.org/wiki/Observer_pattern) 的定義：
 
 The observer pattern is a software design pattern in which an object, named the subject, maintains a list of its dependents, called observers, and notifies them automatically of any state changes, usually by calling one of their methods.
 
@@ -199,7 +199,7 @@ class NotificationCenter implements IObservable, INotificationCenter {
 
 :::caution 小提醒
 
-眼尖聰明如你，可能會發現，上方 notify 當中所使用的 observer 多了一個 `id` 介面可以做使用，目的是為了讓 notify 能辨別 observer，只通知目標觀察者。
+眼尖的讀者可能會發現，上方 notify 當中所使用的 observer 多了一個 `id` 介面可以做使用，目的是為了讓 notify 能辨別 observer，只通知目標觀察者。
 
 :::
 
