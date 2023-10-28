@@ -88,7 +88,7 @@ const config = {
                         items: [
                             {
                                 label: '筆記',
-                                to: 'docs/category/vim',
+                                to: 'docs/',
                             },
                             {
                                 label: '部落格',

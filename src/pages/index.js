@@ -4,6 +4,7 @@ import {
     VerticalTimeline,
     VerticalTimelineElement,
 } from 'react-vertical-timeline-component';
+import Typed from '../components/Typed';
 import {
     PINKOI_TIMELINE,
     REVTEL_TIMELINE,
@@ -21,7 +22,7 @@ const HeroSection = () => (
                 <div className="avatar__intro margin-vert--sm">
                     <div className="avatar__name">Guy Chien</div>
                     <small className="avatar__subtitle">
-                        Frontend Engineer
+                        <Typed strings={['Frontend Engineer']} />
                     </small>
                 </div>
             </div>
