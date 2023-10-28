@@ -76,10 +76,14 @@ details {
       margin-bottom: 1rem;
       font-size: 1rem;
       cursor: auto;
+      list-style-type: '⬗  ';
 
-      &+img {
+
+      &:has(div.card),
+      &:has(img) {
         list-style: none;
       }
+
     }
   }
 

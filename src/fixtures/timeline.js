@@ -1,6 +1,12 @@
 import React from 'react';
 import Zoom from 'react-medium-image-zoom';
 
+const Image = ({ src, alt }) => (
+    <Zoom>
+        <img src={src} alt={alt} />
+    </Zoom>
+);
+
 export const PINKOI_TIMELINE = {
     LOGO: (
         <img
@@ -30,12 +36,10 @@ export const PINKOI_TIMELINE = {
                     建立後透過動態載入共用模組跟延遲加載有效降低 FCP 1.7s
                     時間差距
                 </li>,
-                <Zoom>
-                    <img
-                        src="./assets/web-vitals-monitor.png"
-                        alt="web-vitals-monitor"
-                    />
-                </Zoom>,
+                <Image
+                    src="./assets/web-vitals-monitor.png"
+                    alt="web-vitals-monitor"
+                />,
             ],
         },
         DESIGN_SYSTEM: {
@@ -66,9 +70,7 @@ export const PINKOI_TIMELINE = {
                     讓 Jest 與 Cypress 都產出 JUnit Report 準確回報測試結果
                 </li>,
                 <li>在 CI 過程加入 ESLint Job 確保程式碼品質</li>,
-                <Zoom>
-                    <img src="./assets/pinkoi-ci.png" alt="pinkoi-ci" />
-                </Zoom>,
+                <Image src="./assets/pinkoi-ci.png" alt="pinkoi-ci" />,
             ],
         },
         OPENAPI: {
@@ -83,6 +85,43 @@ export const PINKOI_TIMELINE = {
         },
     },
 };
+
+const ProjectCard = () => (
+    <div className="card">
+        <div
+            className="card__header"
+            style={{ display: 'flex', justifyContent: 'center' }}
+        >
+            <div className="badge badge--secondary margin-bottom--md">
+                <div style={{ fontSize: '1.5rem' }}>revtel/.vim</div>
+            </div>
+        </div>
+        <div className="card__body">
+            <Image
+                src="https://camo.githubusercontent.com/18fb58db078bfd2e0927c172dd75fdb02caa030e5f16779bf82aa688bf9a5a3e/68747470733a2f2f692e696d6775722e636f6d2f747573636b79722e706e67"
+                alt=".vim logo"
+            />
+            <p>
+                建立並維護公司共用 vim config，配合 <code>.zsh</code> 能在
+                darwin ubuntu base 的雲端機器上都能夠快速建置開發環境
+            </p>
+        </div>
+        <div className="card__footer">
+            <button
+                onClick={() => {
+                    window.open(
+                        'https://github.com/revtel/.vim',
+                        '_blank',
+                        'noopener'
+                    );
+                }}
+                className="button button--secondary button--block"
+            >
+                See GitHub
+            </button>
+        </div>
+    </div>
+);
 
 export const REVTEL_TIMELINE = {
     LOGO: (
@@ -100,26 +139,23 @@ export const REVTEL_TIMELINE = {
         </div>
     ),
     KEY_ACHIEVEMENT: {
-        DEV_ENV: {
+        DEVELOPMENT_EVN: {
             title: '創建並維護公司共用 zsh | vim 環境',
             bullets: [
                 <li>使開發環境能快速建立於 darwin | ubuntu</li>,
                 <li>
-                    <div className="badge badge--secondary">
-                        <a href="https://github.com/revtel/.zsh">revtel/.zsh</a>
-                    </div>
+                    <ProjectCard />
                 </li>,
+            ],
+        },
+        COMMON_LIB: {
+            title: '開發公司共用電商專案模板及共用模組',
+            bullets: [
                 <li>
-                    <div className="badge badge--secondary">
-                        <a href="https://github.com/revtel/.vim">revtel/.vim</a>
-                    </div>
+                    公司共用 Component Library 提供穩定購物流程 (
+                    物流、正向金流、發票開立 )
                 </li>,
-                <Zoom>
-                    <img
-                        src="https://camo.githubusercontent.com/18fb58db078bfd2e0927c172dd75fdb02caa030e5f16779bf82aa688bf9a5a3e/68747470733a2f2f692e696d6775722e636f6d2f747573636b79722e706e67"
-                        alt=".vim logo"
-                    />
-                </Zoom>,
+                <li>公司共用 專案模板 快速建立標配電商及後台</li>,
             ],
         },
     },
