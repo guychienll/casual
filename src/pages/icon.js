@@ -1,0 +1,9 @@
+export { default as Shell } from '/assets/shell.svg';
+export { default as Javascript } from '/assets/javascript.svg';
+export { default as Html5 } from '/assets/html5.svg';
+export { default as Css3 } from '/assets/css3.svg';
+export { default as Github } from '/assets/github.svg';
+export { default as React } from '/assets/react.svg';
+export { default as Test } from '/assets/test.svg';
+export { default as Vim } from '/assets/vim.svg';
+export { default as Git } from '/assets/git.svg';

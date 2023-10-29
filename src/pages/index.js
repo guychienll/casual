@@ -12,6 +12,8 @@ import {
     TITANSOFT_INTERN_TIMELINE,
 } from '../fixtures/timeline';
 import styled from 'styled-components';
+import clsx from 'clsx';
+import * as Icon from './icon';
 
 const HeroSection = () => (
     <div className="hero hero--primary" style={{ height: '25rem' }}>
@@ -117,6 +119,7 @@ const StyledSkillSection = styled.div`
         align-self: center;
         & > button {
             display: flex;
+            box-sizing: border-box;
             align-items: center;
             justify-content: center;
             background-color: var(--ifm-color-primary-darker);
@@ -124,15 +127,15 @@ const StyledSkillSection = styled.div`
             border-radius: 1rem;
             border: none;
             cursor: pointer;
-            transition: box-shadow 200ms ease-in-out;
-            &:hover {
-                box-shadow: 3px 3px 0 0 var(--ifm-color-primary-darkest);
-            }
-            &:active {
-                box-shadow: 3px 3px 0 0 var(--ifm-color-primary-darker);
-            }
-            & > img {
+            & > svg {
+                color: var(--color-neutral-000);
                 width: 50%;
+            }
+            &.is-active {
+                background-color: var(--ifm-color-primary-darkest);
+                & > svg {
+                    color: var(--ifm-color-warning);
+                }
             }
         }
     }
@@ -165,6 +168,7 @@ const StyledSkillSection = styled.div`
 const Skill = () => {
     const skills = {
         vim: {
+            icon: <Icon.Vim />,
             title: 'vim',
             bullets: [
                 <li>創建並維護開源 vim 環境 </li>,
@@ -177,34 +181,42 @@ const Skill = () => {
             ],
         },
         git: {
+            icon: <Icon.Git />,
             title: 'git',
             bullets: [<li>維護中</li>],
         },
         shell: {
+            icon: <Icon.Shell />,
             title: 'shell',
             bullets: [<li>維護中</li>],
         },
         javascript: {
+            icon: <Icon.Javascript />,
             title: 'javascript',
             bullets: [<li>維護中</li>],
         },
         html5: {
+            icon: <Icon.Html5 />,
             title: 'html',
             bullets: [<li>維護中</li>],
         },
         css3: {
+            icon: <Icon.Css3 />,
             title: 'css',
             bullets: [<li>維護中</li>],
         },
         github: {
+            icon: <Icon.Github />,
             title: 'github',
             bullets: [<li>維護中</li>],
         },
         react: {
+            icon: <Icon.React />,
             title: 'react',
             bullets: [<li>維護中</li>],
         },
         test: {
+            icon: <Icon.Test />,
             title: 'test',
             bullets: [<li>維護中</li>],
         },
@@ -216,12 +228,15 @@ const Skill = () => {
                 {Object.keys(skills).map((skill) => {
                     return (
                         <button
+                            className={clsx({
+                                'is-active': current === skill,
+                            })}
                             type="button"
                             onClick={() => {
                                 setCurrent(skill);
                             }}
                         >
-                            <img src={`./assets/${skill}.svg`} alt={skill} />
+                            {skills[skill].icon}
                         </button>
                     );
                 })}
