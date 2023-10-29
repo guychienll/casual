@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Layout from '@theme/Layout';
 import {
     VerticalTimeline,
@@ -11,6 +11,7 @@ import {
     TITANSOFT_TIMELINE,
     TITANSOFT_INTERN_TIMELINE,
 } from '../fixtures/timeline';
+import styled from 'styled-components';
 
 const HeroSection = () => (
     <div className="hero hero--primary" style={{ height: '25rem' }}>
@@ -98,6 +99,142 @@ const TimelineElem = (props) => {
     );
 };
 
+const StyledSkillSection = styled.div`
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+    border-radius: 20px;
+    background-color: var(--ifm-color-primary);
+    display: flex;
+    justify-content: space-around;
+    & > .left {
+        width: 48%;
+        padding: 1rem;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 1.2rem;
+        align-self: center;
+        & > button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--ifm-color-primary-darker);
+            aspect-ratio: 1;
+            border-radius: 1rem;
+            border: none;
+            cursor: pointer;
+            transition: box-shadow 200ms ease-in-out;
+            &:hover {
+                box-shadow: 3px 3px 0 0 var(--ifm-color-primary-darkest);
+            }
+            &:active {
+                box-shadow: 3px 3px 0 0 var(--ifm-color-primary-darker);
+            }
+            & > img {
+                width: 50%;
+            }
+        }
+    }
+    & > .right {
+        display: flex;
+        justify-content: center;
+        width: 48%;
+        padding: 1rem;
+        & > details {
+            width: 100%;
+            & > summary {
+                pointer-events: none;
+            }
+        }
+    }
+    @media screen and (max-width: 1170px) {
+        flex-direction: column;
+        align-items: center;
+        background-color: transparent;
+        & > .left {
+            width: 90%;
+        }
+        & > .right {
+            width: 90%;
+            padding: unset;
+        }
+    }
+`;
+
+const Skill = () => {
+    const skills = {
+        vim: {
+            title: 'vim',
+            bullets: [
+                <li>創建並維護開源 vim 環境 </li>,
+                <li>熟悉 vim 指令並用其開發</li>,
+                <li>熟悉使用 vim text object</li>,
+                <li>熟悉使用 vim 巨集指令</li>,
+                <li>
+                    熟悉於 vscode | webstrom 設置 vim plugin 和快捷加速開發
+                </li>,
+            ],
+        },
+        git: {
+            title: 'git',
+            bullets: [<li>維護中</li>],
+        },
+        shell: {
+            title: 'shell',
+            bullets: [<li>維護中</li>],
+        },
+        javascript: {
+            title: 'javascript',
+            bullets: [<li>維護中</li>],
+        },
+        html5: {
+            title: 'html',
+            bullets: [<li>維護中</li>],
+        },
+        css3: {
+            title: 'css',
+            bullets: [<li>維護中</li>],
+        },
+        github: {
+            title: 'github',
+            bullets: [<li>維護中</li>],
+        },
+        react: {
+            title: 'react',
+            bullets: [<li>維護中</li>],
+        },
+        test: {
+            title: 'test',
+            bullets: [<li>維護中</li>],
+        },
+    };
+    const [current, setCurrent] = useState(Object.keys(skills)[0]);
+    return (
+        <StyledSkillSection>
+            <div className="left">
+                {Object.keys(skills).map((skill) => {
+                    return (
+                        <button
+                            type="button"
+                            onClick={() => {
+                                setCurrent(skill);
+                            }}
+                        >
+                            <img src={`./assets/${skill}.svg`} alt={skill} />
+                        </button>
+                    );
+                })}
+            </div>
+            <div className="right">
+                <According
+                    title={skills[current].title.toLocaleUpperCase()}
+                    bullets={skills[current].bullets}
+                />
+            </div>
+        </StyledSkillSection>
+    );
+};
+
 export default function Home() {
     return (
         <Layout
@@ -137,6 +274,8 @@ export default function Home() {
                     icon={TITANSOFT_INTERN_TIMELINE.LOGO}
                 />
             </VerticalTimeline>
+
+            <Skill />
         </Layout>
     );
 }
