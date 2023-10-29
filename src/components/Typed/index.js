@@ -1,7 +1,7 @@
 import React from 'react';
 import TypedJs from 'typed.js';
 
-const Typed = ({ typeSpeed = 50, strings, style = {}, ...rest }) => {
+const Typed = ({ typeSpeed = 50, strings, style = {} }) => {
     const el = React.useRef(null);
 
     React.useEffect(() => {
@@ -10,15 +10,13 @@ const Typed = ({ typeSpeed = 50, strings, style = {}, ...rest }) => {
             typeSpeed,
             loop: false,
             loopCount: Infinity,
-            showCursor: false,
             cursorChar: '▐',
-            ...rest,
         });
 
         return () => {
             typed.destroy();
         };
-    }, [rest, strings, typeSpeed]);
+    }, [strings, typeSpeed]);
 
     return <span style={style} ref={el} />;
 };

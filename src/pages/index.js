@@ -24,12 +24,15 @@ const HeroSection = () => (
                     src="./img/courage-the-coward-dog.webp"
                 />
                 <div className="avatar__intro margin-vert--sm">
-                    <Typed
-                        typeSpeed={40}
-                        strings={[
-                            '<div class="avatar__name">Guy Chien</div><small style="display:block;">Frontend Engineer</small><small>Someone who is curious about everything and likes sharing.</small><br/>',
-                        ]}
-                    />
+                    <div className="avatar__name">Guy Chien</div>
+                    <small className="avatar__subtitle">
+                        <Typed
+                            typeSpeed={30}
+                            strings={[
+                                'Frontend Engineer<br/>Someone who is curious about everything and likes sharing.<br/>',
+                            ]}
+                        />
+                    </small>
                 </div>
             </div>
         </div>
