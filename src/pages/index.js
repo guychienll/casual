@@ -13,7 +13,7 @@ import {
 } from '../fixtures/timeline';
 import styled from 'styled-components';
 import clsx from 'clsx';
-import * as Icon from './icon';
+import * as Icon from '../components/Icon';
 
 const HeroSection = () => (
     <div className="hero hero--primary" style={{ height: '25rem' }}>
