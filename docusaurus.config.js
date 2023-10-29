@@ -40,11 +40,11 @@ const config = {
             ({
                 docs: {
                     sidebarPath: require.resolve('./sidebars.js'),
-                    editUrl: 'https://github.com/guychienll/casual',
+                    editUrl: 'https://github.com/guychienll/casual/tree/main',
                 },
                 blog: {
                     showReadingTime: true,
-                    editUrl: 'https://github.com/guychienll/casual',
+                    editUrl: 'https://github.com/guychienll/casual/tree/main',
                 },
                 theme: {
                     customCss: require.resolve('./src/css/custom.scss'),
