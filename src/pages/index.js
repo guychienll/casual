@@ -26,7 +26,12 @@ const HeroSection = () => (
                 <div className="avatar__intro margin-vert--sm">
                     <div className="avatar__name">Guy Chien</div>
                     <small className="avatar__subtitle">
-                        <Typed strings={['Frontend Engineer']} />
+                        <Typed
+                            typeSpeed={30}
+                            strings={[
+                                'Frontend Engineer<br/>Someone who is curious about everything and likes sharing.<br/>',
+                            ]}
+                        />
                     </small>
                 </div>
             </div>
