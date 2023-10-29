@@ -107,6 +107,7 @@ const StyledSkillSection = styled.div`
     background-color: var(--ifm-color-primary);
     display: flex;
     justify-content: space-around;
+    max-width: 1170px;
     & > .left {
         width: 48%;
         padding: 1rem;
