@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import React from 'react';
 import Zoom from 'react-medium-image-zoom';
 
@@ -6,6 +7,67 @@ const Image = ({ src, alt, style = {} }) => (
         <img style={style} src={src} alt={alt} />
     </Zoom>
 );
+const ProjectCard = (props) => {
+    const {
+        title = '',
+        description = null,
+        link = {
+            label: '',
+            url: '',
+        },
+        image = {
+            src: '',
+            alt: '',
+        },
+        labels = [],
+    } = props;
+    return (
+        <div className="card margin-vert--md">
+            <div
+                className="card__header"
+                style={{ display: 'flex', justifyContent: 'center' }}
+            >
+                {title && <h4>{title}</h4>}
+            </div>
+            <div className="card__body">
+                {image.src && (
+                    <Image
+                        style={{ borderRadius: '5px' }}
+                        src={image.src}
+                        alt={image.alt}
+                    />
+                )}
+                {description}
+            </div>
+            <div className="card__footer">
+                {link.url && (
+                    <button
+                        onClick={() => {
+                            window.open(link.url, '_blank', 'noopener');
+                        }}
+                        className="button button--secondary button--block margin-bottom--sm"
+                    >
+                        {link.label}
+                    </button>
+                )}
+                {labels.map((label, idx) => {
+                    const isLastItem = idx === labels.length - 1;
+                    return (
+                        <div
+                            className={clsx({
+                                badge: true,
+                                'badge--secondary': true,
+                                'margin-right--sm': !isLastItem,
+                            })}
+                        >
+                            {label}
+                        </div>
+                    );
+                })}
+            </div>
+        </div>
+    );
+};
 
 export const PINKOI_TIMELINE = {
     LOGO: (
@@ -19,7 +81,9 @@ export const PINKOI_TIMELINE = {
     SUBTITLE: ['Frontend Engineer', 'Platform Squad'],
     DATE: (
         <div>
-            <div className="badge badge--warning">May. 2022 ~ Present</div>
+            <div className="badge badge--warning" style={{ color: '#1b1b1d' }}>
+                May. 2022 ~ Present
+            </div>
         </div>
     ),
     KEY_ACHIEVEMENT: {
@@ -36,9 +100,13 @@ export const PINKOI_TIMELINE = {
                     建立後透過動態載入共用模組跟延遲加載有效降低 FCP 1.7s
                     時間差距
                 </li>,
-                <Image
-                    src="./assets/web-vitals-monitor.png"
-                    alt="web-vitals-monitor"
+                <ProjectCard
+                    title="Web Vitals Monitor"
+                    image={{
+                        src: './assets/pinkoi-web-vitals-monitor.png',
+                        alt: 'pinkoi web vitals monitor',
+                    }}
+                    labels={['Grafana', 'Prometheus', 'Node.js', 'Cronjob']}
                 />,
             ],
         },
@@ -70,7 +138,20 @@ export const PINKOI_TIMELINE = {
                     讓 Jest 與 Cypress 都產出 JUnit Report 準確回報測試結果
                 </li>,
                 <li>在 CI 過程加入 ESLint Job 確保程式碼品質</li>,
-                <Image src="./assets/pinkoi-ci.png" alt="pinkoi-ci" />,
+                <ProjectCard
+                    title="CI On PR Approved"
+                    image={{
+                        src: './assets/pinkoi-ci.png',
+                        alt: 'pinkoi ci',
+                    }}
+                    labels={[
+                        'Jest',
+                        'Cypress',
+                        'Junit',
+                        'ESLint',
+                        'Github Actions',
+                    ]}
+                />,
             ],
         },
         OPENAPI: {
@@ -98,55 +179,36 @@ export const REVTEL_TIMELINE = {
     SUBTITLE: ['Frontend Engineer'],
     DATE: (
         <div>
-            <div className="badge badge--warning">Nov. 2020 - May. 2022</div>
+            <div className="badge badge--warning" style={{ color: '#1b1b1d' }}>
+                Nov. 2020 - May. 2022
+            </div>
         </div>
     ),
     KEY_ACHIEVEMENT: {
         DEVELOPMENT_EVN: {
             title: '創建並維護公司共用 zsh | vim 環境',
             bullets: [
-                <li>使開發環境能快速建立於 darwin | ubuntu</li>,
+                <li>使開發環境能快速建立於 Darwin | Ubuntu</li>,
                 <li>
-                    <div className="card">
-                        <div
-                            className="card__header"
-                            style={{
-                                display: 'flex',
-                                justifyContent: 'center',
-                            }}
-                        >
-                            <div className="badge badge--secondary margin-bottom--md">
-                                <div style={{ fontSize: '1.5rem' }}>
-                                    revtel/.vim
-                                </div>
-                            </div>
-                        </div>
-                        <div className="card__body">
-                            <Image
-                                src="https://camo.githubusercontent.com/18fb58db078bfd2e0927c172dd75fdb02caa030e5f16779bf82aa688bf9a5a3e/68747470733a2f2f692e696d6775722e636f6d2f747573636b79722e706e67"
-                                alt=".vim logo"
-                            />
+                    <ProjectCard
+                        title="Revtel | .vim"
+                        link={{
+                            label: 'See GitHub',
+                            url: 'https://github.com/revtel/.vim',
+                        }}
+                        image={{
+                            src: 'https://camo.githubusercontent.com/18fb58db078bfd2e0927c172dd75fdb02caa030e5f16779bf82aa688bf9a5a3e/68747470733a2f2f692e696d6775722e636f6d2f747573636b79722e706e67',
+                            alt: 'revtel .vim',
+                        }}
+                        description={
                             <p>
                                 建立並維護公司共用 vim config，配合{' '}
                                 <code>.zsh</code> 能在 darwin ubuntu base
                                 的雲端機器上都能夠快速建置開發環境
                             </p>
-                        </div>
-                        <div className="card__footer">
-                            <button
-                                onClick={() => {
-                                    window.open(
-                                        'https://github.com/revtel/.vim',
-                                        '_blank',
-                                        'noopener'
-                                    );
-                                }}
-                                className="button button--secondary button--block"
-                            >
-                                See GitHub
-                            </button>
-                        </div>
-                    </div>
+                        }
+                        labels={['vim', 'shell script']}
+                    />
                 </li>,
             ],
         },
@@ -160,34 +222,18 @@ export const REVTEL_TIMELINE = {
                 <li>公司共用 專案模板 快速建立標配電商及後台</li>,
             ],
         },
-        TUNGRP: {
-            title: '惇聚 | Tungrp',
+        MAINLY_INVOLVED: {
+            title: '主要參與專案',
             isOpen: false,
             bullets: [
                 <li>
-                    <div className="card">
-                        <div
-                            className="card__header"
-                            style={{
-                                display: 'flex',
-                                justifyContent: 'center',
-                            }}
-                        >
-                            <div className="badge badge--secondary margin-bottom--md">
-                                <div
-                                    style={{
-                                        fontSize: '1.5rem',
-                                    }}
-                                >
-                                    惇聚 | Tungrp
-                                </div>
-                            </div>
-                        </div>
-                        <div className="card__body">
-                            <Image
-                                src="./assets/revtel-tungrp.jpg"
-                                alt="revtel tungrp"
-                            />
+                    <ProjectCard
+                        title="惇聚 | Tungrp"
+                        image={{
+                            src: './assets/revtel-tungrp.jpg',
+                            alt: 'revtel tungrp',
+                        }}
+                        description={
                             <p>
                                 為 <code>KENZO</code> | <code>Agete</code> |
                                 <code>Isabel Marant</code> |{' '}
@@ -197,62 +243,26 @@ export const REVTEL_TIMELINE = {
                                 <br />
                                 另有同功能之 React Native App
                             </p>
-                        </div>
-                        <div className="card__footer">
-                            <div className="badge badge--secondary margin-right--sm">
-                                React
-                            </div>
-                            <div className="badge badge--secondary margin-right--sm">
-                                RWD
-                            </div>
-                            <div className="badge badge--secondary margin-right--sm">
-                                React Native
-                            </div>
-                            <div className="badge badge--secondary margin-right--sm">
-                                Google Cloud Platform
-                            </div>
-                            <div className="badge badge--secondary margin-right--sm">
-                                Gatsby
-                            </div>
-                            <div className="badge badge--secondary margin-right--sm">
-                                Push Notification
-                            </div>
-                            <div className="badge badge--secondary margin-right--sm">
-                                綠界金流
-                            </div>
-                        </div>
-                    </div>
-                </li>,
-            ],
-        },
-        IFARMER: {
-            title: '幫農事 | IFarmer',
-            isOpen: false,
-            bullets: [
-                <li>
-                    <div className="card">
-                        <div
-                            className="card__header"
-                            style={{
-                                display: 'flex',
-                                justifyContent: 'center',
-                            }}
-                        >
-                            <div className="badge badge--secondary margin-bottom--md">
-                                <div
-                                    style={{
-                                        fontSize: '1.5rem',
-                                    }}
-                                >
-                                    幫農事 | IFarmer
-                                </div>
-                            </div>
-                        </div>
-                        <div className="card__body">
-                            <Image
-                                src="./assets/revtel-ifarmer.png"
-                                alt="revtel tungrp"
-                            />
+                        }
+                        labels={[
+                            'React',
+                            'Gatsby',
+                            'React Native',
+                            'GCP',
+                            '綠界金流',
+                        ]}
+                    />
+                    <ProjectCard
+                        title="幫農事 | IFarmer"
+                        link={{
+                            label: 'See AppStore',
+                            url: 'https://apps.apple.com/tw/app/%E5%B9%AB%E8%BE%B2%E4%BA%8B/id1607435148',
+                        }}
+                        image={{
+                            src: './assets/revtel-ifarmer.png',
+                            alt: 'revtel ifarmer',
+                        }}
+                        description={
                             <p>
                                 為{' '}
                                 <a href="https://www.buydirectlyfromfarmers.tw/">
@@ -260,28 +270,43 @@ export const REVTEL_TIMELINE = {
                                 </a>{' '}
                                 內部運作管理系統，便於農夫管理訂單、產品、物流
                             </p>
-                        </div>
-                        <div className="card__footer">
-                            <button
-                                onClick={() => {
-                                    window.open(
-                                        'https://apps.apple.com/tw/app/%E5%B9%AB%E8%BE%B2%E4%BA%8B/id1607435148',
-                                        '_blank',
-                                        'noopener'
-                                    );
-                                }}
-                                className="button button--secondary button--block margin-bottom--sm"
-                            >
-                                See AppStore
-                            </button>
-                            <div className="badge badge--secondary margin-right--sm">
-                                React Native
-                            </div>
-                            <div className="badge badge--secondary margin-right--sm">
-                                Push Notification
-                            </div>
-                        </div>
-                    </div>
+                        }
+                        labels={['React Native', 'Push Notification']}
+                    />
+                </li>,
+            ],
+        },
+        SECONDARY_INVOLVED: {
+            title: '次要參與專案',
+            isOpen: false,
+            bullets: [
+                <li>
+                    <ProjectCard
+                        title="法朋 | Leruban"
+                        link={{
+                            label: 'See Leruban',
+                            url: 'https://lerubanpatisserie.com/',
+                        }}
+                        image={{
+                            src: './assets/revtel-leruban.png',
+                            alt: 'revtel leruban',
+                        }}
+                        description={<p>法朋烘焙甜點坊</p>}
+                        labels={['React', 'Gatsby']}
+                    />
+                    <ProjectCard
+                        title="小和好點 | Dot.Dot. Bakery"
+                        link={{
+                            label: 'See Dot.Dot. Bakery',
+                            url: 'https://dotdothotel.com/',
+                        }}
+                        image={{
+                            src: './assets/revtel-dotdot.png',
+                            alt: 'revtel dotdot',
+                        }}
+                        description={<p>小和好點 dot.dot. Bakery Cafe</p>}
+                        labels={['React', 'Gatsby']}
+                    />
                 </li>,
             ],
         },
@@ -297,11 +322,81 @@ export const TITANSOFT_TIMELINE = {
         />
     ),
     TITLE: 'Titansoft Pte Ltd',
-    SUBTITLE: ['Product Developer', 'TWTG', 'Intern'],
+    SUBTITLE: ['Product Developer', 'TWTG'],
     DATE: (
         <div>
-            <div className="badge badge--warning">Mar. 2019 - Apr. 2020</div>
+            <div className="badge badge--warning" style={{ color: '#1b1b1d' }}>
+                Sep. 2019 - Apr. 2020
+            </div>
         </div>
     ),
-    KEY_ACHIEVEMENT: {},
+    KEY_ACHIEVEMENT: {
+        DEPARTMENT_STAR: {
+            title: '部門之星',
+            bullets: [
+                <li>因工作態度優越，榮獲部門之星獎項</li>,
+                <ProjectCard
+                    title="部門之星 | Department Star"
+                    image={{
+                        src: './assets/titansoft-dep-star.jpg',
+                        alt: 'titansoft dep star',
+                    }}
+                    description={null}
+                />,
+            ],
+        },
+        INVOLVED: {
+            title: '主要經歷',
+            bullets: [
+                <li>維護數以十計的 .NET MVC 專案</li>,
+                <li>獨立開發 CMS，以方便管理系統設定值</li>,
+                <li>與五人團隊運行 Scrum</li>,
+            ],
+        },
+    },
+};
+
+export const TITANSOFT_INTERN_TIMELINE = {
+    LOGO: (
+        <img
+            src="./img/titansoft.png"
+            style={{ borderRadius: '50%' }}
+            alt="titansoft"
+        />
+    ),
+    TITLE: 'Titansoft Pte Ltd',
+    SUBTITLE: ['Intern'],
+    DATE: (
+        <div>
+            <div className="badge badge--warning" style={{ color: '#1b1b1d' }}>
+                Mar. 2019 - Sep. 2020
+            </div>
+        </div>
+    ),
+    KEY_ACHIEVEMENT: {
+        SHARE_REACT_WITH_INTERNS: {
+            isOpen: false,
+            title: '與同期實習生分享 React',
+            bullets: [
+                <ProjectCard
+                    title="與同期實習生分享 React"
+                    image={{
+                        src: './assets/titansoft-share-react.jpg',
+                        alt: 'titansoft share react',
+                    }}
+                    description={null}
+                />,
+            ],
+        },
+        INVOLVED: {
+            title: '主要經歷',
+            bullets: [
+                <li>開發公司內部差旅系統</li>,
+                <li>
+                    維護主要產品 Selenium
+                    撰寫之自動化測試，並確保平行運行在多品牌實機上
+                </li>,
+            ],
+        },
+    },
 };
