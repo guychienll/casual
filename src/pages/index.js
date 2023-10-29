@@ -25,7 +25,10 @@ const HeroSection = () => (
                 />
                 <div className="avatar__intro margin-vert--sm">
                     <div className="avatar__name">Guy Chien</div>
-                    <small className="avatar__subtitle">
+                    <small
+                        className="avatar__subtitle"
+                        style={{ minHeight: 66 }}
+                    >
                         <Typed
                             typeSpeed={30}
                             strings={[
