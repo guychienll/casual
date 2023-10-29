@@ -54,6 +54,7 @@ const ProjectCard = (props) => {
                     const isLastItem = idx === labels.length - 1;
                     return (
                         <div
+                            key={idx}
                             className={clsx({
                                 badge: true,
                                 'badge--secondary': true,

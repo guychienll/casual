@@ -233,9 +233,10 @@ const Skill = () => {
     return (
         <StyledSkillSection>
             <div className="left">
-                {Object.keys(skills).map((skill) => {
+                {Object.keys(skills).map((skill, index) => {
                     return (
                         <button
+                            key={index}
                             className={clsx({
                                 'is-active': current === skill,
                             })}

@@ -31,7 +31,16 @@ const config = {
         defaultLocale: 'zh-Hant',
         locales: ['zh-Hant'],
     },
-    plugins: ['docusaurus-plugin-sass'],
+    plugins: [
+        'docusaurus-plugin-sass',
+        [
+            '@docusaurus/plugin-google-gtag',
+            {
+                trackingID: 'G-TJNZ4NMPP4',
+                anonymizeIP: false,
+            },
+        ],
+    ],
 
     presets: [
         [
