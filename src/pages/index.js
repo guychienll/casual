@@ -122,7 +122,7 @@ const StyledSkillSection = styled.div`
         width: 48%;
         padding: 1rem;
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
         grid-gap: 1.2rem;
         align-self: center;
         & > button {
@@ -130,7 +130,6 @@ const StyledSkillSection = styled.div`
             box-sizing: border-box;
             align-items: center;
             justify-content: center;
-            background-color: var(--ifm-color-primary-darker);
             aspect-ratio: 1;
             border-radius: 1rem;
             border: none;
@@ -152,11 +151,19 @@ const StyledSkillSection = styled.div`
         justify-content: center;
         width: 48%;
         padding: 1rem;
+        height: 450px;
+        max-height: 450px;
         & > details {
             width: 100%;
+            position: relative;
             & > summary {
+                position: sticky;
+                top: 0;
                 pointer-events: none;
+                list-style: none;
             }
+            height: 100%;
+            overflow-y: auto;
         }
     }
     @media screen and (max-width: 1170px) {
@@ -175,6 +182,11 @@ const StyledSkillSection = styled.div`
 
 const Skill = () => {
     const skills = {
+        shell: {
+            icon: <Icon.Shell />,
+            title: 'Shell',
+            bullets: [<li>維護中</li>],
+        },
         vim: {
             icon: <Icon.Vim />,
             title: 'vim',
@@ -190,42 +202,52 @@ const Skill = () => {
         },
         git: {
             icon: <Icon.Git />,
-            title: 'git',
-            bullets: [<li>維護中</li>],
-        },
-        shell: {
-            icon: <Icon.Shell />,
-            title: 'shell',
-            bullets: [<li>維護中</li>],
-        },
-        javascript: {
-            icon: <Icon.Javascript />,
-            title: 'javascript',
-            bullets: [<li>維護中</li>],
-        },
-        html5: {
-            icon: <Icon.Html5 />,
-            title: 'html',
-            bullets: [<li>維護中</li>],
-        },
-        css3: {
-            icon: <Icon.Css3 />,
-            title: 'css',
+            title: 'Git',
             bullets: [<li>維護中</li>],
         },
         github: {
             icon: <Icon.Github />,
-            title: 'github',
+            title: 'Github Actions',
+            bullets: [<li>維護中</li>],
+        },
+        typescript: {
+            icon: <Icon.Typescript />,
+            title: 'Typescript',
+            bullets: [<li>維護中</li>],
+        },
+        javascript: {
+            icon: <Icon.Javascript />,
+            title: 'Javascript',
+            bullets: [<li>維護中</li>],
+        },
+        html5: {
+            icon: <Icon.Html5 />,
+            title: 'HTML',
+            bullets: [<li>維護中</li>],
+        },
+        css3: {
+            icon: <Icon.Css3 />,
+            title: 'CSS',
             bullets: [<li>維護中</li>],
         },
         react: {
             icon: <Icon.React />,
-            title: 'react',
+            title: 'React',
             bullets: [<li>維護中</li>],
         },
-        test: {
-            icon: <Icon.Test />,
-            title: 'test',
+        jest: {
+            icon: <Icon.Jest />,
+            title: 'Jest',
+            bullets: [<li>維護中</li>],
+        },
+        cypress: {
+            icon: <Icon.Cypress />,
+            title: 'Cypress',
+            bullets: [<li>維護中</li>],
+        },
+        csharp: {
+            icon: <Icon.CSharp />,
+            title: 'C#',
             bullets: [<li>維護中</li>],
         },
     };
@@ -252,7 +274,7 @@ const Skill = () => {
             </div>
             <div className="right">
                 <According
-                    title={skills[current].title.toLocaleUpperCase()}
+                    title={skills[current].title}
                     bullets={skills[current].bullets}
                 />
             </div>

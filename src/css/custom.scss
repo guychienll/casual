@@ -16,6 +16,14 @@
   --color-neutral-000: rgb(245, 246, 247);
   --color-neutral-100: #1b1b1d;
   --line-color: var(--ifm-color-primary) !important;
+
+  @media screen and (max-width: 1170px) {
+    --line-color: transparent !important;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
 }
 
 
