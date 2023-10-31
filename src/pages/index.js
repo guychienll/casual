@@ -134,12 +134,13 @@ const StyledSkillSection = styled.div`
             border-radius: 1rem;
             border: none;
             cursor: pointer;
+            background-color: var(--color-neutral-050);
             & > svg {
                 color: var(--color-neutral-000);
                 width: 50%;
             }
             &.is-active {
-                background-color: var(--ifm-color-primary-darkest);
+                background-color: var(--ifm-color-primary-darker);
                 & > svg {
                     color: var(--ifm-color-warning);
                 }
@@ -172,6 +173,8 @@ const StyledSkillSection = styled.div`
         background-color: transparent;
         & > .left {
             width: 90%;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 0.5rem;
         }
         & > .right {
             width: 90%;

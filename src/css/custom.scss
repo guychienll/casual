@@ -14,15 +14,12 @@
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
   --color-neutral-000: rgb(245, 246, 247);
+  --color-neutral-050: #888888;
   --color-neutral-100: #1b1b1d;
   --line-color: var(--ifm-color-primary) !important;
 
   @media screen and (max-width: 1170px) {
     --line-color: transparent !important;
-  }
-
-  body {
-    overflow-x: hidden;
   }
 }
 
@@ -37,6 +34,7 @@
   --ifm-color-primary-lighter: #c1adc5;
   --ifm-color-primary-lightest: #d6cad9;
   --color-neutral-000: #1b1b1d;
+  --color-neutral-050: #888888;
   --color-neutral-100: rgb(245, 246, 247);
 }
 
