@@ -10,3 +10,4 @@ export { default as Vim } from '/assets/vim.svg';
 export { default as Git } from '/assets/git.svg';
 export { default as Typescript } from '/assets/typescript.svg';
 export { default as CSharp } from '/assets/c-sharp.svg';
+export { default as Webpack } from '/assets/webpack.svg';

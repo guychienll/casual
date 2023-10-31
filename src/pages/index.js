@@ -206,7 +206,13 @@ const Skill = () => {
         git: {
             icon: <Icon.Git />,
             title: 'Git',
-            bullets: [<li>維護中</li>],
+            bullets: [
+                <li>熟悉 Git CLI</li>,
+                <li>能使用 Git CLI 解決大部分版本問題</li>,
+                <li>暸解如何排除衝突、挽救版本</li>,
+                <li>暸解 Git/GitHub Flow</li>,
+                <li>慣於撰寫 conventional commit</li>,
+            ],
         },
         github: {
             icon: <Icon.Github />,
@@ -248,10 +254,20 @@ const Skill = () => {
             title: 'Cypress',
             bullets: [<li>維護中</li>],
         },
-        csharp: {
-            icon: <Icon.CSharp />,
-            title: 'C#',
-            bullets: [<li>維護中</li>],
+        webpack: {
+            icon: <Icon.Webpack />,
+            title: 'Webpack',
+            bullets: [
+                <li>熟悉 babel-loader | ts-loader</li>,
+                <li>
+                    熟悉 css-loader | style-loader | css preprocessor loader |
+                    postcss-loader
+                </li>,
+                <li>理解如何正確部署 source map 及錯誤追蹤</li>,
+                <li>理解如何拆分 split chunks</li>,
+                <li>熟悉各項 minimizer 配置及其效能差異</li>,
+                <li>自行撰寫 Webpack Plugin 經驗</li>,
+            ],
         },
     };
     const [current, setCurrent] = useState(Object.keys(skills)[0]);
