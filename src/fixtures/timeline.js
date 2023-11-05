@@ -2,9 +2,14 @@ import clsx from 'clsx';
 import React from 'react';
 import Zoom from 'react-medium-image-zoom';
 
-const Image = ({ src, alt, style = {} }) => (
+const Image = ({ src, alt, lazy = true, style = {} }) => (
     <Zoom>
-        <img style={style} src={src} alt={alt} />
+        <img
+            style={style}
+            src={src}
+            alt={alt}
+            {...(lazy ? { loading: 'lazy' } : {})}
+        />
     </Zoom>
 );
 const ProjectCard = (props) => {
