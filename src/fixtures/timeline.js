@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import React, { useState } from 'react';
+import React from 'react';
 import Zoom from 'react-medium-image-zoom';
 import styled from 'styled-components';
 
@@ -14,16 +14,11 @@ const LazyImage = styled.div`
         width: 100%;
         height: 100%;
         object-fit: contain;
-        opacity: 0;
-        &.visible {
-            opacity: 1;
-        }
         transition: opacity 500ms ease-in;
     }
 `;
 
 const Image = ({ src, alt, lazy = true, style = {} }) => {
-    const [loaded, setLoaded] = useState(false);
     return (
         <Zoom>
             <LazyImage>
@@ -31,15 +26,9 @@ const Image = ({ src, alt, lazy = true, style = {} }) => {
                     style={{
                         ...style,
                     }}
-                    className={clsx({
-                        visible: loaded,
-                    })}
                     src={src}
                     alt={alt}
                     {...(lazy ? { loading: 'lazy' } : {})}
-                    onLoad={() => {
-                        setLoaded(true);
-                    }}
                 />
             </LazyImage>
         </Zoom>
