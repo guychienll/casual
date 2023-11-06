@@ -1,17 +1,50 @@
 import clsx from 'clsx';
-import React from 'react';
+import React, { useState } from 'react';
 import Zoom from 'react-medium-image-zoom';
+import styled from 'styled-components';
 
-const Image = ({ src, alt, lazy = true, style = {} }) => (
-    <Zoom>
-        <img
-            style={style}
-            src={src}
-            alt={alt}
-            {...(lazy ? { loading: 'lazy' } : {})}
-        />
-    </Zoom>
-);
+const LazyImage = styled.div`
+    width: 100%;
+    aspect-ratio: 16/9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & > img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        opacity: 0;
+        &.visible {
+            opacity: 1;
+        }
+        transition: opacity 500ms ease-in;
+    }
+`;
+
+const Image = ({ src, alt, lazy = true, style = {} }) => {
+    const [loaded, setLoaded] = useState(false);
+    return (
+        <Zoom>
+            <LazyImage>
+                <img
+                    style={{
+                        ...style,
+                    }}
+                    className={clsx({
+                        visible: loaded,
+                    })}
+                    src={src}
+                    alt={alt}
+                    {...(lazy ? { loading: 'lazy' } : {})}
+                    onLoad={() => {
+                        setLoaded(true);
+                    }}
+                />
+            </LazyImage>
+        </Zoom>
+    );
+};
 const ProjectCard = (props) => {
     const {
         title = '',
