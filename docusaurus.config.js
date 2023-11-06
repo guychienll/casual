@@ -28,6 +28,7 @@ const config = {
         locales: ['zh-Hant'],
     },
     plugins: [
+        'docusaurus-plugin-sass',
         [
             '@docusaurus/plugin-google-gtag',
             {
@@ -50,7 +51,7 @@ const config = {
                     editUrl: 'https://github.com/guychienll/casual/tree/main',
                 },
                 theme: {
-                    customCss: require.resolve('./src/css/custom.css'),
+                    customCss: require.resolve('./src/css/custom.scss'),
                 },
             }),
         ],
