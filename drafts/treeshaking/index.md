@@ -46,4 +46,5 @@ Tree shaking is a term commonly used in the JavaScript context for dead-code eli
 
 [babel-preset-env modules auto means](https://zhuanlan.zhihu.com/p/436312451)<br/>
 [key-question of babel-preset-env modules auto means](https://github.com/babel/babel/pull/8485/files#r236086742)<br/>
-[tree shaking reference](https://cloud.tencent.com/developer/article/1901089)
+[tree shaking reference](https://cloud.tencent.com/developer/article/1901089)<br/>
+[tree shaking reference 2](https://segmentfault.com/a/1190000022194321)<br/>
