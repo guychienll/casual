@@ -1,10 +1,6 @@
-// @ts-check
-// Note: type annotations allow type checking and IDEs autocompletion
+const lightCodeTheme = require('prism-react-renderer').themes.github;
+const darkCodeTheme = require('prism-react-renderer').themes.dracula;
 
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
-
-/** @type {import('@docusaurus/types').Config} */
 const config = {
     title: 'guychienll.dev',
     tagline: 'guychienll.dev',
@@ -32,7 +28,6 @@ const config = {
         locales: ['zh-Hant'],
     },
     plugins: [
-        'docusaurus-plugin-sass',
         [
             '@docusaurus/plugin-google-gtag',
             {
@@ -45,7 +40,6 @@ const config = {
     presets: [
         [
             'classic',
-            /** @type {import('@docusaurus/preset-classic').Options} */
             ({
                 docs: {
                     sidebarPath: require.resolve('./sidebars.js'),
@@ -56,14 +50,13 @@ const config = {
                     editUrl: 'https://github.com/guychienll/casual/tree/main',
                 },
                 theme: {
-                    customCss: require.resolve('./src/css/custom.scss'),
+                    customCss: require.resolve('./src/css/custom.css'),
                 },
             }),
         ],
     ],
 
     themeConfig:
-        /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
         ({
             // Replace with your project's social card
             // image: 'img/docusaurus-social-card.jpg',

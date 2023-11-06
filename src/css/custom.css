@@ -1,0 +1,83 @@
+@import 'react-vertical-timeline-component/style.min.css';
+ @import 'react-medium-image-zoom/dist/styles.css';
+ :root {
+	 --ifm-color-primary: #aa95b2;
+	 --ifm-color-primary-dark: #9b82a4;
+	 --ifm-color-primary-darker: #93799d;
+	 --ifm-color-primary-darkest: #7b6085;
+	 --ifm-color-primary-light: #b9a8c0;
+	 --ifm-color-primary-lighter: #c1b1c7;
+	 --ifm-color-primary-lightest: #d8cedb;
+	 --ifm-background-color: #f0f0f0;
+	 --ifm-code-font-size: 95%;
+	 --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+	 --color-neutral-000: #f5f6f7;
+	 --color-neutral-050: #888;
+	 --color-neutral-100: #1b1b1d;
+	 --line-color: var(--ifm-color-primary) !important;
+}
+ @media screen and (max-width: 1170px) {
+	 :root {
+		 --line-color: transparent !important;
+	}
+}
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+ [data-theme='dark'] {
+	 --ifm-color-primary: #ab91b1;
+	 --ifm-color-primary-dark: #9d7ea4;
+	 --ifm-color-primary-darker: #95759d;
+	 --ifm-color-primary-darkest: #7d5e84;
+	 --ifm-color-primary-light: #b9a4be;
+	 --ifm-color-primary-lighter: #c1adc5;
+	 --ifm-color-primary-lightest: #d6cad9;
+	 --color-neutral-000: #1b1b1d;
+	 --color-neutral-050: #888;
+	 --color-neutral-100: #f5f6f7;
+}
+ details {
+	 color: var(--color-neutral-100);
+	 background-color: var(--ifm-color-primary-darker);
+	 border: 1px solid rgba(0, 0, 0, 0.125);
+	 border-radius: 0.25rem;
+	 margin-bottom: 1rem;
+	 cursor: pointer;
+}
+ details * {
+	 user-select: none;
+}
+ details:last-child {
+	 margin-bottom: 0;
+}
+ details > summary {
+	 background-color: var(--ifm-color-primary-darkest);
+	 padding: 0.75rem;
+	 border-bottom: 2px solid rgba(0, 0, 0, 0.125);
+	 border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
+	 cursor: pointer;
+}
+ details > summary:focus {
+	 outline: none;
+}
+ details > ul {
+	 margin-top: 0.5rem;
+	 margin-right: 1rem;
+}
+ details > ul > li {
+	 margin-bottom: 1rem;
+	 cursor: auto;
+	 list-style-type: '⬗ ';
+}
+ details > ul > li:has(div.card), details > ul > li:has(img) {
+	 list-style: none;
+}
+ .vertical-timeline-element-icon {
+	 background-color: var(--ifm-background-color);
+	 transform: scale(1);
+	 transition: transform 300ms ease-in-out;
+	 box-shadow: 0 0 0 4px var(--line-color), inset 0 2px 0 rgba(0, 0, 0, .08), 0 3px 0 4px rgba(0, 0, 0, .05);
+}
+ .vertical-timeline-element-icon:hover {
+	 transform: scale(1.2);
+	 cursor: pointer;
+}
+ 

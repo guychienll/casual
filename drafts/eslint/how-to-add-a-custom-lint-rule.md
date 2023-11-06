@@ -7,7 +7,7 @@ draft: true
 開立一個自己的 eslint plugin
 
 
-:::caution ESlint { Plugin | Config } 命名規範
+:::caution ESlint \{ Plugin | Config \} 命名規範
   - eslint-plugin-`{{name}}`
   - @`{{scope}}`/eslint-plugin
   - @`{{scope}}`/eslint-plugin-`{{name}}`
