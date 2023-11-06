@@ -34,6 +34,7 @@ const Image = ({ src, alt, lazy = true, style = {} }) => {
         </Zoom>
     );
 };
+
 const ProjectCard = (props) => {
     const {
         title = '',
@@ -190,6 +191,23 @@ export const PINKOI_TIMELINE = {
                     schema 產出 TypeScript Type， 達成在前後端串接 api
                     時介面的一致性，使 api 介面能夠成為 single source of truth
                 </li>,
+            ],
+        },
+        XMAS: {
+            title: '2022 Xmas',
+            bullets: [
+                <ProjectCard
+                    title="2022 Xmas"
+                    link={{
+                        label: 'See Site',
+                        url: 'https://www.pinkoi.com/event/xmas',
+                    }}
+                    image={{
+                        src: './assets/pinkoi-xmas.png',
+                        alt: 'pinkoi ci',
+                    }}
+                    labels={['React', 'Campaign', 'event', 'Xmas', '2022']}
+                />,
             ],
         },
     },
