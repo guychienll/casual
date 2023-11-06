@@ -3,105 +3,97 @@
 // https://rpearce.github.io/react-medium-image-zoom/?path=/docs/introduction--docs
 
 :root {
-  --ifm-color-primary: #aa95b2;
-  --ifm-color-primary-dark: #9b82a4;
-  --ifm-color-primary-darker: #93799d;
-  --ifm-color-primary-darkest: #7b6085;
-  --ifm-color-primary-light: #b9a8c0;
-  --ifm-color-primary-lighter: #c1b1c7;
-  --ifm-color-primary-lightest: #d8cedb;
-  --ifm-background-color: rgb(240, 240, 240);
-  --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
-  --color-neutral-000: rgb(245, 246, 247);
-  --color-neutral-050: #888888;
-  --color-neutral-100: #1b1b1d;
-  --line-color: var(--ifm-color-primary) !important;
+    --ifm-color-primary: #aa95b2;
+    --ifm-color-primary-dark: #9b82a4;
+    --ifm-color-primary-darker: #93799d;
+    --ifm-color-primary-darkest: #7b6085;
+    --ifm-color-primary-light: #b9a8c0;
+    --ifm-color-primary-lighter: #c1b1c7;
+    --ifm-color-primary-lightest: #d8cedb;
+    --ifm-background-color: rgb(240, 240, 240);
+    --ifm-code-font-size: 95%;
+    --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+    --color-neutral-000: rgb(245, 246, 247);
+    --color-neutral-050: #888888;
+    --color-neutral-100: #1b1b1d;
+    --line-color: var(--ifm-color-primary) !important;
 
-  @media screen and (max-width: 1170px) {
-    --line-color: transparent !important;
-  }
+    @media screen and (max-width: 1170px) {
+        --line-color: transparent !important;
+    }
 }
-
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #ab91b1;
-  --ifm-color-primary-dark: #9d7ea4;
-  --ifm-color-primary-darker: #95759d;
-  --ifm-color-primary-darkest: #7d5e84;
-  --ifm-color-primary-light: #b9a4be;
-  --ifm-color-primary-lighter: #c1adc5;
-  --ifm-color-primary-lightest: #d6cad9;
-  --color-neutral-000: #1b1b1d;
-  --color-neutral-050: #888888;
-  --color-neutral-100: rgb(245, 246, 247);
+    --ifm-color-primary: #ab91b1;
+    --ifm-color-primary-dark: #9d7ea4;
+    --ifm-color-primary-darker: #95759d;
+    --ifm-color-primary-darkest: #7d5e84;
+    --ifm-color-primary-light: #b9a4be;
+    --ifm-color-primary-lighter: #c1adc5;
+    --ifm-color-primary-lightest: #d6cad9;
+    --color-neutral-000: #1b1b1d;
+    --color-neutral-050: #888888;
+    --color-neutral-100: rgb(245, 246, 247);
 }
 
 details {
-  color: var(--color-neutral-100);
-  background-color: var(--ifm-color-primary-darker);
-  border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 0.25rem;
-  margin-bottom: 1rem;
-  cursor: pointer;
-
-
-  & * {
-    user-select: none;
-  }
-
-  &:last-child {
-    margin-bottom: 0;
-  }
-
-
-  &>summary {
-    background-color: var(--ifm-color-primary-darkest);
-    padding: 0.75rem;
-    border-bottom: 2px solid rgba(0, 0, 0, 0.125);
-    border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
+    color: var(--color-neutral-100);
+    background-color: var(--ifm-color-primary-darker);
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+    margin-bottom: 1rem;
     cursor: pointer;
 
-
-    &:focus {
-      outline: none;
+    & * {
+        user-select: none;
     }
 
-  }
-
-
-
-  &>ul {
-
-    margin-top: 0.5rem;
-    margin-right: 1rem;
-
-    &>li {
-      margin-bottom: 1rem;
-      cursor: auto;
-      list-style-type: '⬗  ';
-
-
-      &:has(div.card),
-      &:has(img) {
-        list-style: none;
-      }
-
+    &:last-child {
+        margin-bottom: 0;
     }
-  }
 
+    & > summary {
+        background-color: var(--ifm-color-primary-darkest);
+        padding: 0.75rem;
+        border-bottom: 2px solid rgba(0, 0, 0, 0.125);
+        border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
+        cursor: pointer;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    & > ul {
+        margin-top: 0.5rem;
+        margin-right: 1rem;
+
+        & > li {
+            margin-bottom: 1rem;
+            cursor: auto;
+            list-style-type: '⬗  ';
+
+            &:has(div.card),
+            &:has(img) {
+                list-style: none;
+            }
+        }
+    }
 }
 
 .vertical-timeline-element-icon {
-  background-color: var(--ifm-background-color);
+    background-color: var(--ifm-background-color);
 
-  transform: scale(1);
-  transition: transform 300ms ease-in-out;
-  box-shadow: 0 0 0 4px var(--line-color), inset 0 2px 0 rgba(0, 0, 0, .08), 0 3px 0 4px rgba(0, 0, 0, .05);
+    transform: scale(1);
+    transition: transform 300ms ease-in-out;
+    box-shadow:
+        0 0 0 4px var(--line-color),
+        inset 0 2px 0 rgba(0, 0, 0, 0.08),
+        0 3px 0 4px rgba(0, 0, 0, 0.05);
 
-  &:hover {
-    transform: scale(1.2);
-    cursor: pointer;
-  }
+    &:hover {
+        transform: scale(1.2);
+        cursor: pointer;
+    }
 }
