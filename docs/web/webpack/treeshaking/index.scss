@@ -1,0 +1,30 @@
+article.gist {
+    vertical-align: middle;
+    max-width: 500px;
+
+    & > h2 {
+        display: none;
+    }
+
+    & td {
+        min-width: unset;
+    }
+
+    & tr {
+        border: none;
+    }
+
+    & td.js-line-number {
+        border: none;
+    }
+
+    & .gist-meta {
+        display: none;
+    }
+    & .gist-file {
+        border: none;
+        margin-bottom: unset;
+    }
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
