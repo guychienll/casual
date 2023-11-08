@@ -6,7 +6,6 @@ import Image from "@site/src/components/Image";
 import ReactGist from '@site/src/components/ReactGist';
 import "./index.scss";
 
-
 # Tree Shaking
 
 <Image src="/assets/tree-shaking.gif" alt="tree shaking banner" />
@@ -14,22 +13,28 @@ import "./index.scss";
 ## 前情提要
 
 :::caution
+
 全文適用於 webpack bundler 並且透過 babel 做 transpile 的專案。
+
 :::
 
 :::tip
+
 在了解 Tree Shaking 前必須要先了解一些背景知識
 
 1. `@babel/preset-env` 當中 `modules` 參數給予不同值的差異
 2. 達成 Tree Shaking 的必備條件
 3. 如何正確的撰寫 ESM 輕鬆 Tree Shaking
-   :::
+
+:::
 
 ## 什麼是 Tree Shaking ?
 
 :::info
+
 擷取自 Webpack 官方文件  
 Tree shaking is a term commonly used in the JavaScript context for dead-code elimination
+
 :::
 
 > 換句話說，就是將你沒有用到的程式碼，在打包程式碼時，將他移除掉。
@@ -37,14 +42,17 @@ Tree shaking is a term commonly used in the JavaScript context for dead-code eli
 ## `@babel/preset-env` 是什麼？
 
 :::tip
+
 所有使用 babel 當作 transpiler 幾乎都會使用 `@babel/preset-env` 作為預設  
 它可以迅速的讓我們撰寫的 script 依照 browserslist 欲兼容的瀏覽器版本  
 提供符合的 polyfill 跟 syntax 降級  
 而 `@babel/preset-env` 當中有個 options `modules`  
 接下來將會對它多點介紹
+
 :::
 
 :::info
+
 在 [`@babel/preset-env@7.23.2`](https://babeljs.io/docs/babel-preset-env#modules) 文件當中是這樣說明 modules 選項的
 
 > `"amd"` | `"umd"` | `"systemjs"` | `"commonjs"` | `"cjs"` | `"auto"` | `false`, defaults to `"auto"`.
@@ -60,43 +68,50 @@ Tree shaking is a term commonly used in the JavaScript context for dead-code eli
 意指透過設定 modules 選項可以將 ESM 語法轉換成其他的模組解析方式，  
 其中可以將其設定為 `"amd"` | `"umd"` | `"systemjs"` | `"commonjs"` | `"cjs"` | `"auto"` | `false` 這些選項  
 針對這些選項接下來將會逐一說明跟展示
+
 :::
 
-> modules : `false`  
+> modules: `false`  
 > 將 modules 設置成 `false` 意指  
-> 如果看到 ESM 請`不要`幫忙轉譯模組解析方式  
+> 如果看到 ESM 請 `不要` 幫忙轉譯模組解析方式  
+> 按照 `原樣` 輸出
+> 如果非看到 ESM 在此設置下會 `原樣` 輸出
 > | BEFORE | AFTER |
 > | ---------------------- | ------------------------ |
-> | <ReactGist wrapperClass="gist" gist="guychienll/03587263a8a53e4316c888249e1bf9a6" /> | <ReactGist wrapperClass="gist"  gist="guychienll/0fd361982165f3824127a5a6a0a1f058" /> |
+> | <ReactGist id="03587263a8a53e4316c888249e1bf9a6" /> | <ReactGist id="0fd361982165f3824127a5a6a0a1f058" /> |
 
-> modules : `amd`  
+> modules: `amd`  
 > 將 modules 設置成 `amd` 意指  
 > 如果看到 ESM 請幫忙轉譯模組解析方式為 `amd`  
+> 如果非看到 ESM 將會在外層包裹一層 封裝成 `amd` 模組
 > | BEFORE | AFTER |
 > | ---------------------- | ------------------------ |
-> | <ReactGist wrapperClass="gist" gist="guychienll/9a87f43f9a7884a4d1a11a362dafa78c" /> | <ReactGist wrapperClass="gist"  gist="guychienll/b949718c56b0a54fc3bc3e588250966a" /> |
+> | <ReactGist id="9a87f43f9a7884a4d1a11a362dafa78c" /> | <ReactGist id="b949718c56b0a54fc3bc3e588250966a" /> |
 
-> modules : `umd`  
+> modules: `umd`  
 > 將 modules 設置成 `umd` 意指  
 > 如果看到 ESM 請幫忙轉譯模組解析方式為 `umd`  
+> 如果非看到 ESM 將會在外層包裹一層 封裝成 `umd` 模組
 > | BEFORE | AFTER |
 > | ---------------------- | ------------------------ |
-> | <ReactGist wrapperClass="gist" gist="guychienll/3ce32c4315abaca8e442a28c9a1caed0" /> | <ReactGist wrapperClass="gist"  gist="guychienll/88955a81a4fefcb9215a95da65c7d232" /> |
+> | <ReactGist id="3ce32c4315abaca8e442a28c9a1caed0" /> | <ReactGist id="88955a81a4fefcb9215a95da65c7d232" /> |
 
-> modules : `systemjs`  
+> modules: `systemjs`  
 > 將 modules 設置成 `systemjs` 意指  
-> 如果看到 ESM 請幫忙轉譯模組解析方式為 `sysemjs`  
+> 如果看到 ESM 請幫忙轉譯模組解析方式為 `systemjs`  
+> 如果非看到 ESM 將會在外層包裹一層 封裝成 `systemjs` 模組
 > | BEFORE | AFTER |
 > | ---------------------- | ------------------------ |
-> | <ReactGist wrapperClass="gist" gist="guychienll/6d5118c0c0b6522634856d0c1e826eaf" /> | <ReactGist wrapperClass="gist"  gist="guychienll/baf8a943816ebe8ff91b5f77088da2aa" /> |
+> | <ReactGist id="6d5118c0c0b6522634856d0c1e826eaf" /> | <ReactGist id="baf8a943816ebe8ff91b5f77088da2aa" /> |
 
-> modules : `commonjs` `cjs`   
-> `cjs` 只是 `commonjs` 的縮寫   
-> 將 modules 設置成 `commonjs` 或是 `cjs` 意指   
-> 如果看到 ESM 請幫忙轉譯模組解析方式為 `commonjs`   
+> modules: `commonjs` | `cjs`  
+> `cjs` 只是 `commonjs` 的縮寫  
+> 將 modules 設置成 `commonjs` 或是 `cjs` 意指  
+> 如果看到 ESM 請幫忙轉譯模組解析方式為 `commonjs`  
+> 如果非看到 ESM 在此設置下會 `原樣` 輸出
 > | BEFORE | AFTER |
 > | ---------------------- | ------------------------ |
-> | <ReactGist wrapperClass="gist" gist="guychienll/74016ba26990db89867f8c779615becc" /> | <ReactGist wrapperClass="gist"  gist="guychienll/56f2268d7645fd36d128bc4f0d5f7b03" /> |
+> | <ReactGist id="74016ba26990db89867f8c779615becc" /> | <ReactGist id="56f2268d7645fd36d128bc4f0d5f7b03" /> |
 
 [babel-preset-env modules auto means](https://zhuanlan.zhihu.com/p/436312451)<br/>
 [key-question of babel-preset-env modules auto means](https://github.com/babel/babel/pull/8485/files#r236086742)<br/>
