@@ -2,22 +2,19 @@
 title: Tree Shaking
 ---
 
-import Zoom from 'react-medium-image-zoom';
-import ReactEmbedGist from 'react-embed-gist';
+import Image from "@site/src/components/Image";
+import ReactGist from '@site/src/components/ReactGist';
 import "./index.scss";
+
 
 # Tree Shaking
 
-<Zoom>
-
-![tree-shaking](../../assets/tree-shaking.gif)
-
-</Zoom>
+<Image src="/assets/tree-shaking.gif" alt="tree shaking banner" />
 
 ## 前情提要
 
 :::caution
-全文適用於 webpack bundler 並且透過 babel 做 trasnpile 的專案。
+全文適用於 webpack bundler 並且透過 babel 做 transpile 的專案。
 :::
 
 :::tip
@@ -65,41 +62,41 @@ Tree shaking is a term commonly used in the JavaScript context for dead-code eli
 針對這些選項接下來將會逐一說明跟展示
 :::
 
-> modules : `false`
-> 將 modules 設置成 `false` 意指
-> 如果看到 ESM 請`不要`幫忙轉譯模組解析方式
+> modules : `false`  
+> 將 modules 設置成 `false` 意指  
+> 如果看到 ESM 請`不要`幫忙轉譯模組解析方式  
 > | BEFORE | AFTER |
 > | ---------------------- | ------------------------ |
-> | <ReactEmbedGist wrapperClass="gist" gist="guychienll/03587263a8a53e4316c888249e1bf9a6" /> | <ReactEmbedGist wrapperClass="gist"  gist="guychienll/0fd361982165f3824127a5a6a0a1f058" /> |
+> | <ReactGist wrapperClass="gist" gist="guychienll/03587263a8a53e4316c888249e1bf9a6" /> | <ReactGist wrapperClass="gist"  gist="guychienll/0fd361982165f3824127a5a6a0a1f058" /> |
 
-> modules : `amd`
-> 將 modules 設置成 `amd` 意指
-> 如果看到 ESM 請幫忙轉譯模組解析方式為 `amd`
+> modules : `amd`  
+> 將 modules 設置成 `amd` 意指  
+> 如果看到 ESM 請幫忙轉譯模組解析方式為 `amd`  
 > | BEFORE | AFTER |
 > | ---------------------- | ------------------------ |
-> | <ReactEmbedGist wrapperClass="gist" gist="guychienll/9a87f43f9a7884a4d1a11a362dafa78c" /> | <ReactEmbedGist wrapperClass="gist"  gist="guychienll/b949718c56b0a54fc3bc3e588250966a" /> |
+> | <ReactGist wrapperClass="gist" gist="guychienll/9a87f43f9a7884a4d1a11a362dafa78c" /> | <ReactGist wrapperClass="gist"  gist="guychienll/b949718c56b0a54fc3bc3e588250966a" /> |
 
-> modules : `umd`
-> 將 modules 設置成 `umd` 意指
-> 如果看到 ESM 請幫忙轉譯模組解析方式為 `umd`
+> modules : `umd`  
+> 將 modules 設置成 `umd` 意指  
+> 如果看到 ESM 請幫忙轉譯模組解析方式為 `umd`  
 > | BEFORE | AFTER |
 > | ---------------------- | ------------------------ |
-> | <ReactEmbedGist wrapperClass="gist" gist="guychienll/3ce32c4315abaca8e442a28c9a1caed0" /> | <ReactEmbedGist wrapperClass="gist"  gist="guychienll/88955a81a4fefcb9215a95da65c7d232" /> |
+> | <ReactGist wrapperClass="gist" gist="guychienll/3ce32c4315abaca8e442a28c9a1caed0" /> | <ReactGist wrapperClass="gist"  gist="guychienll/88955a81a4fefcb9215a95da65c7d232" /> |
 
-> modules : `systemjs`
-> 將 modules 設置成 `systemjs` 意指
-> 如果看到 ESM 請幫忙轉譯模組解析方式為 `sysemjs`
+> modules : `systemjs`  
+> 將 modules 設置成 `systemjs` 意指  
+> 如果看到 ESM 請幫忙轉譯模組解析方式為 `sysemjs`  
 > | BEFORE | AFTER |
 > | ---------------------- | ------------------------ |
-> | <ReactEmbedGist wrapperClass="gist" gist="guychienll/6d5118c0c0b6522634856d0c1e826eaf" /> | <ReactEmbedGist wrapperClass="gist"  gist="guychienll/baf8a943816ebe8ff91b5f77088da2aa" /> |
+> | <ReactGist wrapperClass="gist" gist="guychienll/6d5118c0c0b6522634856d0c1e826eaf" /> | <ReactGist wrapperClass="gist"  gist="guychienll/baf8a943816ebe8ff91b5f77088da2aa" /> |
 
-> modules : `commonjs` `cjs`  
-> `cjs` 只是 `commonjs` 的縮寫  
-> 將 modules 設置成 `commonjs` 或是 `cjs` 意指  
-> 如果看到 ESM 請幫忙轉譯模組解析方式為 `commonjs`
+> modules : `commonjs` `cjs`   
+> `cjs` 只是 `commonjs` 的縮寫   
+> 將 modules 設置成 `commonjs` 或是 `cjs` 意指   
+> 如果看到 ESM 請幫忙轉譯模組解析方式為 `commonjs`   
 > | BEFORE | AFTER |
 > | ---------------------- | ------------------------ |
-> | <ReactEmbedGist wrapperClass="gist" gist="guychienll/74016ba26990db89867f8c779615becc" /> | <ReactEmbedGist wrapperClass="gist"  gist="guychienll/56f2268d7645fd36d128bc4f0d5f7b03" /> |
+> | <ReactGist wrapperClass="gist" gist="guychienll/74016ba26990db89867f8c779615becc" /> | <ReactGist wrapperClass="gist"  gist="guychienll/56f2268d7645fd36d128bc4f0d5f7b03" /> |
 
 [babel-preset-env modules auto means](https://zhuanlan.zhihu.com/p/436312451)<br/>
 [key-question of babel-preset-env modules auto means](https://github.com/babel/babel/pull/8485/files#r236086742)<br/>
