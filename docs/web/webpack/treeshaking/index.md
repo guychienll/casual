@@ -66,26 +66,37 @@ Tree shaking is a term commonly used in the JavaScript context for dead-code eli
 :::
 
 > modules : `false`
+> 將 modules 設置成 `false` 意指
+> 如果看到 ESM 請`不要`幫忙轉譯模組解析方式
 > | BEFORE | AFTER |
 > | ---------------------- | ------------------------ |
 > | <ReactEmbedGist wrapperClass="gist" gist="guychienll/03587263a8a53e4316c888249e1bf9a6" /> | <ReactEmbedGist wrapperClass="gist"  gist="guychienll/0fd361982165f3824127a5a6a0a1f058" /> |
 
 > modules : `amd`
+> 將 modules 設置成 `amd` 意指
+> 如果看到 ESM 請幫忙轉譯模組解析方式為 `amd`
 > | BEFORE | AFTER |
 > | ---------------------- | ------------------------ |
 > | <ReactEmbedGist wrapperClass="gist" gist="guychienll/9a87f43f9a7884a4d1a11a362dafa78c" /> | <ReactEmbedGist wrapperClass="gist"  gist="guychienll/b949718c56b0a54fc3bc3e588250966a" /> |
 
 > modules : `umd`
+> 將 modules 設置成 `umd` 意指
+> 如果看到 ESM 請幫忙轉譯模組解析方式為 `umd`
 > | BEFORE | AFTER |
 > | ---------------------- | ------------------------ |
 > | <ReactEmbedGist wrapperClass="gist" gist="guychienll/3ce32c4315abaca8e442a28c9a1caed0" /> | <ReactEmbedGist wrapperClass="gist"  gist="guychienll/88955a81a4fefcb9215a95da65c7d232" /> |
 
 > modules : `systemjs`
+> 將 modules 設置成 `systemjs` 意指
+> 如果看到 ESM 請幫忙轉譯模組解析方式為 `sysemjs`
 > | BEFORE | AFTER |
 > | ---------------------- | ------------------------ |
 > | <ReactEmbedGist wrapperClass="gist" gist="guychienll/6d5118c0c0b6522634856d0c1e826eaf" /> | <ReactEmbedGist wrapperClass="gist"  gist="guychienll/baf8a943816ebe8ff91b5f77088da2aa" /> |
 
-> modules : `commonjs` `cjs`
+> modules : `commonjs` `cjs`  
+> `cjs` 只是 `commonjs` 的縮寫  
+> 將 modules 設置成 `commonjs` 或是 `cjs` 意指  
+> 如果看到 ESM 請幫忙轉譯模組解析方式為 `commonjs`
 > | BEFORE | AFTER |
 > | ---------------------- | ------------------------ |
 > | <ReactEmbedGist wrapperClass="gist" gist="guychienll/74016ba26990db89867f8c779615becc" /> | <ReactEmbedGist wrapperClass="gist"  gist="guychienll/56f2268d7645fd36d128bc4f0d5f7b03" /> |
