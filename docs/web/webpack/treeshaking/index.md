@@ -80,40 +80,47 @@ Tree shaking is a term commonly used in the JavaScript context for dead-code eli
 > | ---------------------- | ------------------------ |
 > | <ReactGist id="03587263a8a53e4316c888249e1bf9a6" /> | <ReactGist id="0fd361982165f3824127a5a6a0a1f058" /> |
 
-> modules: `amd`  
-> 將 modules 設置成 `amd` 意指  
-> 如果看到 ESM 請幫忙轉譯模組解析方式為 `amd`  
-> 如果非看到 ESM 將會在外層包裹一層 封裝成 `amd` 模組
+> modules: `"amd"`  
+> 將 modules 設置成 `"amd"` 意指  
+> 如果看到 ESM 請幫忙轉譯模組解析方式為 `"amd"`  
+> 如果非看到 ESM 將會在外層包裹一層 封裝成 `"amd"` 模組
 > | BEFORE | AFTER |
 > | ---------------------- | ------------------------ |
 > | <ReactGist id="9a87f43f9a7884a4d1a11a362dafa78c" /> | <ReactGist id="b949718c56b0a54fc3bc3e588250966a" /> |
 
-> modules: `umd`  
-> 將 modules 設置成 `umd` 意指  
-> 如果看到 ESM 請幫忙轉譯模組解析方式為 `umd`  
-> 如果非看到 ESM 將會在外層包裹一層 封裝成 `umd` 模組
+> modules: `"umd"`  
+> 將 modules 設置成 `"umd"` 意指  
+> 如果看到 ESM 請幫忙轉譯模組解析方式為 `"umd"`  
+> 如果非看到 ESM 將會在外層包裹一層 封裝成 `"umd"` 模組
 > | BEFORE | AFTER |
 > | ---------------------- | ------------------------ |
 > | <ReactGist id="3ce32c4315abaca8e442a28c9a1caed0" /> | <ReactGist id="88955a81a4fefcb9215a95da65c7d232" /> |
 
-> modules: `systemjs`  
-> 將 modules 設置成 `systemjs` 意指  
-> 如果看到 ESM 請幫忙轉譯模組解析方式為 `systemjs`  
-> 如果非看到 ESM 將會在外層包裹一層 封裝成 `systemjs` 模組
+> modules: `"systemjs"`  
+> 將 modules 設置成 `"systemjs"` 意指  
+> 如果看到 ESM 請幫忙轉譯模組解析方式為 `"systemjs"`  
+> 如果非看到 ESM 將會在外層包裹一層 封裝成 `"systemjs"` 模組
 > | BEFORE | AFTER |
 > | ---------------------- | ------------------------ |
 > | <ReactGist id="6d5118c0c0b6522634856d0c1e826eaf" /> | <ReactGist id="baf8a943816ebe8ff91b5f77088da2aa" /> |
 
-> modules: `commonjs` | `cjs`  
-> `cjs` 只是 `commonjs` 的縮寫  
-> 將 modules 設置成 `commonjs` 或是 `cjs` 意指  
-> 如果看到 ESM 請幫忙轉譯模組解析方式為 `commonjs`  
+> modules: `"commonjs"` | `"cjs"`  
+> `"cjs"` 只是 `"commonjs"` 的縮寫  
+> 將 modules 設置成 `"commonjs"` 或是 `"cjs"` 意指  
+> 如果看到 ESM 請幫忙轉譯模組解析方式為 `"commonjs"`  
 > 如果非看到 ESM 在此設置下會 `原樣` 輸出
 > | BEFORE | AFTER |
 > | ---------------------- | ------------------------ |
 > | <ReactGist id="74016ba26990db89867f8c779615becc" /> | <ReactGist id="56f2268d7645fd36d128bc4f0d5f7b03" /> |
 
-[babel-preset-env modules auto means](https://zhuanlan.zhihu.com/p/436312451)<br/>
+> modules: `"auto"`
+> modules "auto" 狀況比較特殊
+> 同時它也是 @babel/preset-env 不對 modules 選項設置時的預設值
+> 它將會依照當初 call @babel/cli 的 caller 決定如何轉譯目前的模組
+> 如果 caller 當中 supportsStaticESM 是 `true` 則與 modules: `false` 等價
+> 如果 caller 當中 supportsStaticESM 是 `false` 則與 modules: `"commonjs"` | `"cjs"` 等價
+
+[babel/webpack编译构建过程中模块类型的转换过程](https://zhuanlan.zhihu.com/p/436312451)<br/>
 [key-question of babel-preset-env modules auto means](https://github.com/babel/babel/pull/8485/files#r236086742)<br/>
 [tree shaking reference](https://cloud.tencent.com/developer/article/1901089)<br/>
 [tree shaking reference 2](https://segmentfault.com/a/1190000022194321)<br/>
