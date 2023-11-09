@@ -1,6 +1,7 @@
 ---
 id: tree-shaking
 title: Tree Shaking 搖樹
+description: 使用簡易程式碼解釋 webpack 如何 Tree Shaking
 tags:
     - webpack
     - javascript
@@ -13,6 +14,13 @@ tags:
     - commonjs
     - modules
 ---
+
+<head>
+    <meta property="og:url" content="https://guychienll.dev/docs/web/webpack/treeshaking/"/>
+    <meta property="og:image" content="/assets/tree-shaking.gif"/>
+    <meta property="og:title" content="Tree Shaking 搖樹"/>
+    <meta property="og:description" content="使用簡易程式碼解釋 webpack 如何 Tree Shaking"/>
+</head>
 
 import Image from "@site/src/components/Image";
 
