@@ -628,7 +628,7 @@ console.log(process(1, 2));
 
 1. 需使用 ES Modules 撰寫 Source Code
 2. 確定 `@babel/preset-env` 的 modules 設置是否為 `"auto"` 或是 `false`
-3. 確認有正確使用 ES Modules
+3. 確認有恰當使用 ES Modules
 
 ## 參考連結
 
