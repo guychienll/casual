@@ -405,6 +405,8 @@ export const TITANSOFT_TIMELINE = {
 export const TITANSOFT_INTERN_TIMELINE = {
     LOGO: (
         <img
+            width="60px"
+            height="60px"
             src="./img/titansoft.png"
             style={{ borderRadius: '50%' }}
             alt="titansoft"
