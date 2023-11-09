@@ -95,6 +95,8 @@ const ProjectCard = (props) => {
 export const PINKOI_TIMELINE = {
     LOGO: (
         <img
+            width="60px"
+            height="60px"
             src="./img/pinkoi.jpg"
             style={{ borderRadius: '50%' }}
             alt="pinkoi"
@@ -210,6 +212,8 @@ export const PINKOI_TIMELINE = {
 export const REVTEL_TIMELINE = {
     LOGO: (
         <img
+            width="60px"
+            height="60px"
             src="./img/revtel.png"
             style={{ transform: 'scale(0.72)' }}
             alt="revtel"
@@ -356,6 +360,8 @@ export const REVTEL_TIMELINE = {
 export const TITANSOFT_TIMELINE = {
     LOGO: (
         <img
+            width="60px"
+            height="60px"
             src="./img/titansoft.png"
             style={{ borderRadius: '50%' }}
             alt="titansoft"
