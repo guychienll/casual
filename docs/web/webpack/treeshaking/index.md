@@ -1,6 +1,6 @@
 ---
 id: tree-shaking
-title: Tree Shaking 搖樹
+title: 深入解析 Webpack Tree Shaking
 description: 使用簡易程式碼解釋 webpack 如何 Tree Shaking
 tags:
     - webpack
