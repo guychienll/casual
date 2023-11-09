@@ -24,8 +24,6 @@ tags:
 
 import Image from "@site/src/components/Image";
 
-# Tree Shaking
-
 <Image src="/assets/tree-shaking.gif" alt="tree shaking banner" />
 
 ## 前情提要
