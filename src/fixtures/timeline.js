@@ -100,6 +100,7 @@ export const PINKOI_TIMELINE = {
             src="./img/pinkoi.jpg"
             style={{ borderRadius: '50%' }}
             alt="pinkoi"
+            loading="lazy"
         />
     ),
     TITLE: 'Pinkoi Inc.',
@@ -217,6 +218,7 @@ export const REVTEL_TIMELINE = {
             src="./img/revtel.png"
             style={{ transform: 'scale(0.72)' }}
             alt="revtel"
+            loading="lazy"
         />
     ),
     TITLE: 'Revtel Tech',
@@ -268,7 +270,6 @@ export const REVTEL_TIMELINE = {
         },
         MAINLY_INVOLVED: {
             title: '主要參與專案',
-            isOpen: false,
             bullets: [
                 <li>
                     <ProjectCard
@@ -322,7 +323,6 @@ export const REVTEL_TIMELINE = {
         },
         SECONDARY_INVOLVED: {
             title: '次要參與專案',
-            isOpen: false,
             bullets: [
                 <li>
                     <ProjectCard
@@ -365,6 +365,7 @@ export const TITANSOFT_TIMELINE = {
             src="./img/titansoft.png"
             style={{ borderRadius: '50%' }}
             alt="titansoft"
+            loading="lazy"
         />
     ),
     TITLE: 'Titansoft Pte Ltd',
@@ -410,6 +411,7 @@ export const TITANSOFT_INTERN_TIMELINE = {
             src="./img/titansoft.png"
             style={{ borderRadius: '50%' }}
             alt="titansoft"
+            loading="lazy"
         />
     ),
     TITLE: 'Titansoft Pte Ltd',
@@ -423,7 +425,6 @@ export const TITANSOFT_INTERN_TIMELINE = {
     ),
     KEY_ACHIEVEMENT: {
         SHARE_REACT_WITH_INTERNS: {
-            isOpen: false,
             title: '與同期實習生分享 React',
             bullets: [
                 <ProjectCard
