@@ -1,5 +1,17 @@
 ---
+id: tree-shaking
 title: Tree Shaking 搖樹
+tags:
+    - webpack
+    - javascript
+    - tree shaking
+    - babel
+    - esm
+    - amd
+    - umd
+    - systemjs
+    - commonjs
+    - modules
 ---
 
 import Image from "@site/src/components/Image";
