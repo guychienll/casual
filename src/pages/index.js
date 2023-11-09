@@ -288,6 +288,8 @@ const Skill = () => {
                             onClick={() => {
                                 setCurrent(skill);
                             }}
+                            aria-label={skill}
+                            title={skill}
                         >
                             {skills[skill].icon}
                         </button>
