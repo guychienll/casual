@@ -1,5 +1,5 @@
 ---
-title: Tree Shaking [WIP]
+title: Tree Shaking 搖樹
 ---
 
 import Image from "@site/src/components/Image";
@@ -22,8 +22,8 @@ import Image from "@site/src/components/Image";
 
 1. `@babel/preset-env` 設置 `modules` 參數賦不同值的差異
 2. Tree Shaking 是如何運作的
-3. 達成 Tree Shaking 的必備條件
-4. 如何恰當的撰寫 ES Modules 輕鬆 Tree Shaking
+3. 恰當撰寫 ES Modules 輕鬆 Tree Shaking
+4. 達成 Tree Shaking 的必備條件
 
 :::
 
@@ -549,6 +549,69 @@ Tree Shaking 僅會在撰寫 ES Modules 時生效
 
 :::
 
+## 恰當撰寫 ES Modules 輕鬆 Tree Shaking
+
+### BEST PRACTICE \#1
+
+```js showLineNumbers title="使用 named import add 並 shaking multiply"
+import { add } from './utils';
+
+const process = (a, b) => {
+    return add(a, b) / add(a, b);
+};
+
+console.log(process(1, 2));
+```
+
+### BEST PRACTICE \#2
+
+```js showLineNumbers title="使用 namespaces import utils 並 shaking multiply"
+import * as utils from './utils';
+
+const process = (a, b) => {
+    return utils.add(a, b) / utils.add(a, b);
+};
+
+console.log(process(1, 2));
+```
+
+### ANTI PATTERN \#1
+
+```js showLineNumbers title="使用 namespaces import utils 卻動態取的內容物"
+import * as utils from './utils';
+
+const utilsFnMap = {
+    add: 'add',
+};
+
+const process = (a, b) => {
+    return utils[utilsFnMap.add](a, b) / utils[utilsFnMap.add](a, b);
+};
+
+console.log(process(1, 2));
+```
+
+:::tip
+
+上述 `BEST PRACTICE #1` 與 `BEST PRACTICE #2` 皆可以正常 Tree Shaking  
+但 `ANTI PATTERN #1` 將無法將 multiply 去除  
+原因是 `utils[utilsFnMap.add]` 將在 runtime 時才能知道要使用哪一個 function  
+所以避免錯誤的情況下，就會將 utils 所有可能性都考慮進去  
+這也就是都市傳說為什麼總是在說如果不是 named import 就無法 Tree Shaking  
+並不是無法，而是要用的恰當
+
+可以參閱經典文章
+
+-   [[epic-react] Importing React Through the Ages](https://epicreact.dev/importing-react-through-the-ages/)
+
+:::
+
+## 達成 Tree Shaking 的必備條件
+
+1. 需使用 ES Modules 撰寫 Source Code
+2. 確定 `@babel/preset-env` 的 modules 設置是否為 `"auto"` 或是 `false`
+3. 確認有正確使用 ES Modules
+
 ## 參考連結
 
 -   [[知乎] babel/webpack编译构建过程中模块类型的转换过程](https://zhuanlan.zhihu.com/p/436312451)<br/>
@@ -558,7 +621,3 @@ Tree Shaking 僅會在撰寫 ES Modules 時生效
 -   [[epic-react] Importing React Through the Ages](https://epicreact.dev/importing-react-through-the-ages/)
 -   [[webpack] optimization.usedExports](https://webpack.js.org/configuration/optimization/#optimizationusedexports)
 -   [[知乎] Webpack4.0各个击破（5）module篇](https://zhuanlan.zhihu.com/p/340360680)
-
-```
-
-```
