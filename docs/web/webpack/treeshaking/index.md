@@ -23,7 +23,7 @@ import Image from "@site/src/components/Image";
 1. `@babel/preset-env` 設置 `modules` 參數賦不同值的差異
 2. Tree Shaking 是如何運作的
 3. 達成 Tree Shaking 的必備條件
-4. 如何恰當的撰寫 ESM 輕鬆 Tree Shaking
+4. 如何恰當的撰寫 ES Modules 輕鬆 Tree Shaking
 
 :::
 
@@ -66,7 +66,7 @@ Tree shaking is a term commonly used in the JavaScript context for dead-code eli
 
 :::
 
-意指透過設定 modules 選項可以將 ESM 語法轉換成其他的模組解析方式，  
+意指透過設定 modules 選項可以將 ES Modules 語法轉換成其他的模組解析方式，  
 其中可以將其設定為 `"amd"` | `"umd"` | `"systemjs"` | `"commonjs"` | `"cjs"` | `"auto"` | `false` 這些選項  
 針對這些選項接下來將會逐一說明跟展示
 
@@ -75,9 +75,9 @@ Tree shaking is a term commonly used in the JavaScript context for dead-code eli
 ### modules: `false`
 
 > 將 modules 設置成 `false` 意指  
-> 如果看到 ESM 請 `不要` 幫忙轉譯模組解析方式  
+> 如果看到 ES Modules 請 `不要` 幫忙轉譯模組解析方式  
 > 按照 `原樣` 輸出
-> 如果非看到 ESM 在此設置下會 `原樣` 輸出
+> 如果非看到 ES Modules 在此設置下會 `原樣` 輸出
 >
 > #### BEFORE
 >
@@ -97,8 +97,8 @@ Tree shaking is a term commonly used in the JavaScript context for dead-code eli
 ### modules: `"amd"`
 
 > 將 modules 設置成 `"amd"` 意指  
-> 如果看到 ESM 請幫忙轉譯模組解析方式為 `"amd"`  
-> 如果非看到 ESM 將會在外層包裹一層 封裝成 `"amd"` 模組
+> 如果看到 ES Modules 請幫忙轉譯模組解析方式為 `"amd"`  
+> 如果非看到 ES Modules 將會在外層包裹一層 封裝成 `"amd"` 模組
 >
 > #### BEFORE
 >
@@ -121,8 +121,8 @@ Tree shaking is a term commonly used in the JavaScript context for dead-code eli
 ### modules: `"umd"`
 
 > 將 modules 設置成 `"umd"` 意指  
-> 如果看到 ESM 請幫忙轉譯模組解析方式為 `"umd"`  
-> 如果非看到 ESM 將會在外層包裹一層 封裝成 `"umd"` 模組
+> 如果看到 ES Modules 請幫忙轉譯模組解析方式為 `"umd"`  
+> 如果非看到 ES Modules 將會在外層包裹一層 封裝成 `"umd"` 模組
 >
 > #### BEFORE
 >
@@ -164,8 +164,8 @@ Tree shaking is a term commonly used in the JavaScript context for dead-code eli
 ### modules: `"systemjs"`
 
 > 將 modules 設置成 `"systemjs"` 意指  
-> 如果看到 ESM 請幫忙轉譯模組解析方式為 `"systemjs"`  
-> 如果非看到 ESM 將會在外層包裹一層 封裝成 `"systemjs"` 模組
+> 如果看到 ES Modules 請幫忙轉譯模組解析方式為 `"systemjs"`  
+> 如果非看到 ES Modules 將會在外層包裹一層 封裝成 `"systemjs"` 模組
 >
 > #### BEFORE
 >
@@ -199,8 +199,8 @@ Tree shaking is a term commonly used in the JavaScript context for dead-code eli
 
 > `"cjs"` 只是 `"commonjs"` 的縮寫  
 > 將 modules 設置成 `"commonjs"` 或是 `"cjs"` 意指  
-> 如果看到 ESM 請幫忙轉譯模組解析方式為 `"commonjs"`  
-> 如果非看到 ESM 在此設置下會 `原樣` 輸出
+> 如果看到 ES Modules 請幫忙轉譯模組解析方式為 `"commonjs"`  
+> 如果非看到 ES Modules 在此設置下會 `原樣` 輸出
 >
 > #### BEFORE
 >
@@ -267,11 +267,11 @@ Harmony Module 最初是 ECMAScript 標準中關於 Module 系統的提案的一
 由於 webpack 會於 `production` mode 自動 optimization  
 避免過多的設置導致失焦，這裡會使用 `dev` mode 去做實驗，並使用 `production` mode 驗證。
 
-> #### 實驗需要的依賴
->
+#### 實驗需要的依賴
+
 > 下述 highlight 部分為此次實驗必要依賴
 >
-> ```js {15,16,20,21} showLineNumbers
+> ```js {15,16,20,21} showLineNumbers title="./package.json"
 > {
 >     "name": "tree-shaking-lab",
 >     "version": "1.0.0",
@@ -297,14 +297,14 @@ Harmony Module 最初是 ECMAScript 標準中關於 Module 系統的提案的一
 > }
 > ```
 
-> #### Webpack Config 設置
->
+#### Webpack Config 設置
+
 > 需要注意的部分是我們將會使用 `development` mode 去實驗  
 > 所以需要手動將 `usedExports` 設置為 `true`  
 > 而之所以要將 `devtool` 設置為 `false` 只是便於觀測  
 > 不會因為要產出 `SourceMap` 而被 inline 難以觀測
 >
-> ```js {30,32} showLineNumbers
+> ```js {30,32} showLineNumbers title="./webpack.config.js"
 > const path = require('path');
 >
 > module.exports = {
@@ -341,6 +341,214 @@ Harmony Module 最初是 ECMAScript 標準中關於 Module 系統的提案的一
 > };
 > ```
 
+#### 撰寫一些測試 Source Code
+
+> 按照 webpack config  
+> 提供 ./src/index.js 當作 entry  
+> 並新增 ./src/utils.js 當作 index.js 的外部依賴
+
+```js showLineNumbers title="./src/index.js"
+import { add } from './utils';
+
+const process = (a, b) => {
+    return add(a, b) / add(a, b);
+};
+
+console.log(process(1, 2));
+```
+
+```js showLineNumbers title="./src/utils.js"
+const add = (a, b) => {
+    return a + b;
+};
+
+const multiply = (a, b) => {
+    return a * b;
+};
+
+export { add, multiply };
+```
+
+#### 實驗結果
+
+> 經過上述步驟後  
+> 就可以嘗試執行
+>
+> ```sh showLineNumbers title="終端機 development build"
+> # development build 請執行
+> npm run build:dev
+>
+> # 或是直接在 terminal 當中執行
+>
+> NOTE_ENV=development ./node_modules/.bin/webpack
+> ```
+>
+> 就會看到 ./dist/main.js 產出，就是我們要觀察的實驗結果  
+> 可以看到下面這段程式碼當中 highlight 的部分  
+> 分別是上面提到的兩個辨識標記
+>
+> ##### `/* harmony export */`
+>
+> ##### `/* unused harmony export */`
+>
+> ```js {12,15} showLineNumbers title="[ development mode ] ./dist/main.js 截取片段"
+> /******/ var __webpack_modules__ = {
+>     /***/ './src/utils.js':
+>         /*!**********************!*\
+>   !*** ./src/utils.js ***!
+>   \**********************/
+>         /***/ (
+>             __unused_webpack_module,
+>             __webpack_exports__,
+>             __webpack_require__
+>         ) => {
+>             /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+>                 /* harmony export */ add: () => /* binding */ add,
+>                 /* harmony export */
+>             });
+>             /* unused harmony export multiply */
+>             var add = function add(a, b) {
+>                 return a + b;
+>             };
+>             var multiply = function multiply(a, b) {
+>                 return a * b;
+>             };
+>
+>             /***/
+>         },
+>
+>     /******/
+> };
+> ```
+>
+> webpack 將在 optimization 時  
+> 將目前標記是 `/* unused harmony export */` 的依賴剔除  
+> 可以由 `production` mode 相同 webpack 設置驗證執行看看
+>
+> ```sh showLineNumbers title="終端機 production build"
+> # production build 請執行
+>
+> npm run build:prod
+>
+> # 或是直接在 terminal 當中執行
+>
+> NOTE_ENV=production ./node_modules/.bin/webpack
+> ```
+>
+> 能看到在 `production` mode 當中  
+> add function 被壓縮為名為 n 的 function  
+> 整段程式碼當中已經看不到 multiply 的跡象
+>
+> ```js showLineNumbers title="[ production mode ] ./dist/main.js 驗證程式碼"
+> (() => {
+>     'use strict';
+>     var n = function (n, o) {
+>         return n + o;
+>     };
+>     console.log(n(1, 2) / n(1, 2));
+> })();
+> ```
+
+### 非使用 ES Modules 的狀況
+
+> 到此為止目前皆是使用 ES Modules  
+> 但如果在 webpack optimization 前  
+> 已經透過 babel 轉譯成其他模組解析方式  
+> 是否還可以 Tree Shaking ?  
+> 答案是 `不可以`  
+> 可以藉由將 webpack config 當中的 babel-loader 參數做調整驗證  
+> 將原先 `@babel/preset-env` modules 參數由 `"auto"` 改為 `"amd"`
+>
+> ```js {21} showLineNumbers title="./webpack.config.js"
+> const path = require('path');
+>
+> module.exports = {
+>     entry: './src/index.js',
+>     output: {
+>         filename: 'main.js',
+>         path: path.resolve(__dirname, 'dist'),
+>     },
+>     module: {
+>         rules: [
+>             {
+>                 test: /\.(?:js)$/,
+>                 exclude: /node_modules/,
+>                 use: {
+>                     loader: 'babel-loader',
+>                     options: {
+>                         presets: [
+>                             [
+>                                 '@babel/preset-env',
+>                                 {
+>                                     modules: 'amd',
+>                                 },
+>                             ],
+>                         ],
+>                     },
+>                 },
+>             },
+>         ],
+>     },
+>     devtool: false,
+>     optimization: {
+>         usedExports: true,
+>     },
+> };
+> ```
+>
+> 並且再次執行 production build  
+> 將會看到產出來的 ./dist/main.js 當中卻完整的存在著 multiply 的宣告  
+> 並沒有被 Tree Shaking 掉
+>
+> ```js {24-26} showLineNumbers title="[ AMD ] ./dist/main.js"
+> (() => {
+>     var r = {
+>             352: (r, t, e) => {
+>                 var o, n;
+>                 (o = [e(648)]),
+>                     void 0 ===
+>                         (n = function (r) {
+>                             'use strict';
+>                             console.log(
+>                                 (1, 2, (0, r.add)(1, 2) / (0, r.add)(1, 2))
+>                             );
+>                         }.apply(t, o)) || (r.exports = n);
+>             },
+>             648: (r, t) => {
+>                 var e;
+>                 void 0 ===
+>                     (e = function (r) {
+>                         'use strict';
+>                         Object.defineProperty(r, '__esModule', { value: !0 }),
+>                             (t.multiply = t.add = void 0),
+>                             (t.add = function (r, t) {
+>                                 return r + t;
+>                             }),
+>                             (t.multiply = function (r, t) {
+>                                 return r * t;
+>                             });
+>                     }.apply(t, [t])) || (r.exports = e);
+>             },
+>         },
+>         t = {};
+>     !(function e(o) {
+>         var n = t[o];
+>         if (void 0 !== n) return n.exports;
+>         var i = (t[o] = { exports: {} });
+>         return r[o](i, i.exports, e), i.exports;
+>     })(352);
+> })();
+> ```
+
+:::tip 結論
+
+由上述實驗驗證  
+Tree Shaking 僅會在撰寫 ES Modules 時生效  
+因為 Tree Shaking 仰賴 **靜態模組分析**  
+而除 ES Modules 以外皆無法做到靜態分析依賴
+
+:::
+
 ## 參考連結
 
 -   [[知乎] babel/webpack编译构建过程中模块类型的转换过程](https://zhuanlan.zhihu.com/p/436312451)<br/>
@@ -350,3 +558,7 @@ Harmony Module 最初是 ECMAScript 標準中關於 Module 系統的提案的一
 -   [[epic-react] Importing React Through the Ages](https://epicreact.dev/importing-react-through-the-ages/)
 -   [[webpack] optimization.usedExports](https://webpack.js.org/configuration/optimization/#optimizationusedexports)
 -   [[知乎] Webpack4.0各个击破（5）module篇](https://zhuanlan.zhihu.com/p/340360680)
+
+```
+
+```
