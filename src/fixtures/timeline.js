@@ -58,13 +58,7 @@ const ProjectCard = (props) => {
                 {title && <h4>{title}</h4>}
             </div>
             <div className="card__body">
-                {image.src && (
-                    <Image
-                        style={{ borderRadius: '5px' }}
-                        src={image.src}
-                        alt={image.alt}
-                    />
-                )}
+                {image.src && <Image src={image.src} alt={image.alt} />}
                 {description}
             </div>
             <div className="card__footer">
@@ -132,7 +126,7 @@ export const PINKOI_TIMELINE = {
                 <ProjectCard
                     title="Web Vitals Monitor"
                     image={{
-                        src: './assets/pinkoi-web-vitals-monitor.png',
+                        src: './assets/pinkoi-web-vitals-monitor.jpg',
                         alt: 'pinkoi web vitals monitor',
                     }}
                     labels={['Grafana', 'Prometheus', 'Node.js', 'Cronjob']}
@@ -170,7 +164,7 @@ export const PINKOI_TIMELINE = {
                 <ProjectCard
                     title="CI On PR Approved"
                     image={{
-                        src: './assets/pinkoi-ci.png',
+                        src: './assets/pinkoi-ci.jpg',
                         alt: 'pinkoi ci',
                     }}
                     labels={[
@@ -184,7 +178,7 @@ export const PINKOI_TIMELINE = {
             ],
         },
         OPENAPI: {
-            title: 'OpenAPI Generate TypeScript Type',
+            title: 'OpenAPI Types Generate Process',
             bullets: [
                 <li>
                     由 backend fast api Generate 出 openapi.json， 透過 openapi
@@ -203,7 +197,7 @@ export const PINKOI_TIMELINE = {
                         url: 'https://www.pinkoi.com/event/xmas',
                     }}
                     image={{
-                        src: './assets/pinkoi-xmas.png',
+                        src: './assets/pinkoi-xmas.jpg',
                         alt: 'pinkoi ci',
                     }}
                     labels={['React', 'Campaign', 'event', 'Xmas', '2022']}
