@@ -298,6 +298,7 @@ const Skill = () => {
             </div>
             <div className="right">
                 <According
+                    isOpen={true}
                     title={skills[current].title}
                     bullets={skills[current].bullets}
                 />
