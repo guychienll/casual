@@ -2,6 +2,20 @@
 id: tree-shaking
 title: 深入解析 Webpack Tree Shaking
 description: 使用簡易程式碼解釋 webpack 如何 Tree Shaking
+image: /assets/tree-shaking.gif
+keywords:
+    [
+        webpack,
+        javascript,
+        tree shaking,
+        babel,
+        amd,
+        umd,
+        systemjs,
+        commonjs,
+        modules,
+        esm,
+    ]
 tags:
     - webpack
     - javascript
@@ -14,13 +28,6 @@ tags:
     - commonjs
     - modules
 ---
-
-<head>
-    <meta property="og:url" content="https://guychienll.dev/docs/web/webpack/treeshaking/"/>
-    <meta property="og:image" content="/assets/tree-shaking.gif"/>
-    <meta property="og:title" content="Tree Shaking 搖樹"/>
-    <meta property="og:description" content="使用簡易程式碼解釋 webpack 如何 Tree Shaking"/>
-</head>
 
 import Image from "@site/src/components/Image";
 
@@ -169,8 +176,8 @@ Tree shaking is a term commonly used in the JavaScript context for dead-code eli
 >     typeof globalThis !== 'undefined'
 >         ? globalThis
 >         : typeof self !== 'undefined'
->         ? self
->         : this,
+>           ? self
+>           : this,
 >     function (_lodashEs) {
 >         'use strict';
 >

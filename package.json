@@ -26,8 +26,8 @@
     "react-medium-image-zoom": "^5.1.8",
     "react-vertical-timeline-component": "^3.6.0",
     "sass": "^1.69.5",
-    "styled-components": "^6.1.0",
-    "typed.js": "^2.0.16"
+    "styled-components": "^6.1.1",
+    "typed.js": "^2.1.0"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "3.0.0",

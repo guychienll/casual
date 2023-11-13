@@ -1,22 +1,56 @@
-import Zoom from 'react-medium-image-zoom';
+---
+id: vim
+title: 使用 vim 加快你的開發速度
+description: 分享 vim shortcut 以及其生態系好用工具
+image: /assets/vim.gif
+keywords:
+    [
+        vim,
+        develop,
+        vscode,
+        plugin,
+        configuration,
+        settings,
+        normal,
+        visual,
+        frontend,
+        refactor,
+        shortcut,
+    ]
+tags:
+    [
+        vim,
+        develop,
+        vscode,
+        plugin,
+        configuration,
+        settings,
+        normal,
+        visual,
+        frontend,
+        refactor,
+        shortcut,
+    ]
+---
 
-# Summary Note
+import Image from "@site/src/components/Image";
+
+<Image src="/assets/vim.gif" alt="vim banner" />
 
 ## History & Pronounced
 
-- Vi ( Visual ) -> Bill Joy 
-- Vim /vim/ -> Bram Moolenaar
+-   Vi ( Visual ) -> Bill Joy
+-   Vim /vim/ -> Bram Moolenaar
 
-> Vim is pronounced as one word, like Jim, not vi-ai-em.  It's written with a
+> Vim is pronounced as one word, like Jim, not vi-ai-em. It's written with a
+
     capital, since it's a name, again like Jim.
-    
+
 ## Learning curve
-    
+
 ![](https://i.imgur.com/jVDzsME.png)
 
-
 ## Preparation
-
 
 | Name                                                                                                                             | Role           | Note                          |
 | :------------------------------------------------------------------------------------------------------------------------------- | -------------- | :---------------------------- |
@@ -29,42 +63,41 @@ import Zoom from 'react-medium-image-zoom';
 | [vimium](https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb)                                      | browser plugin | optional [suggested:all]      |
 | [hackmd](https://hackmd.io)                                                                                                      | online notes   | optional [suggested:all]      |
 
-
 ## Suggested VSCode Vim Configuration
+
 ```json
 {
-	"vim.hlsearch": true,
-	"vim.foldfix": true,
-	"vim.useSystemClipboard": true,
-	"editor.cursorSurroundingLines": 15, 
-	"vim.surround": true,
-	"vim.easymotion": true,
+    "vim.hlsearch": true,
+    "vim.foldfix": true,
+    "vim.useSystemClipboard": true,
+    "editor.cursorSurroundingLines": 15,
+    "vim.surround": true,
+    "vim.easymotion": true
 }
 ```
 
 ## Switch Between Modes
 
-- normal mode
-  - switch on
-      - `<ESC>` / `<C-c>` / `<C-[>` [suggested]
-  - switch off
-      - `i` / `o` / `a` / `s` / `c`
-- visual mode
-  - switch on
-      - `v` / `<C-v>`
-  - switch off
-      - `<ESC>` / `<C-c>` / `<C-[>` [suggested]
-- insert mode
-  - switch on 
-      - `i` / `o` / `a` / `s` / `c`
-  - switch off
-      - `<ESC>` / `<C-c>` / `<C-[>` [suggested]
-- command mode
-  - switch on 
-      - `:`
-  - switch off
-      - `<ESC>` / `<C-c>` / `<C-[>` [suggested]
-      
+-   normal mode
+    -   switch on
+        -   `<ESC>` / `<C-c>` / `<C-[>` [suggested]
+    -   switch off
+        -   `i` / `o` / `a` / `s` / `c`
+-   visual mode
+    -   switch on
+        -   `v` / `<C-v>`
+    -   switch off
+        -   `<ESC>` / `<C-c>` / `<C-[>` [suggested]
+-   insert mode
+    -   switch on
+        -   `i` / `o` / `a` / `s` / `c`
+    -   switch off
+        -   `<ESC>` / `<C-c>` / `<C-[>` [suggested]
+-   command mode
+    -   switch on
+        -   `:`
+    -   switch off
+        -   `<ESC>` / `<C-c>` / `<C-[>` [suggested]
 
 ### Edit Action
 
@@ -83,7 +116,7 @@ import Zoom from 'react-medium-image-zoom';
 | u   | undo       | undo action                  |           X            |                              |
 | r   | replace    | replace a char               |           X            |                              |
 
-### Navigation Action 
+### Navigation Action
 
 | key | name   | intention                  | using with text object | notes                                               |
 | --- | ------ | :------------------------- | :--------------------: | :-------------------------------------------------- |
@@ -94,13 +127,13 @@ import Zoom from 'react-medium-image-zoom';
 | w   | word   | forward to next word start |           X            |                                                     |
 | %   | pairs  | jump between pairs         |           X            |                                                     |
 | /   | search | search a word with regex   |           X            | `<C-n>` next `<C-N>` previous                       |
-| \{   | block  | search a word with regex   |           X            | `<C-n>` next `<C-N>` previous                       |
-
+| \{  | block  | search a word with regex   |           X            | `<C-n>` next `<C-N>` previous                       |
 
 ### Suggested VSCode Vim Navigation Configuration
+
 ```json
 {
-   "vim.normalModeKeyBindingsNonRecursive": [
+    "vim.normalModeKeyBindingsNonRecursive": [
         {
             "before": ["z", "n"],
             "commands": ["editor.action.marker.next"]
@@ -108,17 +141,16 @@ import Zoom from 'react-medium-image-zoom';
         {
             "before": ["z", "p"],
             "commands": ["editor.action.marker.prev"]
-        },
-    ], 
+        }
+    ]
 }
 ```
 
 ### Commands
 
-- stream editor (sed)
-- split
-- switch buffer `<C-w> direction` `<C-w>*2`
-
+-   stream editor (sed)
+-   split
+-   switch buffer `<C-w> direction` `<C-w>*2`
 
 ## Text Object ( Scope + Noun )
 
@@ -129,7 +161,6 @@ import Zoom from 'react-medium-image-zoom';
 | i   | inner  | inner scope  |
 | a   | around | around scope |
 
-
 ### Noun
 
 | key | name            |
@@ -138,17 +169,12 @@ import Zoom from 'react-medium-image-zoom';
 | p   | paragraph       |
 | b   | block           |
 | i   | indentation     |
-| \{   | curly brackets  |
-| \[   | square brackets |
-| \(   | round brackets  |
+| \{  | curly brackets  |
+| \[  | square brackets |
+| \(  | round brackets  |
 | '   | quotation mark  |
 | `   | back tick       |
 
-
 ## Cheat Sheet
 
-<Zoom>
-
-![](https://external-preview.redd.it/YR2lVxHjzKwIIoRqFeusj3182IxUILqM2zjMSI0g654.png?auto=webp&s=f4202aed992ff7223a513e67047ca33b9f41bbc8)
-
-</Zoom>
+<Image src="https://external-preview.redd.it/YR2lVxHjzKwIIoRqFeusj3182IxUILqM2zjMSI0g654.png?auto=webp&s=f4202aed992ff7223a513e67047ca33b9f41bbc8" alt="vim cheat sheet" />
