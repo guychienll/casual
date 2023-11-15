@@ -18,6 +18,13 @@ import Image from "@site/src/components/Image";
 > 命令 : ask / order / command  
 > 堅持 : insist / persist  
 > 建議 : advise / suggest / recommend
+>
+> Most employees have requested that their paychecks be `[ ]` to their homes.
+>
+> a. mail  
+> b. mails  
+> `c`. mailed  
+> d. mailing
 
 ## 主 / 被動
 
