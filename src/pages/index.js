@@ -11,7 +11,6 @@ import {
     TITANSOFT_TIMELINE,
     TITANSOFT_INTERN_TIMELINE,
 } from '../fixtures/timeline';
-import styled from 'styled-components';
 import clsx from 'clsx';
 import * as Icon from '../components/Icon';
 import Image from '../components/Image';
@@ -111,83 +110,6 @@ const TimelineElem = (props) => {
         </VerticalTimelineElement>
     );
 };
-
-const StyledSkillSection = styled.div`
-    width: 90%;
-    margin: 0 auto;
-    margin-top: 2rem;
-    border-radius: 20px;
-    background-color: var(--ifm-color-primary);
-    display: flex;
-    justify-content: space-around;
-    max-width: 1170px;
-    & > .left {
-        width: 48%;
-        padding: 1rem;
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-gap: 1.2rem;
-        align-self: center;
-        & > button {
-            display: flex;
-            box-sizing: border-box;
-            align-items: center;
-            justify-content: center;
-            aspect-ratio: 1;
-            border-radius: 1rem;
-            border: none;
-            cursor: pointer;
-            background-color: var(--color-neutral-050);
-            & > svg {
-                color: var(--color-neutral-000);
-                width: 50%;
-            }
-            &.is-active {
-                background-color: var(--ifm-color-primary-darker);
-                & > svg {
-                    color: var(--ifm-color-warning);
-                }
-            }
-        }
-    }
-    & > .right {
-        display: flex;
-        justify-content: center;
-        width: 48%;
-        padding: 1rem;
-        height: 450px;
-        max-height: 450px;
-        & > details {
-            width: 100%;
-            position: relative;
-            & > summary {
-                position: sticky;
-                top: 0;
-                pointer-events: none;
-                list-style: none;
-            }
-            height: 100%;
-            overflow-y: auto;
-        }
-        & img {
-            margin-bottom: 1rem;
-        }
-    }
-    @media screen and (max-width: 1170px) {
-        flex-direction: column;
-        align-items: center;
-        background-color: transparent;
-        & > .left {
-            width: 90%;
-            grid-template-columns: repeat(3, 1fr);
-            grid-gap: 0.5rem;
-        }
-        & > .right {
-            width: 90%;
-            padding: unset;
-        }
-    }
-`;
 
 const Skill = () => {
     const skills = {
@@ -311,7 +233,7 @@ const Skill = () => {
     };
     const [current, setCurrent] = useState(Object.keys(skills)[0]);
     return (
-        <StyledSkillSection>
+        <div className="skill-section">
             <div className="left">
                 {Object.keys(skills).map((skill, index) => {
                     return (
@@ -339,7 +261,7 @@ const Skill = () => {
                     bullets={skills[current].bullets}
                 />
             </div>
-        </StyledSkillSection>
+        </div>
     );
 };
 
