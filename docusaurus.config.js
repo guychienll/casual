@@ -146,6 +146,12 @@ const config = {
         prism: {
             theme: lightCodeTheme,
             darkTheme: darkCodeTheme,
+            magicComments: [
+                {
+                    className: 'code-block-error-line',
+                    line: 'ERROR',
+                },
+            ],
         },
     },
 };
