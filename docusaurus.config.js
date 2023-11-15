@@ -49,7 +49,12 @@ const config = {
                     {
                         tagName: 'link',
                         rel: 'icon',
-                        href: '/img/courage-the-coward-dog.webp',
+                        href: '/img/courage-the-coward-dog.png',
+                    },
+                    {
+                        tagName: 'link',
+                        rel: 'apple-touch-icon',
+                        href: '/img/courage-the-coward-dog.png',
                     },
                     {
                         tagName: 'link',
@@ -60,6 +65,16 @@ const config = {
                         tagName: 'meta',
                         name: 'theme-color',
                         content: 'rgb(37, 194, 160)',
+                    },
+                    {
+                        tagName: 'meta',
+                        name: 'apple-mobile-web-app-capable',
+                        content: 'yes',
+                    },
+                    {
+                        tagName: 'meta',
+                        name: 'apple-mobile-web-app-status-bar-style',
+                        content: 'default',
                     },
                 ],
             },
