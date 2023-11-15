@@ -1,18 +1,19 @@
 ---
 slug: javascript-hoisting
 title: JavaScript Hoisting 提升是什麼 ?
+description: 逐步講解 JavaScript Hoisting
+image: /assets/blog/javascript-hoisting/01.gif
 authors: guy
 tags: [javascript, hoisting]
+keywords: [javascript, hoisting]
 date: 2020-10-23
 ---
 
 # JavaScript Hoisting 提升是什麼？
 
-<div style={{display:"flex",justifyContent:"center",width:"100%"}}>
+import Image from '@site/src/components/Image';
 
-![](./01.gif)
-
-</div>
+<Image src="/assets/blog/javascript-hoisting/01.gif" alt="01" />
 
 -   在 ES6 尚未流行前，大部分 JS 開發者都是使用 var 關鍵字做變數宣告，很多開發者在宣告函式時也比較習慣使用 function declaration 又稱作 function statement 做函式的宣告。
 
@@ -74,11 +75,7 @@ sayHi();
 
 -   大家皆明白 JS 是由上而下一行一行的讀取程式碼，而在開始讀取第一行程式碼前，JS 會先進入創建階段，建立全域執行環境 (Global Execution Context)，為接下來要運行的 JS 程式碼做準備，以上方程式碼為例，在建立階段會做以下的準備。
 
-<div style={{display:"flex",justifyContent:"center",width:"100%"}}>
-
-![](./02.png)
-
-</div>
+<Image src="/assets/blog/javascript-hoisting/02.png" alt="02" />
 
 -   會為變數 cat 先保留記憶體位置，以及用 function declaration 宣告的函式 sayHi 做記憶體分配，在此要注意的是這裏建立的 cat 並不是 sayHi 函式中的 cat，而是全域變數中的 cat 。
     接著環境準備好後，JS 緊接著就會開始進入執行階段 ( execution phase ) ，執行第一行程式碼，也就是：
@@ -89,11 +86,7 @@ var cat = 'Civet';
 
 而此時全域變數 cat 就在這行程式碼被賦予了值 Civet 。
 
-<div style={{display:"flex",justifyContent:"center",width:"100%"}}>
-
-![](./03.png)
-
-</div>
+<Image src="/assets/blog/javascript-hoisting/03.png" alt="03" />
 
 接著繼續向下執行…
 
@@ -109,11 +102,7 @@ saiHi();
 JS 遇見了第二個作用域 ( 別忘了JS 是以函式作為一等公民切分作用域的 )，
 因此 JS 再次進入創建階段 開始進入建立局部區域執行環境 ( Local Execution Context ) ，這時並還沒有執行 sayHi 函式裡的任何一行程式碼，而是為了要執行 sayHi 做前置準備，JS 會將 sayHi 作用域裡的程式碼掃過一遍，看看有沒有使用 var 關鍵字做宣告的變數，並先分配給此變數記憶體，所以此時 cat 就佔了一席之地了，但尚未被初始化。
 
-<div style={{display:"flex",justifyContent:"center",width:"100%"}}>
-
-![](./04.png)
-
-</div>
+<Image src="/assets/blog/javascript-hoisting/04.png" alt="04" />
 
 執行完創建階段後，就開始進入執行階段，先行執行了
 console.log("hello I'm" + cat); 而此時局部變數 cat 仍然尚未賦值，
@@ -137,11 +126,7 @@ function sayGoodBye() {
 
 大家可以到上面這個網站模擬看看，很好玩的，不玩會後悔。
 
-<div style={{display:"flex",justifyContent:"center",width:"100%"}}>
-
-![](https://cdn-images-1.medium.com/max/2000/1*AB0NgDRXwFnZnqshg2hXyw.gif)
-
-</div>
+<Image src="https://cdn-images-1.medium.com/max/2000/1*AB0NgDRXwFnZnqshg2hXyw.gif" alt="蝦尿牛丸" />
 
 [**我知道你懂 hoisting，可是你了解到多深？**](https://blog.techbridge.cc/2018/11/10/javascript-hoisting/)<br/>
 [**Javascript Execution Context 簡介**](https://medium.com/digital-dance/javascript%E5%9F%B7%E8%A1%8C%E7%92%B0%E5%A2%83-execution-context-%E7%B0%A1%E4%BB%8B-672185ed6bf4)

@@ -1,8 +1,8 @@
 import * as React from 'react';
 import Zoom from 'react-medium-image-zoom';
 import clsx from 'clsx';
-import './index.scss';
 import BrowserOnly from '@docusaurus/BrowserOnly';
+import './index.scss';
 
 const Image = (props) => {
     const { loading = 'lazy', ...rest } = props;

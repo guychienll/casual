@@ -3,6 +3,7 @@ slug: notification-center-with-observer-pattern
 title: 實作 Notification Center 學習 Observer Pattern 觀察者模式
 authors: guy
 tags: [typescript, javascript, notification, observer, design pattern]
+keywords: [typescript, javascript, notification, observer, design pattern]
 date: 2022-05-27
 ---
 

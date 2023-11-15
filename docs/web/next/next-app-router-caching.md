@@ -8,7 +8,7 @@ tags:
     - Caching
 ---
 
-import Zoom from 'react-medium-image-zoom';
+import Image from '@site/src/components/Image';
 
 | Mechanism           | What                       | Where  | Purpose                                         | Duration                        |
 | ------------------- | -------------------------- | ------ | ----------------------------------------------- | ------------------------------- |
@@ -17,11 +17,7 @@ import Zoom from 'react-medium-image-zoom';
 | full-route-cache    | HTML and RSC payload       | Server | Reduce rendering cost and improve performance   | Persistent (can be revalidated) |
 | router-cache        | RSC Payload                | Client | Reduce server requests on navigation            | User session or time-based      |
 
-<Zoom>
-
-![caching-overview.jpg](../assets/caching-overview.jpg)
-
-</Zoom>
+<Image src="/assets/caching-overview.jpg" alt="caching-overview" />
 
 ## Request Memoization
 
@@ -67,11 +63,7 @@ export default ServerComponent;
 -   revalidate 計算是由 MISS 後第一次 data cache server 回覆時間點開始計算
 -   可以使用 revalidateTag 跟 revalidatePath 去清除 persistent 的 cache 將在下次起請求中要到新的資料
 
-<Zoom>
-
-![data-cache.jpg](../assets//data-cache.jpg)
-
-</Zoom>
+<Image src="/assets/data-cache.jpg" alt="data-cache" />
 
 :::tip 小結語
 
@@ -94,11 +86,7 @@ export default ServerComponent;
     2. The React Server Components Payload is used to reconcile the Client and rendered Server Component trees, and update the DOM.
     3. The JavaScript instructions are used to [hydrate](https://react.dev/reference/react-dom/client/hydrateRoot) Client Components and make the application interactive.
 
-<Zoom>
-
-![static-and-dynamic-routes.jpg](../assets//static-and-dynamic-routes.jpg)
-
-</Zoom>
+<Image src="/assets/static-and-dynamic-routes.jpg" alt="static-and-dynamic-routes" />
 
 ## Router Cache
 
