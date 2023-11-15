@@ -41,7 +41,9 @@ const usePlaceholder = ({ delay = 0 }) => {
         setTimeout(() => {
             setLoad(true);
             setTimeout(() => {
-                ref.current.style.display = 'none';
+                if (ref?.current?.style) {
+                    ref.current.style.display = 'none';
+                }
             }, 500);
         }, delay);
     };
@@ -53,10 +55,11 @@ const usePlaceholder = ({ delay = 0 }) => {
                 ref={ref}
                 className={clsx({
                     placeholder: true,
-                    'with-animate': !load,
                     'fade-out': load,
                 })}
-            />
+            >
+                <div className="activity" />
+            </div>
         ),
         onLoad,
     };
