@@ -7,7 +7,7 @@ keywords: [TypeScript, Node, Npm, JavaScript]
 tags: [TypeScript, Node, Npm, JavaScript]
 ---
 
-import Image from "@site/src/components/Image";
+import Image from '@site/src/components/Image';
 
 <Image src="/assets/web/typescript/01.gif" alt="typescript banner" />
 
