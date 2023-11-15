@@ -14,6 +14,7 @@ import {
 import styled from 'styled-components';
 import clsx from 'clsx';
 import * as Icon from '../components/Icon';
+import Image from '../components/Image';
 
 const HeroSection = () => (
     <div className="hero hero--primary" style={{ height: '25rem' }}>
@@ -45,7 +46,7 @@ const HeroSection = () => (
     </div>
 );
 
-const According = ({ title = '', bullets = [], isOpen = false }) => {
+const According = ({ title = '', bullets = [], isOpen = true }) => {
     return (
         <details open={isOpen}>
             <summary>{title}</summary>
@@ -68,7 +69,6 @@ const TimelineElem = (props) => {
         },
         contentArrowStyle = {
             display: 'none',
-            // borderRight: '7px solid var(--ifm-color-primary)',
         },
         iconStyle = {},
         icon = null,
@@ -115,7 +115,7 @@ const TimelineElem = (props) => {
 const StyledSkillSection = styled.div`
     width: 90%;
     margin: 0 auto;
-    margin-bottom: 2rem;
+    margin-top: 2rem;
     border-radius: 20px;
     background-color: var(--ifm-color-primary);
     display: flex;
@@ -169,6 +169,9 @@ const StyledSkillSection = styled.div`
             height: 100%;
             overflow-y: auto;
         }
+        & img {
+            margin-bottom: 1rem;
+        }
     }
     @media screen and (max-width: 1170px) {
         flex-direction: column;
@@ -188,21 +191,15 @@ const StyledSkillSection = styled.div`
 
 const Skill = () => {
     const skills = {
-        shell: {
-            icon: <Icon.Shell />,
-            title: 'Shell',
-            bullets: [<li>維護中</li>],
-        },
         vim: {
             icon: <Icon.Vim />,
             title: 'vim',
             bullets: [
-                <li>創建並維護開源 vim 環境 </li>,
                 <li>熟悉 vim 指令並用其開發</li>,
                 <li>熟悉使用 vim text object</li>,
                 <li>熟悉使用 vim 巨集指令</li>,
                 <li>
-                    熟悉於 vscode | webstrom 設置 vim plugin 和快捷加速開發
+                    熟悉於 VSCode | WebStorm 設置 Vim Plugin 和快捷加速開發
                 </li>,
             ],
         },
@@ -215,6 +212,16 @@ const Skill = () => {
                 <li>暸解如何排除衝突、挽救版本</li>,
                 <li>暸解 Git/GitHub Flow</li>,
                 <li>慣於撰寫 conventional commit</li>,
+            ],
+        },
+        shell: {
+            icon: <Icon.Shell />,
+            title: 'Shell',
+            bullets: [
+                <li>熟悉常用的指令進行檔案編輯</li>,
+                <li>能運用 shell script做簡易的批次處理</li>,
+                <li>暸解檔案讀寫權限及更改</li>,
+                <li>使用 powershell | bash | zsh 經驗</li>,
             ],
         },
         github: {
@@ -245,7 +252,25 @@ const Skill = () => {
         react: {
             icon: <Icon.React />,
             title: 'React',
-            bullets: [<li>維護中</li>],
+            bullets: [
+                <li>
+                    撰寫 React.js{' '}
+                    {new Date().getFullYear() -
+                        new Date('2018-01-01').getFullYear()}{' '}
+                    年經驗
+                </li>,
+                <li>熟悉 React 生命週期</li>,
+                <li>
+                    理解 React Reconciliation，及渲染 List 時 key 的使用技巧
+                </li>,
+                <li>熟悉使用 hook 及撰寫 custom hook</li>,
+                <li>理解如何優化渲染效能及效能優化相關 hooks 的使用取捨</li>,
+                <li>
+                    理解如何將 class components 盡可能等價轉換為 function
+                    components，並且有大量處理過 migration 經驗
+                </li>,
+                <li>迄今為止所有專案皆是使用 React.js 開發</li>,
+            ],
         },
         jest: {
             icon: <Icon.Jest />,
@@ -255,7 +280,18 @@ const Skill = () => {
         cypress: {
             icon: <Icon.Cypress />,
             title: 'Cypress',
-            bullets: [<li>維護中</li>],
+            bullets: [
+                <li>
+                    使用 node 做 cypress cli
+                    指令導出，讓非前端相關職能，能夠迅速使用 prompt 執行 cypress
+                </li>,
+                <Image src="/assets/cypress-prompt.png" alt="cypress prompt" />,
+                <li>
+                    透過 cypress-parallel 整合 ，讓 cypress 測試平行運行，減少
+                    cypress 執行時間，約莫 80%
+                </li>,
+                <li>使用 docker 跟 GitHub Action 整合 cypress 運行 CI 經驗</li>,
+            ],
         },
         webpack: {
             icon: <Icon.Webpack />,
@@ -314,6 +350,7 @@ export default function Home() {
             description="guychienll's personal website"
         >
             <HeroSection />
+            <Skill />
             <VerticalTimeline>
                 <TimelineElem
                     title={PINKOI_TIMELINE.TITLE}
@@ -346,8 +383,6 @@ export default function Home() {
                     icon={TITANSOFT_INTERN_TIMELINE.LOGO}
                 />
             </VerticalTimeline>
-
-            <Skill />
         </Layout>
     );
 }
