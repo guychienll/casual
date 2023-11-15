@@ -2,10 +2,11 @@ import * as React from 'react';
 import Zoom from 'react-medium-image-zoom';
 import clsx from 'clsx';
 import './index.scss';
+import BrowserOnly from '@docusaurus/BrowserOnly';
 
 const Image = (props) => {
     const { loading = 'lazy', ...rest } = props;
-    const { onLoad, element, fadeInClassNames } = usePlaceholder({
+    const { onLoad, element, load } = usePlaceholder({
         delay: 1000,
     });
 
@@ -13,12 +14,20 @@ const Image = (props) => {
         <Zoom>
             <div className="image-wrapper">
                 {element}
-                <img
-                    className={`${fadeInClassNames}`}
-                    onLoad={onLoad}
-                    loading={loading}
-                    {...rest}
-                />
+                <BrowserOnly>
+                    {() => {
+                        return (
+                            <img
+                                className={clsx({
+                                    'fade-in': load,
+                                })}
+                                onLoad={onLoad}
+                                loading={loading}
+                                {...rest}
+                            />
+                        );
+                    }}
+                </BrowserOnly>
             </div>
         </Zoom>
     );
@@ -50,7 +59,6 @@ const usePlaceholder = ({ delay = 0 }) => {
             />
         ),
         onLoad,
-        fadeInClassNames: load ? 'fade-in' : '',
     };
 };
 
