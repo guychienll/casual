@@ -48,7 +48,7 @@ import Image from "@site/src/components/Image";
 
 ## Learning curve
 
-<Image src="https://i.imgur.com/jVDzsME.png" alt="learning curve" />
+![](https://i.imgur.com/jVDzsME.png)
 
 ## Preparation
 
