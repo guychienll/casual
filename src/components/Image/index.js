@@ -1,5 +1,4 @@
 import * as React from 'react';
-import Zoom from 'react-medium-image-zoom';
 import clsx from 'clsx';
 import BrowserOnly from '@docusaurus/BrowserOnly';
 import './index.scss';
@@ -11,25 +10,23 @@ const Image = (props) => {
     });
 
     return (
-        <Zoom>
-            <div className="image-wrapper">
-                {element}
-                <BrowserOnly>
-                    {() => {
-                        return (
-                            <img
-                                className={clsx({
-                                    'fade-in': load,
-                                })}
-                                onLoad={onLoad}
-                                loading={loading}
-                                {...rest}
-                            />
-                        );
-                    }}
-                </BrowserOnly>
-            </div>
-        </Zoom>
+        <div className="image-wrapper">
+            {element}
+            <BrowserOnly>
+                {() => {
+                    return (
+                        <img
+                            className={clsx({
+                                'fade-in': load,
+                            })}
+                            onLoad={onLoad}
+                            loading={loading}
+                            {...rest}
+                        />
+                    );
+                }}
+            </BrowserOnly>
+        </div>
     );
 };
 
