@@ -112,7 +112,7 @@ const config = {
             title: 'guychienll.dev',
             logo: {
                 alt: 'My Site Logo',
-                src: 'img/courage-the-coward-dog.webp',
+                src: 'img/courage-the-coward-dog.png',
                 width: 32,
                 height: 32,
             },

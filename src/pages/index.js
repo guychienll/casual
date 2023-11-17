@@ -26,7 +26,7 @@ const HeroSection = () => (
                     width="6rem"
                     height="6rem"
                     className="avatar__photo avatar__photo--xl"
-                    src="./img/courage-the-coward-dog.webp"
+                    src="./img/courage-the-coward-dog.png"
                     alt="avatar"
                 />
                 <div className="avatar__intro margin-vert--sm">
