@@ -135,7 +135,7 @@ const Skill = () => {
                 <li>熟悉 Git CLI</li>,
                 <li>能使用 Git CLI 解決大部分版本問題</li>,
                 <li>暸解如何排除衝突、挽救版本</li>,
-                <li>暸解 Git/GitHub Flow</li>,
+                <li>暸解 Git / GitHub Flow</li>,
                 <li>慣於撰寫 conventional commit</li>,
             ],
         },
@@ -245,14 +245,22 @@ const Skill = () => {
                             className={clsx({
                                 'is-active': current === skill,
                             })}
-                            type="button"
                             onClick={() => {
                                 setCurrent(skill);
                             }}
+                            type="button"
                             aria-label={skill}
-                            title={skill}
                         >
-                            {skills[skill].icon}
+                            <div
+                                className={clsx({
+                                    'is-active': current === skill,
+                                    ff: true,
+                                })}
+                                title={skill}
+                            >
+                                {skills[skill].icon}
+                            </div>
+                            <div className="bf">{skills[skill].icon}</div>
                         </button>
                     );
                 })}
