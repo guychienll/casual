@@ -79,6 +79,15 @@ const config = {
                 ],
             },
         ],
+        async function postcss() {
+            return {
+                name: 'docusaurus-postcss-plugin',
+                configurePostCss(postcssOptions) {
+                    postcssOptions.plugins.push(require('autoprefixer'));
+                    return postcssOptions;
+                },
+            };
+        },
     ],
 
     presets: [

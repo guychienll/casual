@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import clsx from 'clsx';
 import { useWindowSize } from '@docusaurus/theme-common';
 import { useDoc } from '@docusaurus/theme-common/internal';
@@ -35,8 +35,37 @@ function useDocTOC() {
 export default function DocItemLayout({ children }) {
     const docTOC = useDocTOC();
     const {
-        metadata: { unlisted },
+        metadata: { unlisted, frontMatter },
     } = useDoc();
+
+    React.useEffect(() => {
+        const header = document.querySelector('head');
+        const script = document.createElement('script');
+        script.type = 'application/ld+json';
+        script.innerHTML = JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'NewsArticle',
+            headline: frontMatter.title,
+            image: frontMatter.image
+                ? [`https://guychienll.dev${frontMatter.image}`]
+                : [`https://guychienll.dev/assets/work-in-progress.jpg`],
+            datePublished:
+                new Date(frontMatter.created).toISOString() ||
+                new Date().toISOString(),
+            dateModified:
+                new Date(frontMatter.modified).toISOString() ||
+                new Date().toISOString(),
+            author: [
+                {
+                    '@type': 'Person',
+                    name: 'Guy Chien',
+                    url: 'https://guychienll.dev/',
+                },
+            ],
+        });
+        header.appendChild(script);
+    }, [frontMatter]);
+
     return (
         <div className="row">
             <div className={clsx('col', !docTOC.hidden && styles.docItemCol)}>
