@@ -44,7 +44,7 @@ export default function DocItemLayout({ children }) {
         script.type = 'application/ld+json';
         script.innerHTML = JSON.stringify({
             '@context': 'https://schema.org',
-            '@type': 'NewsArticle',
+            '@type': 'Article',
             headline: frontMatter.title,
             image: frontMatter.image
                 ? [`https://guychienll.dev${frontMatter.image}`]
