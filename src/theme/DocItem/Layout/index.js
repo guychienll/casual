@@ -41,7 +41,6 @@ export default function DocItemLayout({ children }) {
     React.useEffect(() => {
         const header = document.querySelector('head');
         const script = document.createElement('script');
-        console.log(frontMatter);
         script.type = 'application/ld+json';
         script.innerHTML = JSON.stringify({
             '@context': 'https://schema.org',
@@ -65,6 +64,9 @@ export default function DocItemLayout({ children }) {
             ],
         });
         header.appendChild(script);
+        return () => {
+            header.removeChild(script);
+        };
     }, [frontMatter]);
 
     return (
