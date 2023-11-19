@@ -41,6 +41,7 @@ export default function DocItemLayout({ children }) {
     React.useEffect(() => {
         const header = document.querySelector('head');
         const script = document.createElement('script');
+        console.log(frontMatter);
         script.type = 'application/ld+json';
         script.innerHTML = JSON.stringify({
             '@context': 'https://schema.org',
@@ -49,12 +50,12 @@ export default function DocItemLayout({ children }) {
             image: frontMatter.image
                 ? [`https://guychienll.dev${frontMatter.image}`]
                 : [`https://guychienll.dev/assets/work-in-progress.jpg`],
-            datePublished:
-                new Date(frontMatter.created).toISOString() ||
-                new Date().toISOString(),
-            dateModified:
-                new Date(frontMatter.modified).toISOString() ||
-                new Date().toISOString(),
+            datePublished: frontMatter.created
+                ? new Date(frontMatter.created).toISOString()
+                : new Date().toISOString(),
+            dateModified: frontMatter.modified
+                ? new Date(frontMatter.modified).toISOString()
+                : new Date().toISOString(),
             author: [
                 {
                     '@type': 'Person',
