@@ -1,63 +1,5 @@
-import clsx from 'clsx';
 import React from 'react';
-import Image from '../components/Image';
-
-const ProjectCard = (props) => {
-    const {
-        title = '',
-        description = null,
-        link = {
-            label: '',
-            url: '',
-        },
-        image = {
-            src: '',
-            alt: '',
-        },
-        labels = [],
-    } = props;
-    return (
-        <div className="card margin-vert--md">
-            <div
-                className="card__header"
-                style={{ display: 'flex', justifyContent: 'center' }}
-            >
-                {title && <h4>{title}</h4>}
-            </div>
-            <div className="card__body">
-                {image.src && <Image src={image.src} alt={image.alt} />}
-                {description}
-            </div>
-            <div className="card__footer">
-                {link.url && (
-                    <button
-                        onClick={() => {
-                            window.open(link.url, '_blank', 'noopener');
-                        }}
-                        className="button button--secondary button--block margin-bottom--sm"
-                    >
-                        {link.label}
-                    </button>
-                )}
-                {labels.map((label, idx) => {
-                    const isLastItem = idx === labels.length - 1;
-                    return (
-                        <div
-                            key={idx}
-                            className={clsx({
-                                badge: true,
-                                'badge--secondary': true,
-                                'margin-right--sm': !isLastItem,
-                            })}
-                        >
-                            {label}
-                        </div>
-                    );
-                })}
-            </div>
-        </div>
-    );
-};
+import Card from '@site/src/components/Card';
 
 export const PINKOI_TIMELINE = {
     LOGO: (
@@ -91,7 +33,7 @@ export const PINKOI_TIMELINE = {
                     建立後透過動態載入共用模組跟延遲加載有效降低 FCP 1.7s
                     時間差距
                 </li>,
-                <ProjectCard
+                <Card
                     title="Web Vitals Monitor"
                     image={{
                         src: './assets/pinkoi-web-vitals-monitor.jpg',
@@ -129,7 +71,7 @@ export const PINKOI_TIMELINE = {
                     讓 Jest 與 Cypress 都產出 JUnit Report 準確回報測試結果
                 </li>,
                 <li>在 CI 過程加入 ESLint Job 確保程式碼品質</li>,
-                <ProjectCard
+                <Card
                     title="CI On PR Approved"
                     image={{
                         src: './assets/pinkoi-ci.jpg',
@@ -146,7 +88,7 @@ export const PINKOI_TIMELINE = {
             ],
         },
         OPENAPI: {
-            title: 'OpenAPI Types Generate Process',
+            title: 'OpenAPI Types Generate',
             bullets: [
                 <li>
                     由 backend fast api Generate 出 openapi.json， 透過 openapi
@@ -158,7 +100,7 @@ export const PINKOI_TIMELINE = {
         XMAS: {
             title: '2022 Xmas',
             bullets: [
-                <ProjectCard
+                <Card
                     title="2022 Xmas"
                     link={{
                         label: 'See Site',
@@ -199,7 +141,7 @@ export const REVTEL_TIMELINE = {
             bullets: [
                 <li>使開發環境能快速建立於 Darwin | Ubuntu</li>,
                 <li>
-                    <ProjectCard
+                    <Card
                         title="Revtel | .vim"
                         link={{
                             label: 'See GitHub',
@@ -235,7 +177,7 @@ export const REVTEL_TIMELINE = {
             title: '主要參與專案',
             bullets: [
                 <li>
-                    <ProjectCard
+                    <Card
                         title="惇聚 | Tungrp"
                         image={{
                             src: './assets/revtel-tungrp.jpg',
@@ -260,7 +202,7 @@ export const REVTEL_TIMELINE = {
                             '綠界金流',
                         ]}
                     />
-                    <ProjectCard
+                    <Card
                         title="幫農事 | IFarmer"
                         link={{
                             label: 'See AppStore',
@@ -288,7 +230,7 @@ export const REVTEL_TIMELINE = {
             title: '次要參與專案',
             bullets: [
                 <li>
-                    <ProjectCard
+                    <Card
                         title="法朋 | Leruban"
                         link={{
                             label: 'See Leruban',
@@ -301,7 +243,7 @@ export const REVTEL_TIMELINE = {
                         description={<p>法朋烘焙甜點坊</p>}
                         labels={['React', 'Gatsby']}
                     />
-                    <ProjectCard
+                    <Card
                         title="小和好點 | Dot.Dot. Bakery"
                         link={{
                             label: 'See Dot.Dot. Bakery',
@@ -343,7 +285,7 @@ export const TITANSOFT_TIMELINE = {
             title: '部門之星',
             bullets: [
                 <li>因工作態度優越，榮獲部門之星獎項</li>,
-                <ProjectCard
+                <Card
                     title="部門之星 | Department Star"
                     image={{
                         src: './assets/titansoft-dep-star.jpg',
@@ -383,19 +325,6 @@ export const TITANSOFT_INTERN_TIMELINE = {
         </div>
     ),
     KEY_ACHIEVEMENT: {
-        SHARE_REACT_WITH_INTERNS: {
-            title: '與同期實習生分享 React',
-            bullets: [
-                <ProjectCard
-                    title="與同期實習生分享 React"
-                    image={{
-                        src: './assets/titansoft-share-react.jpg',
-                        alt: 'titansoft share react',
-                    }}
-                    description={null}
-                />,
-            ],
-        },
         INVOLVED: {
             title: '主要經歷',
             bullets: [

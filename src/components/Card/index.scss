@@ -1,0 +1,8 @@
+.card-image {
+    margin: 0;
+    padding: 1rem 0;
+    & > .image {
+        object-fit: contain;
+        box-sizing: border-box;
+    }
+}

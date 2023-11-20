@@ -4,19 +4,20 @@ import BrowserOnly from '@docusaurus/BrowserOnly';
 import './index.scss';
 
 const Image = (props) => {
-    const { loading = 'lazy', ...rest } = props;
+    const { loading = 'lazy', wrapperClassNames, ...rest } = props;
     const { onLoad, element, load } = usePlaceholder({
         delay: 1000,
     });
 
     return (
-        <div className="image-wrapper">
+        <div className={clsx(['image-wrapper', wrapperClassNames])}>
             {element}
             <BrowserOnly>
                 {() => {
                     return (
                         <img
                             className={clsx({
+                                image: true,
                                 'fade-in': load,
                             })}
                             onLoad={onLoad}

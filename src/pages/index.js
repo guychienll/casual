@@ -17,7 +17,6 @@ import Image from '../components/Image';
 import 'react-vertical-timeline-component/style.min.css';
 // https://rpearce.github.io/react-medium-image-zoom/?path=/docs/introduction--docs
 import 'react-medium-image-zoom/dist/styles.css';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 const HeroSection = () => (
     <div className="hero hero--primary" style={{ height: '25rem' }}>
