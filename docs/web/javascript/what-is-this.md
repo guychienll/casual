@@ -5,7 +5,6 @@ description: What is this in JavaScript ?
 image: /assets/web/javascript/javascript.png
 keywords: [Node, Npm, JavaScript, This]
 tags: [Node, Npm, JavaScript, This]
-draft: true
 ---
 
 import Image from '@site/src/components/Image';
