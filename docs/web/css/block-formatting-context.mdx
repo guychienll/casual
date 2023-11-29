@@ -1,0 +1,108 @@
+---
+id: block-formatting-context
+title: BFC
+description: Block Formatting Context
+image: /assets/web/css/css.png
+keywords:
+    - css
+tags:
+    - css
+created: '2023-11-29'
+modified: '2023-11-29'
+draft: true
+---
+
+import Image from '@site/src/components/Image';
+
+<Image src="/assets/web/css/css.png" alt="css banner" />
+
+## BFC 是什麼
+
+BFC 是 Block Formatting Context 的縮寫，中文翻譯為區塊格式化上下文，是 CSS2.1 中的一個概念，用於描述一個獨立的渲染區域，並且這個區域內的元素與外部的元素互不影響。
+
+## BFC 的條件
+
+-   根元素或其他包含它的元素
+-   浮動元素 ( float 不為 none )
+-   絕對定位元素 ( position 為 absolute 或 fixed )
+-   display 為 inline-block, table-cell, table-caption, flex, inline-flex
+-   overflow 不為 visible
+
+```jsx showLineNumbers
+<div
+    style={{
+        position: 'relative',
+        minHeight: '200px',
+        overflow: 'auto',
+    }}
+>
+    <div
+        style={{
+            position: 'absolute',
+            width: '300px',
+            height: '100px',
+            left: '310px',
+        }}
+    >
+        ...
+    </div>
+
+    <div
+        style={{
+            position: 'relative',
+            overflow: 'hidden',
+            width: '300px',
+            height: '100px',
+        }}
+    >
+        ...
+    </div>
+</div>
+```
+
+<div
+    style={{
+        position: 'relative',
+        minHeight: '200px',
+        overflow: 'auto',
+    }}
+>
+    <div
+        style={{
+            position: 'absolute',
+            width: '300px',
+            height: '100px',
+            left: '310px',
+        }}
+    >
+        lorem ipsum is simply dummy text of the printing and typesetting
+        industry. lorem ipsum has been the industry's standard dummy text ever
+        since the 1500s, when an unknown printer took a galley of type and
+        scrambled it to make a type specimen book. it has survived not only five
+        centuries, but also the leap into electronic typesetting, remaining
+        essentially unchanged. it was popularised in the 1960s with the release
+        of letraset sheets containing lorem ipsum passages, and more recently
+        with desktop publishing software like aldus pagemaker including versions
+        of lorem ipsum.
+    </div>
+
+    <div
+        style={{
+            position: 'relative',
+            overflow: 'hidden',
+            width: '300px',
+            height: '100px',
+        }}
+    >
+        lorem ipsum is simply dummy text of the printing and typesetting
+        industry. lorem ipsum has been the industry's standard dummy text ever
+        since the 1500s, when an unknown printer took a galley of type and
+        scrambled it to make a type specimen book. it has survived not only five
+        centuries, but also the leap into electronic typesetting, remaining
+        essentially unchanged. it was popularised in the 1960s with the release
+        of letraset sheets containing lorem ipsum passages, and more recently
+        with desktop publishing software like aldus pagemaker including versions
+        of lorem ipsum.
+    </div>
+
+</div>
