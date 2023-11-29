@@ -47,7 +47,8 @@ JavaScript 是一個 Single Thread 的語言
 3. 當 Micro Task queue 當中的任務執行完畢後，會檢查 Macro Task queue 當中是否有任務，如果有的話，會執行 Macro Task queue 當中的任務
 4. 重複 1 ~ 3 的步驟
 
-
+<Image src="/assets/web/javascript/event-loop.gif" alt="eventloop" />
+> 經同意，圖片取自於 [Priya Bagde](https://www.linkedin.com/posts/priya-bagde_frontend-javascript-react-activity-7109106985639251969-5GuJ/)
 
 ## 經典面試題
 
