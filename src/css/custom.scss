@@ -181,5 +181,11 @@ details {
     display: block;
     margin: 0 calc(-1 * var(--ifm-pre-padding));
     padding: 0 var(--ifm-pre-padding);
-    border-left: 3px solid #ff000080;
+}
+
+.code-block-output-line{
+    background-color: #00fff020;
+    display: block;
+    margin: 0 calc(-1 * var(--ifm-pre-padding));
+    padding: 0 var(--ifm-pre-padding);
 }

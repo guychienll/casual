@@ -205,6 +205,10 @@ const config = {
                     className: 'code-block-error-line',
                     line: 'ERROR',
                 },
+                {
+                    className: 'code-block-output-line',
+                    line: 'OUTPUT',
+                },
             ],
         },
     },
