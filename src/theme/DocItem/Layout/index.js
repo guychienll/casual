@@ -34,9 +34,9 @@ function useDocTOC() {
 }
 export default function DocItemLayout({ children }) {
     const docTOC = useDocTOC();
-    const {
-        metadata: { unlisted, frontMatter },
-    } = useDoc();
+    const { metadata } = useDoc();
+    const { frontMatter, unlisted } = metadata;
+    const { draft } = frontMatter;
 
     React.useEffect(() => {
         const header = document.querySelector('head');
@@ -79,7 +79,14 @@ export default function DocItemLayout({ children }) {
                         <DocBreadcrumbs />
                         <DocVersionBadge />
                         {docTOC.mobile}
-                        <DocItemContent>{children}</DocItemContent>
+                        <DocItemContent>
+                            {draft && (
+                                <div className="alert alert--warning margin-bottom--md">
+                                    編輯中 Working in Progress
+                                </div>
+                            )}
+                            {children}
+                        </DocItemContent>
                         <DocItemFooter />
                         <Discussion />
                     </article>
