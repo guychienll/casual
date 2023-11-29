@@ -123,7 +123,7 @@ export default function CodeBlockString({
                             OUTPUT
                         </div>
                         <div className={styles.codeBlockOutputContent}>
-                            {output}
+                            <div dangerouslySetInnerHTML={{ __html: output }} />
                         </div>
                     </pre>
                 )}
