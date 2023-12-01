@@ -69,7 +69,7 @@ JavaScript 是一個 Single Thread 的語言
 > - 依 queue FIFO 序執行 `console.log('async1 end')` `console.log('promise2')`  
 > - 接著檢查 Macro Task queue 當中是否有任務，如果有的話，會執行 Macro Task queue 當中的任務  
 > - 依序執行 `console.log('setTimeout')`  
-> ```js showLineNumbers output="script start<br/>async1 start<br/>async2<br/>promise1<br/>script end<br/>async1 end<br/>promise2<br/>setTimeout"
+> ```js showLineNumbers 
 > async function async1() {
 >     console.log('async1 start');
 >     await async2();
@@ -96,4 +96,13 @@ JavaScript 是一個 Single Thread 的語言
 > });
 > console.log('script end');
 > ```
-
+> ```text title="output"
+> script start
+> async1 start
+> async2
+> promise1
+> script end
+> async1 end
+> promise2
+> setTimeout
+> ```
