@@ -146,7 +146,7 @@ React 會先比較兩個元件的 `type` 是否相同
 
 ```jsx live
 function DynamicForm() {
-    const [values, setValues] = useState([]);
+    const [values, setValues] = React.useState([]);
 
     const addRow = () => {
         const id = uuid();

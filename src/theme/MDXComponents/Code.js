@@ -13,7 +13,7 @@ export default function MDXCode(props) {
             {...props}
             scope={{
                 uuid,
-                ...React,
+                React,
             }}
         />
     );
