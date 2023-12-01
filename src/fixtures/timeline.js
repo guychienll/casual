@@ -36,7 +36,7 @@ export const PINKOI_TIMELINE = {
                 <Card
                     title="Web Vitals Monitor"
                     image={{
-                        src: './assets/pinkoi-web-vitals-monitor.jpg',
+                        src: './assets/pinkoi/pinkoi-web-vitals-monitor.jpg',
                         alt: 'pinkoi web vitals monitor',
                     }}
                     labels={['Grafana', 'Prometheus', 'Node.js', 'Cronjob']}
@@ -74,7 +74,7 @@ export const PINKOI_TIMELINE = {
                 <Card
                     title="CI On PR Approved"
                     image={{
-                        src: './assets/pinkoi-ci.jpg',
+                        src: './assets/pinkoi/pinkoi-ci.jpg',
                         alt: 'pinkoi ci',
                     }}
                     labels={[
@@ -107,7 +107,7 @@ export const PINKOI_TIMELINE = {
                         url: 'https://www.pinkoi.com/event/xmas',
                     }}
                     image={{
-                        src: './assets/pinkoi-xmas.jpg',
+                        src: './assets/pinkoi/pinkoi-xmas.jpg',
                         alt: 'pinkoi ci',
                     }}
                     labels={['React', 'Campaign', 'event', 'Xmas', '2022']}
@@ -148,7 +148,7 @@ export const REVTEL_TIMELINE = {
                             url: 'https://github.com/revtel/.vim',
                         }}
                         image={{
-                            src: 'https://camo.githubusercontent.com/18fb58db078bfd2e0927c172dd75fdb02caa030e5f16779bf82aa688bf9a5a3e/68747470733a2f2f692e696d6775722e636f6d2f747573636b79722e706e67',
+                            src: '/assets/revtel/revtel-vim.webp',
                             alt: 'revtel .vim',
                         }}
                         description={
@@ -180,7 +180,7 @@ export const REVTEL_TIMELINE = {
                     <Card
                         title="惇聚 | Tungrp"
                         image={{
-                            src: './assets/revtel-tungrp.jpg',
+                            src: '/assets/revtel/revtel-tungrp.jpg',
                             alt: 'revtel tungrp',
                         }}
                         description={
@@ -209,7 +209,7 @@ export const REVTEL_TIMELINE = {
                             url: 'https://apps.apple.com/tw/app/%E5%B9%AB%E8%BE%B2%E4%BA%8B/id1607435148',
                         }}
                         image={{
-                            src: './assets/revtel-ifarmer.png',
+                            src: './assets/revtel/revtel-ifarmer.jpg',
                             alt: 'revtel ifarmer',
                         }}
                         description={
@@ -237,7 +237,7 @@ export const REVTEL_TIMELINE = {
                             url: 'https://lerubanpatisserie.com/',
                         }}
                         image={{
-                            src: './assets/revtel-leruban.png',
+                            src: './assets/revtel/revtel-leruban.jpg',
                             alt: 'revtel leruban',
                         }}
                         description={<p>法朋烘焙甜點坊</p>}
@@ -250,7 +250,7 @@ export const REVTEL_TIMELINE = {
                             url: 'https://dotdothotel.com/',
                         }}
                         image={{
-                            src: './assets/revtel-dotdot.png',
+                            src: './assets/revtel/revtel-dotdot.jpg',
                             alt: 'revtel dotdot',
                         }}
                         description={<p>小和好點 dot.dot. Bakery Cafe</p>}
@@ -288,7 +288,7 @@ export const TITANSOFT_TIMELINE = {
                 <Card
                     title="部門之星 | Department Star"
                     image={{
-                        src: './assets/titansoft-dep-star.jpg',
+                        src: './assets/titansoft/titansoft-dep-star.jpg',
                         alt: 'titansoft dep star',
                     }}
                     description={null}

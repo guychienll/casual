@@ -100,7 +100,7 @@ const Skill = () => {
                     使用 node 做 cypress cli
                     指令導出，讓非前端相關職能，能夠迅速使用 prompt 執行 cypress
                 </li>,
-                <Image src="/assets/cypress-prompt.png" alt="cypress prompt" />,
+                <Image src="/assets/cypress-prompt.jpg" alt="cypress prompt" />,
                 <li>
                     透過 cypress-parallel 整合 ，讓 cypress 測試平行運行，減少
                     cypress 執行時間，約莫 80%
