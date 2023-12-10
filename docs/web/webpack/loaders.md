@@ -121,9 +121,9 @@ root.appendChild(header);
 document.body.appendChild(root);
 ```
 
-也請記得因為副檔名的改變
-所以在 webpack.config.js 中的 test 也要做相對應的修改
-更改結束後重新執行 webpack 並且重新整理網頁
+也請記得因為副檔名的改變  
+所以在 webpack.config.js 中的 test 也要做相對應的修改  
+更改結束後重新執行 webpack 並且重新整理網頁  
 
 ```js {2} title="webpack.config.js" showLineNumbers
 {
@@ -159,9 +159,6 @@ document.body.appendChild(root);
     },
 },
 ```
-
-
-
 
 #### style-loader
 
