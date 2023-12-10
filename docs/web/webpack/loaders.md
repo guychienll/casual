@@ -324,3 +324,15 @@ devtool network 當中也能看見 main.css 單獨被載入
   },
 },
 ```
+
+##### autoprefixer
+
+目的用於自動加入 css 前綴  
+用以兼容於不同瀏覽器  
+而上述提到的 postcss-preset-env  
+其實就是一個整合了 autoprefixer 的 postcss plugin  
+所以如果有使用了 postcss-preset-env  
+就不需要再額外安裝 autoprefixer  
+其中差異在於  
+postcss-preset-env 還會包含將 css 新語法轉換成舊語法的功能  
+而 autoprefixer 僅僅只是加入 css 前綴的功能
