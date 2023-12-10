@@ -4,7 +4,7 @@ import BrowserOnly from '@docusaurus/BrowserOnly';
 import './index.scss';
 
 const Image = (props) => {
-    const { loading = 'lazy', wrapperClassNames, ...rest } = props;
+    const { loading = 'lazy', credit = '', wrapperClassNames, ...rest } = props;
     const { onLoad, element, load } = usePlaceholder({
         delay: 1000,
     });
@@ -27,6 +27,7 @@ const Image = (props) => {
                     );
                 }}
             </BrowserOnly>
+            {credit && <small>圖片出處 : {credit}</small>}
         </div>
     );
 };

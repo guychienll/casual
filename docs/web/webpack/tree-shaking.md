@@ -2,7 +2,7 @@
 id: tree-shaking
 title: 深入解析 Webpack Tree Shaking
 description: 使用簡易程式碼解釋 webpack 如何 Tree Shaking
-image: /assets/tree-shaking.gif
+image: /assets/web/webpack/webpack.gif
 keywords:
     [
         webpack,
@@ -31,7 +31,7 @@ tags:
 
 import Image from "@site/src/components/Image";
 
-<Image src="/assets/tree-shaking.gif" alt="tree shaking banner" />
+<Image credit="https://webpack.js.org/" src="/assets/web/webpack/webpack.gif" alt="tree shaking banner"></Image>
 
 ## 前情提要
 

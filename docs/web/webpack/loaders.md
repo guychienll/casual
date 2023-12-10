@@ -1,0 +1,226 @@
+---
+id: loaders
+title: Webpack Loaders 與 Plugins
+description: Webpack Loaders 與 Plugins
+image: /assets/web/webpack/webpack.gif
+keywords:
+  - webpack
+  - javascript
+  - loader
+  - babel
+tags:
+  - webpack
+  - javascript
+  - loader
+  - babel
+created: '2023-12-10'
+modified: '2023-12-10'
+---
+
+import Image from "@site/src/components/Image";
+
+<Image credit="https://webpack.js.org/" src="/assets/web/webpack/webpack.gif" alt="tree shaking banner"></Image>
+
+
+## Loaders
+
+### 樣式相關
+
+#### css-loader
+
+由於 webpack 只能處理 javascript 與 json 檔案  
+如果需要讓 webpack 處理其他類型的檔案  
+就需要使用與那類型檔案相對應的 loader 來處理  
+例如 css 檔案就需要使用 css-loader 來處理  
+這樣 webpack 才能正確的將 css 檔案打包進 bundle 中
+
+需要先於 webpack.config.js 設置 css-loader  
+```js title="webpack.config.js"
+{
+    test: /\.css$/,
+    use: ['css-loader'],
+},
+```
+
+然後在 js 中引入 css 檔案才能順利被 webpack 處理並且打包
+```js title="any.js"
+import "./style.css";
+```
+
+如果沒有設置 css-loader  
+則會出現類似以下錯誤  
+意思是 webpack 在告訴我們他看不懂 css 檔案
+```js title="error"
+ERROR in ./src/base.css 1:0
+Module parse failed: Unexpected token (1:0)
+You may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders
+> .header {
+|     background-color: #000;
+|     color: #fff;
+@ ./src/index.js 3:0-20
+
+webpack 5.89.0 compiled with 1 error in 395 ms
+```
+
+#### style-loader
+
+css-loader 只是將 css 檔案打包進 bundle 中  
+但是並不會將 css 內容真正的載入到網頁中  
+所以還需要使用 style-loader 來將 css 檔案載入到網頁中  
+
+更具體一點來說明  
+通常我們會將 css 檔案寫在一個獨立的 css 檔案中  
+然後在 js 中引入 css 檔案  
+
+```css title="base.css"
+.header {
+    background-color: #000;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    user-select: none;
+}
+```
+
+```js title='main.js'
+import "./base.css";
+
+const root = document.createElement("div");
+
+const header = document.createElement("div");
+header.className = "header";
+header.innerHTML = "this is a header";
+
+root.appendChild(header);
+document.body.appendChild(root);
+```
+
+並且會有一份 html 檔案
+用來呈現最終網頁渲染出來的結果
+```html title="index.html"
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Webpack App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script defer src="main.js"></script>
+</head>
+<body></body>
+</html>
+```
+
+到此我們會認為我們於 base.css 所撰寫的樣式  
+應該會正常的顯示在 header 元素上  
+但是實際上並不會如此  
+
+![](/assets/web/webpack/before-add-style-loader.png)
+
+這是因為 css-loader 只是將 css 檔案打包進 bundle 中  
+但是並不會將 css 內容真正的載入到網頁中  
+所以還需要使用 style-loader 來將 css 檔案載入到網頁中  
+它實際上作為是將我們所撰寫的 css 放入 style tag 當中  
+並且將 style tag 放入 head tag 中  
+
+```js title="webpack.config.js"
+{
+    test: /\.css$/,
+    use: ['style-loader', 'css-loader'],
+},
+```
+
+:::caution
+請注意順序性  
+webpack loader 將會依照由後往前的順序執行  
+必須先將 css 打包進 js 檔案中  
+才能進一步使用 style-loader 將 css 載入到網頁中  
+::: 
+
+此時重新執行 webpack 並且重新整理網頁  
+將會看到我們所撰寫的 css 樣式如實的顯示在 header 元素上  
+並且能於 devtool 中看到 style tag 已經被放入 head tag 中  
+
+![](/assets/web/webpack/after-add-style-loader.png)
+
+#### mini-css-extract-plugin
+
+而更多時候我們會希望將 css 檔案獨立出來  
+而不是將 css 打包進 js 檔案中  
+這時候就需要使用 mini-css-extract-plugin 來將 css 檔案獨立出來  
+
+```js title="webpack.config.js"
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+module.exports = {
+    module: {
+        rules: [
+            {
+                test: /\.css$/,
+                use: [MiniCssExtractPlugin.loader, 'css-loader'],
+            },
+        ],
+    },
+    plugins: [
+        new MiniCssExtractPlugin(),
+    ],
+};
+```
+
+其功能與 style-loader 類似  
+因此請勿同時使用 style-loader 與 mini-css-extract-plugin  
+差異在於 style-loader 會將 css 放入 style tag 中  
+而 mini-css-extract-plugin 則是將 css 放入獨立的 css 檔案中  
+並且透過 link tag 將 css 檔案載入到網頁中  
+
+```html {8} title="index.html" showLineNumbers
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Webpack App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script defer src="main.js"></script>
+    <link href="main.css" rel="stylesheet" />
+</head>
+<body></body>
+</html>
+```
+
+可以看見 css 檔案已經被獨立出來  
+devtool network 當中也能看見 main.css 單獨被載入
+
+![](/assets/web/webpack/after-mini-css-extract-plugin.png)
+
+
+
+#### postcss-loader
+
+針對 css 檔案進行處理  
+擴充或是向前兼容 css 語法  
+以便於在不同瀏覽器上都能正常顯示  
+
+##### postcss-preset-env
+
+###### browsers
+可以於 options 設定 browsers 其設定值將會完全覆蓋 `.browserslistrc` 的設定值  
+而如果沒有特別設定 browsers 則會使用 `.browserslistrc` 的設定值
+
+```js {9} showLineNumbers
+{
+  loader: 'postcss-loader',
+  options: {
+    postcssOptions: {
+      plugins: [
+        [
+          'postcss-preset-env',
+          {
+            browsers: 'last 2 versions',
+          },
+        ],
+      ],
+    },
+  },
+},
+```
