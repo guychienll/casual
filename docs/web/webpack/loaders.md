@@ -7,11 +7,19 @@ keywords:
   - webpack
   - javascript
   - loader
+  - css-loader
+  - style-loader
+  - postcss-loader
+  - mini-css-extract-plugin
   - babel
 tags:
   - webpack
   - javascript
   - loader
+  - css-loader
+  - style-loader
+  - postcss-loader
+  - mini-css-extract-plugin
   - babel
 created: '2023-12-10'
 modified: '2023-12-10'
@@ -35,7 +43,7 @@ import Image from "@site/src/components/Image";
 這樣 webpack 才能正確的將 css 檔案打包進 bundle 中
 
 需要先於 webpack.config.js 設置 css-loader  
-```js title="webpack.config.js"
+```js title="webpack.config.js" showLineNumbers
 {
     test: /\.css$/,
     use: ['css-loader'],
@@ -43,14 +51,14 @@ import Image from "@site/src/components/Image";
 ```
 
 然後在 js 中引入 css 檔案才能順利被 webpack 處理並且打包
-```js title="any.js"
+```js title="any.js" showLineNumbers
 import "./style.css";
 ```
 
 如果沒有設置 css-loader  
 則會出現類似以下錯誤  
 意思是 webpack 在告訴我們他看不懂 css 檔案
-```js title="error"
+```js title="error" showLineNumbers
 ERROR in ./src/base.css 1:0
 Module parse failed: Unexpected token (1:0)
 You may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders
@@ -62,17 +70,31 @@ You may need an appropriate loader to handle this file type, currently no loader
 webpack 5.89.0 compiled with 1 error in 395 ms
 ```
 
-#### style-loader
+##### module
 
-css-loader 只是將 css 檔案打包進 bundle 中  
-但是並不會將 css 內容真正的載入到網頁中  
-所以還需要使用 style-loader 來將 css 檔案載入到網頁中  
+欲開啟 css module 功能
+可以在 css-loader options 中設置 modules 為 true
 
-更具體一點來說明  
-通常我們會將 css 檔案寫在一個獨立的 css 檔案中  
-然後在 js 中引入 css 檔案  
+```js {5} title="webpack.config.js" showLineNumbers
+{
+    test: /\.css$/,
+    use: ['css-loader'],
+    options: {
+        modules: true,
+    },
+},
+```
 
-```css title="base.css"
+並且記得將 css 檔案改為慣例的後綴 `*.module.css`
+
+:::info
+這裡會說是慣例的原因  
+是因為 css-loader 並不會強制開起 css module 功能後  
+只能使用 .module.css 作為 css 檔案的後綴  
+但大多數專案會以 .module 來識別 css module 的檔案
+::: 
+
+```css title="base.module.css" showLineNumbers
 .header {
     background-color: #000;
     color: #fff;
@@ -84,7 +106,86 @@ css-loader 只是將 css 檔案打包進 bundle 中
 }
 ```
 
-```js title='main.js'
+這樣就可以在 js 中使用 css module 的方式引入 css 檔案
+
+```js {1,6} title="main.js" showLineNumbers
+import styles from "./base.module.css";
+
+const root = document.createElement("div");
+
+const header = document.createElement("div");
+header.className = styles.header;
+header.innerHTML = "this is a header";
+
+root.appendChild(header);
+document.body.appendChild(root);
+```
+
+也請記得因為副檔名的改變
+所以在 webpack.config.js 中的 test 也要做相對應的修改
+更改結束後重新執行 webpack 並且重新整理網頁
+
+```js {2} title="webpack.config.js" showLineNumbers
+{
+    test: /\.module.css$/,
+    use: ['css-loader'],
+    options: {
+        modules: true,
+    },
+},
+```
+
+就可以看見 css module 的效果  
+會為你的 css class 建立出 unique 的名稱  
+避免 css pollution 的問題  
+
+![css-module](/assets/web/webpack/css-module.png)
+
+###### localIdentName
+
+如果是認為 css module 產生出來的名稱在開發時不易閱讀  
+可以在 css-loader options 中設置 localIdentName 來自訂名稱  
+但通常建議只使用於開發時  
+於 production 時還是可以使用預設的名稱或是不帶有意義的名稱
+
+```js {6} title="webpack.config.js" showLineNumbers
+{
+    test: /\.module.css$/,
+    use: ['css-loader'],
+    options: {
+        modules: {
+            localIdentName: '[path][name]__[local]--[hash:base64:5]',
+        },
+    },
+},
+```
+
+
+
+
+#### style-loader
+
+css-loader 只是將 css 檔案打包進 bundle 中  
+但是並不會將 css 內容真正的載入到網頁中  
+所以還需要使用 style-loader 來將 css 檔案載入到網頁中  
+
+更具體一點來說明  
+通常我們會將 css 檔案寫在一個獨立的 css 檔案中  
+然後在 js 中引入 css 檔案  
+
+```css title="base.css" showLineNumbers
+.header {
+    background-color: #000;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    user-select: none;
+}
+```
+
+```js title='main.js' showLineNumbers
 import "./base.css";
 
 const root = document.createElement("div");
@@ -99,7 +200,7 @@ document.body.appendChild(root);
 
 並且會有一份 html 檔案
 用來呈現最終網頁渲染出來的結果
-```html title="index.html"
+```html title="index.html" showLineNumbers
 <!doctype html>
 <html>
 <head>
@@ -116,7 +217,7 @@ document.body.appendChild(root);
 應該會正常的顯示在 header 元素上  
 但是實際上並不會如此  
 
-![](/assets/web/webpack/before-add-style-loader.png)
+![before-add-style-loader](/assets/web/webpack/before-add-style-loader.png)
 
 這是因為 css-loader 只是將 css 檔案打包進 bundle 中  
 但是並不會將 css 內容真正的載入到網頁中  
@@ -124,7 +225,7 @@ document.body.appendChild(root);
 它實際上作為是將我們所撰寫的 css 放入 style tag 當中  
 並且將 style tag 放入 head tag 中  
 
-```js title="webpack.config.js"
+```js title="webpack.config.js" showLineNumbers
 {
     test: /\.css$/,
     use: ['style-loader', 'css-loader'],
@@ -142,7 +243,7 @@ webpack loader 將會依照由後往前的順序執行
 將會看到我們所撰寫的 css 樣式如實的顯示在 header 元素上  
 並且能於 devtool 中看到 style tag 已經被放入 head tag 中  
 
-![](/assets/web/webpack/after-add-style-loader.png)
+![after-add-style-loader](/assets/web/webpack/after-add-style-loader.png)
 
 #### mini-css-extract-plugin
 
@@ -150,7 +251,7 @@ webpack loader 將會依照由後往前的順序執行
 而不是將 css 打包進 js 檔案中  
 這時候就需要使用 mini-css-extract-plugin 來將 css 檔案獨立出來  
 
-```js title="webpack.config.js"
+```js title="webpack.config.js" showLineNumbers
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
@@ -191,9 +292,7 @@ module.exports = {
 可以看見 css 檔案已經被獨立出來  
 devtool network 當中也能看見 main.css 單獨被載入
 
-![](/assets/web/webpack/after-mini-css-extract-plugin.png)
-
-
+![after-mini-css-extract-plugin](/assets/web/webpack/after-mini-css-extract-plugin.png)
 
 #### postcss-loader
 
