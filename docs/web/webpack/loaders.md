@@ -55,7 +55,7 @@ import Image from "@site/src/components/Image";
 
 然後在 js 中引入 css 檔案才能順利被 webpack 處理並且打包
 
-```js title="any.js" showLineNumbers
+```js title="main.js" showLineNumbers
 import './style.css';
 ```
 
