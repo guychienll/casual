@@ -29,6 +29,10 @@ import Image from "@site/src/components/Image";
 
 <Image credit="https://webpack.js.org/" src="/assets/web/webpack/webpack.gif" alt="tree shaking banner"></Image>
 
+:::info
+本文將會介紹 webpack 中的 loaders 與 plugins  
+可以預先 clone 本文範例 playground [webpack-lab](https://github.com/guychienll/webpack-lab)  
+:::
 
 ## Loaders
 
