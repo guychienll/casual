@@ -10,6 +10,7 @@ import {
 import TimelineElem from '../components/TimelineElem';
 import Skill from '../components/Skill';
 import Hero from '../components/Hero';
+import Portfolio from '../components/Portfolio';
 
 export default function Home() {
     return (
@@ -34,7 +35,6 @@ export default function Home() {
                     keyAchievement={REVTEL_TIMELINE.KEY_ACHIEVEMENT}
                     icon={REVTEL_TIMELINE.LOGO}
                 />
-
                 <TimelineElem
                     title={TITANSOFT_TIMELINE.TITLE}
                     subtitle={TITANSOFT_TIMELINE.SUBTITLE}
@@ -42,7 +42,6 @@ export default function Home() {
                     keyAchievement={TITANSOFT_TIMELINE.KEY_ACHIEVEMENT}
                     icon={TITANSOFT_TIMELINE.LOGO}
                 />
-
                 <TimelineElem
                     title={TITANSOFT_INTERN_TIMELINE.TITLE}
                     subtitle={TITANSOFT_INTERN_TIMELINE.SUBTITLE}
@@ -51,6 +50,7 @@ export default function Home() {
                     icon={TITANSOFT_INTERN_TIMELINE.LOGO}
                 />
             </VerticalTimeline>
+            <Portfolio />
         </Layout>
     );
 }
