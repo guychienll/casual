@@ -1,6 +1,6 @@
 import React from 'react';
 
-const According = ({ title = '', bullets = [], isOpen = true }) => {
+const According = ({ title = '', bullets = [], isOpen = false }) => {
     return (
         <details open={isOpen}>
             <summary>{title}</summary>

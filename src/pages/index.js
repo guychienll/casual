@@ -4,13 +4,10 @@ import { VerticalTimeline } from 'react-vertical-timeline-component';
 import {
     PINKOI_TIMELINE,
     REVTEL_TIMELINE,
-    TITANSOFT_INTERN_TIMELINE,
     TITANSOFT_TIMELINE,
 } from '../fixtures/timeline';
 import TimelineElem from '../components/TimelineElem';
-import Skill from '../components/Skill';
 import Hero from '../components/Hero';
-import Portfolio from '../components/Portfolio';
 
 export default function Home() {
     return (
@@ -19,7 +16,6 @@ export default function Home() {
             description="guychienll's personal website"
         >
             <Hero />
-            <Skill />
             <VerticalTimeline>
                 <TimelineElem
                     title={PINKOI_TIMELINE.TITLE}
@@ -42,15 +38,7 @@ export default function Home() {
                     keyAchievement={TITANSOFT_TIMELINE.KEY_ACHIEVEMENT}
                     icon={TITANSOFT_TIMELINE.LOGO}
                 />
-                <TimelineElem
-                    title={TITANSOFT_INTERN_TIMELINE.TITLE}
-                    subtitle={TITANSOFT_INTERN_TIMELINE.SUBTITLE}
-                    date={TITANSOFT_INTERN_TIMELINE.DATE}
-                    keyAchievement={TITANSOFT_INTERN_TIMELINE.KEY_ACHIEVEMENT}
-                    icon={TITANSOFT_INTERN_TIMELINE.LOGO}
-                />
             </VerticalTimeline>
-            <Portfolio />
         </Layout>
     );
 }

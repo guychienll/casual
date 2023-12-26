@@ -120,25 +120,19 @@ const config = {
         },
         colorMode: {
             defaultMode: 'dark',
-            disableSwitch: false,
+            disableSwitch: true,
             respectPrefersColorScheme: false,
         },
         navbar: {
             title: 'guychienll.dev',
-            logo: {
-                alt: 'My Site Logo',
-                src: 'img/courage-the-coward-dog.png',
-                width: 32,
-                height: 32,
-            },
             items: [
                 {
                     type: 'docSidebar',
                     sidebarId: 'NoteSidebar',
                     position: 'left',
-                    label: '筆記',
+                    label: 'docs',
                 },
-                { to: '/blog', label: '部落格', position: 'left' },
+                { to: '/blog', label: 'blog', position: 'left' },
             ],
         },
         footer: {
@@ -148,11 +142,11 @@ const config = {
                     title: '網站導覽',
                     items: [
                         {
-                            label: '筆記',
+                            label: 'docs',
                             to: 'docs/',
                         },
                         {
-                            label: '部落格',
+                            label: 'blog',
                             to: '/blog',
                         },
                     ],

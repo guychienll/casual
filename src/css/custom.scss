@@ -12,7 +12,7 @@
     --color-neutral-000: rgb(245, 246, 247);
     --color-neutral-050: #888888;
     --color-neutral-100: #1b1b1d;
-    --line-color: var(--ifm-color-primary) !important;
+    --line-color: transparent !important;
 
     @media screen and (max-width: 1170px) {
         --line-color: transparent !important;
@@ -32,6 +32,7 @@
     --color-neutral-050: #888888;
     --color-neutral-100: rgb(245, 246, 247);
 }
+
 
 details {
     color: var(--color-neutral-100);
@@ -78,104 +79,6 @@ details {
     }
 }
 
-
-.skill-section {
-    width: 90%;
-    margin: 2rem auto 0;
-    border-radius: 20px;
-    background-color: var(--ifm-color-primary);
-    display: flex;
-    justify-content: space-around;
-    max-width: 1170px;
-    & > .left {
-        width: 48%;
-        padding: 1rem;
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-gap: 1.2rem;
-        align-self: center;
-        & > button {
-            position: relative;
-            display: flex;
-            box-sizing: border-box;
-            align-items: center;
-            justify-content: center;
-            aspect-ratio: 1;
-            border-radius: 1rem;
-            border: none;
-            cursor: pointer;
-            background-color: var(--color-neutral-050);
-            transition: transform 500ms ease-out;
-            transform-style: preserve-3d;
-            &.is-active {
-                transform: rotateY(180deg);
-                background-color: var(--ifm-color-primary-darker);
-            }
-            & > .ff,
-            & > .bf {
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                backface-visibility: hidden;
-                transform: scale(0.98);
-                & > svg {
-                    color: var(--color-neutral-000);
-                    width: 50%;
-                    height: 50%;
-                }
-            }
-            & > .ff {
-                transform: rotateY(180deg);
-                &.is-active {
-                    & > svg {
-                        color: var(--ifm-color-warning);
-                    }
-                }
-            }
-        }
-    }
-    & > .right {
-        display: flex;
-        justify-content: center;
-        width: 48%;
-        padding: 1rem;
-        height: 450px;
-        max-height: 450px;
-        & > details {
-            width: 100%;
-            position: relative;
-            & > summary {
-                position: sticky;
-                top: 0;
-                pointer-events: none;
-                list-style: none;
-                z-index: 1;
-            }
-            height: 100%;
-            overflow-y: auto;
-        }
-        & img {
-            margin-bottom: 1rem;
-        }
-    }
-    @media screen and (max-width: 1170px) {
-        flex-direction: column;
-        align-items: center;
-        background-color: transparent;
-        & > .left {
-            width: 90%;
-            grid-gap: 0.5rem;
-        }
-        & > .right {
-            width: 90%;
-            padding: unset;
-        }
-    }
-}
-
 .code-block-error-line {
     background-color: #ff000020;
     display: block;
@@ -183,7 +86,7 @@ details {
     padding: 0 var(--ifm-pre-padding);
 }
 
-.code-block-output-line{
+.code-block-output-line {
     background-color: #00fff020;
     display: block;
     margin: 0 calc(-1 * var(--ifm-pre-padding));

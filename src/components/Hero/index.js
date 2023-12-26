@@ -2,14 +2,19 @@ import Typed from '../Typed';
 import React from 'react';
 
 const Hero = () => (
-    <div className="hero hero--primary" style={{ height: '25rem' }}>
+    <div
+        className="hero hero--primary"
+        style={{
+            height: '25rem',
+        }}
+    >
         <div className="container">
             <div className="avatar avatar--vertical margin-vert--lg">
                 <img
-                    width="6rem"
-                    height="6rem"
+                    width="460"
+                    height="460"
                     className="avatar__photo avatar__photo--xl"
-                    src="/img/courage-the-coward-dog.png"
+                    src="/assets/profile.jpeg"
                     alt="avatar"
                 />
                 <div className="avatar__intro margin-vert--sm">
