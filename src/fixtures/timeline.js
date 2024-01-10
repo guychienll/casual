@@ -2,7 +2,14 @@ import React from 'react';
 import Card from '@site/src/components/Card';
 
 export const PINKOI_TIMELINE = {
-    LOGO: <img src="./img/pinkoi.jpg" alt="pinkoi" loading="lazy" />,
+    LOGO: (
+        <img
+            src="./img/pinkoi.jpg"
+            style={{ borderRadius: '50%' }}
+            alt="pinkoi"
+            loading="lazy"
+        />
+    ),
     TITLE: 'Pinkoi Inc.',
     SUBTITLE: ['Frontend Engineer', 'Platform Squad'],
     DATE: (
@@ -81,7 +88,7 @@ export const PINKOI_TIMELINE = {
             ],
         },
         OPENAPI: {
-            title: 'OpenAPI 型別生成',
+            title: 'OpenAPI Types Generate',
             bullets: [
                 <li>
                     由 backend fast api Generate 出 openapi.json， 透過 openapi
@@ -111,7 +118,14 @@ export const PINKOI_TIMELINE = {
 };
 
 export const REVTEL_TIMELINE = {
-    LOGO: <img src="./img/revtel.png" alt="revtel" loading="lazy" />,
+    LOGO: (
+        <img
+            src="./img/revtel.png"
+            style={{ transform: 'scale(0.72)' }}
+            alt="revtel"
+            loading="lazy"
+        />
+    ),
     TITLE: 'Revtel Tech',
     SUBTITLE: ['Frontend Engineer'],
     DATE: (
@@ -249,9 +263,16 @@ export const REVTEL_TIMELINE = {
 };
 
 export const TITANSOFT_TIMELINE = {
-    LOGO: <img src="./img/titansoft.png" alt="titansoft" loading="lazy" />,
+    LOGO: (
+        <img
+            src="./img/titansoft.png"
+            style={{ borderRadius: '50%' }}
+            alt="titansoft"
+            loading="lazy"
+        />
+    ),
     TITLE: 'Titansoft Pte Ltd',
-    SUBTITLE: ['Product Developer', 'TWTG', 'Intern'],
+    SUBTITLE: ['Product Developer', 'TWTG'],
     DATE: (
         <div>
             <div className="badge badge--warning" style={{ color: '#1b1b1d' }}>
@@ -282,8 +303,30 @@ export const TITANSOFT_TIMELINE = {
                 <li>與五人團隊運行 Scrum</li>,
             ],
         },
-        INTERN_INVOLVED: {
-            title: '實習經歷',
+    },
+};
+
+export const TITANSOFT_INTERN_TIMELINE = {
+    LOGO: (
+        <img
+            src="./img/titansoft.png"
+            style={{ borderRadius: '50%' }}
+            alt="titansoft"
+            loading="lazy"
+        />
+    ),
+    TITLE: 'Titansoft Pte Ltd',
+    SUBTITLE: ['Intern'],
+    DATE: (
+        <div>
+            <div className="badge badge--warning" style={{ color: '#1b1b1d' }}>
+                Mar. 2019 - Sep. 2020
+            </div>
+        </div>
+    ),
+    KEY_ACHIEVEMENT: {
+        INVOLVED: {
+            title: '主要經歷',
             bullets: [
                 <li>開發公司內部差旅系統</li>,
                 <li>

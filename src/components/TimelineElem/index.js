@@ -13,10 +13,7 @@ const TimelineElem = (props) => {
         contentArrowStyle = {
             display: 'none',
         },
-        iconStyle = {
-            borderRadius: '50%',
-            overflow: 'hidden',
-        },
+        iconStyle = {},
         icon = null,
         date = '',
         title = '',
