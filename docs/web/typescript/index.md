@@ -101,7 +101,7 @@ tsc 僅會幫忙將 typescript 檔案進行編譯 ( compile )
 就如同上述所說，tsc 只會做編譯  
 因此執行完 tsc 後會產生出一份編譯過後的 javascript 檔案  
 這時就可以使用 node 去執行該份 javascript 檔案  
-此時在 terminal 將會如預期印出 `Hello, TypeScript`
+此時在 terminal 將會如預期印出 `Hello, TypeScript`  
 :::
 
 <Image src="/assets/web/typescript/02.gif" alt="hello typescript" />
