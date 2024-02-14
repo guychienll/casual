@@ -101,6 +101,7 @@ const config = {
                         '/docs/tags/**',
                         '/blog/tags/**',
                         '/blog/archive/**',
+                        '/search',
                     ],
                     filename: 'sitemap.xml',
                 },
