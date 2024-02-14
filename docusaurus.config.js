@@ -96,7 +96,12 @@ const config = {
                 sitemap: {
                     changefreq: 'weekly',
                     priority: 0.5,
-                    ignorePatterns: ['/tags/**'],
+                    ignorePatterns: [
+                        '/tags/**',
+                        '/docs/tags/**',
+                        '/blog/tags/**',
+                        '/blog/archive/**',
+                    ],
                     filename: 'sitemap.xml',
                 },
                 docs: {
