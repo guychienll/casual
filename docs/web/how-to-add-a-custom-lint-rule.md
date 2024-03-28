@@ -11,7 +11,7 @@ draft: true
 
 開立一個自己的 eslint plugin
 
-:::caution ESlint \{ Plugin | Config \} 命名規範
+ESlint \{ Plugin | Config \} 命名規範
 
 -   eslint-plugin-`{{name}}`
 -   @`{{scope}}`/eslint-plugin
@@ -88,15 +88,13 @@ npm i --save-dev eslint-doc-generator mocha
 
 ---
 
-:::tip 在撰寫 Rule 之前，會需要先釐清，釐清後就可以開始撰寫
+在撰寫 Rule 之前，會需要先釐清，釐清後就可以開始撰寫
 
 -   此 Rule 預期合法，不 Report 的測試案例有哪些
 -   此 Rule 預期不合法，要 Report 的測試案例有哪些
 
 > 在此為了更好描述，將以一個實際案例來舉例：
 > 將以
-
-:::
 
 > 以下步驟將都會在 `<root>/eslint-plugin-casual`
 
