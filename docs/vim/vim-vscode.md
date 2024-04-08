@@ -1,7 +1,7 @@
 ---
-id: vim
-title: 使用 vim 加快你的開發速度
-description: 分享 vim shortcut 以及其生態系好用工具
+id: vim-vscode
+title: vscode vim settings
+description: 分享 vscode vim shortcut 以及其生態系好用工具 
 image: /assets/vim.gif
 created: '2023-04-20'
 modified: '2023-11-20'
