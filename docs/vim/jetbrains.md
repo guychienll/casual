@@ -35,6 +35,14 @@ tags:
   ]
 ---
 
+
+## Suggestion Configuration
+
+> 透過 key mapping 映射 action 即可快速完成許多快捷  
+> 如需要知道有哪些 action 可以 trigger  
+> 可以於 vim command mode 輸入 `actionlist`  
+> 即可以拿到整份 action 列表  
+
 ```text
 let mapleader=';'
 plug 'easymotion/vim-easymotion'
