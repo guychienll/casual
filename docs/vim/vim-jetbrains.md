@@ -1,7 +1,7 @@
 ---
 id: vim-jetbrains
-title: idea vim settings
-description: 分享 idea vim shortcut 以及其生態系好用工具
+title: ideavim settings
+description: 分享 ideavim shortcut 以及其生態系好用工具
 image: /assets/vim.gif
 created: '2024-04-08'
 modified: '2024-04-08'
@@ -35,6 +35,18 @@ tags:
   ]
 ---
 
+import Image from "@site/src/components/Image";
+
+<Image src="/assets/vim/jetbrains/jetbrains.png" alt="jetbrains banner"></Image>
+
+
+## Preparation
+
+| Name                                                                                 | Role             | Note                        |
+|:-------------------------------------------------------------------------------------|------------------|:----------------------------|
+| [ideavim](https://plugins.jetbrains.com/plugin/164-ideavim)                          | jetbrains plugin | required                    |
+| [acejump](https://plugins.jetbrains.com/plugin/7086-acejump)                         | jetbrains plugin | optional ( easymotion need) |
+| [ideavim-easymotion)](https://plugins.jetbrains.com/plugin/13360-ideavim-easymotion) | jetbrains plugin | optional ( easymotion need) |
 
 ## Suggestion Configuration
 

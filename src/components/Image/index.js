@@ -23,6 +23,7 @@ const Image = (props) => {
                             onLoad={onLoad}
                             loading={loading}
                             {...rest}
+                            alt=""
                         />
                     );
                 }}
