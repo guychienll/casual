@@ -1,7 +1,7 @@
 ---
 id: vim-vscode
 title: vscode vim settings
-description: 分享 vscode vim shortcut 以及其生態系好用工具 
+description: 分享 vscode vim shortcut 以及其生態系好用工具
 image: /assets/vim.gif
 created: '2023-04-20'
 modified: '2023-11-20'
@@ -69,12 +69,21 @@ import Image from "@site/src/components/Image";
 
 ```json
 {
-    "vim.hlsearch": true,
-    "vim.foldfix": true,
     "vim.useSystemClipboard": true,
-    "editor.cursorSurroundingLines": 15,
     "vim.surround": true,
-    "vim.easymotion": true
+    "vim.foldfix": true,
+    "vim.easymotion": true,
+    "vim.leader": ";",
+    "vim.easymotionMarkerBackgroundColor": "#FBD87F",
+    "vim.easymotionMarkerFontWeight": "bold",
+    "vim.easymotionMarkerForegroundColorOneChar": "#DE0079",
+    "vim.easymotionKeys": "hklyuiopnmqwertzxcvbasdgjf",
+    "vim.searchHighlightColor": "#DE0079",
+    "vim.searchHighlightTextColor": "#fefefe",
+    "vim.hlsearch": true,
+    "extensions.experimental.affinity": {
+        "vscodevim.vim": 1
+    }
 }
 ```
 
@@ -143,6 +152,25 @@ import Image from "@site/src/components/Image";
         {
             "before": ["z", "p"],
             "commands": ["editor.action.marker.prev"]
+        }
+    ]
+}
+```
+
+### Suggested VSCode Vim Refactor Configuration ( p42 refactor tool installed )
+
+```json
+{
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["R", "R"],
+            "commands": ["p42.touchBar.refactor"]
+        }
+    ],
+    "vim.visualModeKeyBindingsNonRecursive": [
+        {
+            "before": ["R", "R"],
+            "commands": ["p42.touchBar.refactor"]
         }
     ]
 }
