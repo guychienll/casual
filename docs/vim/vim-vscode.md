@@ -1,6 +1,6 @@
 ---
 id: vim-vscode
-title: vscode vim settings
+title: VSCode Vim settings
 description: 分享 vscode vim shortcut 以及其生態系好用工具
 image: /assets/vim.gif
 created: '2023-04-20'
@@ -54,7 +54,7 @@ import Image from "@site/src/components/Image";
 
 ## Suggested VSCode Vim Configuration
 
-```json
+```json title="settings.json"
 {
     "vim.useSystemClipboard": true,
     "vim.surround": true,
@@ -74,9 +74,9 @@ import Image from "@site/src/components/Image";
 }
 ```
 
-### Suggested VSCode Vim Navigation Configuration
+### Navigation Configuration
 
-```json
+```json title="settings.json"
 {
     "vim.normalModeKeyBindingsNonRecursive": [
         {
@@ -91,9 +91,9 @@ import Image from "@site/src/components/Image";
 }
 ```
 
-### Suggested VSCode Vim Refactor Configuration ( p42 refactor tool installed )
+### Refactor Configuration ( p42 refactor tool installed )
 
-```json
+```json title="settings.json"
 {
     "vim.normalModeKeyBindingsNonRecursive": [
         {

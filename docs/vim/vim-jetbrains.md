@@ -1,6 +1,6 @@
 ---
 id: vim-jetbrains
-title: ideavim settings
+title: Ideavim settings
 description: 分享 ideavim shortcut 以及其生態系好用工具
 image: /assets/vim.gif
 created: '2024-04-08'
@@ -55,7 +55,7 @@ import Image from "@site/src/components/Image";
 > 可以於 vim command mode 輸入 `actionlist`  
 > 即可以拿到整份 action 列表  
 
-```text
+```text title="~/.ideavimrc"
 let mapleader=';'
 plug 'easymotion/vim-easymotion'
 
